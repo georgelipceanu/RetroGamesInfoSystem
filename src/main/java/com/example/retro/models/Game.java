@@ -7,7 +7,7 @@ public class Game {
     private String ogDeveloper;
     private String coverArtURL;
     private int yearOfRelease=-1;
-    private GameSystem ogGameSysDevelopedFor;
+
 
     public Game(String title, String publisher, String desc, String ogDev, String coverArtURL, int year, GameSystem gs){
     }
