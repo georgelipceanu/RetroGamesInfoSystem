@@ -11,8 +11,7 @@ public class GameSystem {
     private String imageURL;
     private int launchYear=-1;
     private double price=-1;
-    private MyNeatList<Game> ogGames = new MyNeatList<>();
-    private MyNeatList<Game> portedGames = new MyNeatList<>();
+    private MyNeatList<Game> games = new MyNeatList<>();
 
 
 
