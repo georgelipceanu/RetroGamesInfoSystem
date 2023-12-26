@@ -51,7 +51,7 @@ public class HelloApplication extends Application {
 
         //doing the actual serialisation to an XML file
         ObjectInputStream in = xstream.createObjectInputStream(new FileReader("retro.xml"));
-        gameSystems = (MyNeatList<GameSystem>) in.readObject();//loading data from ships.xml
+        gameSystems = (MyNeatList<GameSystem>) in.readObject();//loading data from retro.xml
         in.close();
     }
     public static void save() throws Exception { // save
