@@ -6,4 +6,10 @@ module com.example.retro {
                             
     opens com.example.retro to javafx.fxml,xstream;
     exports com.example.retro;
+
+    exports com.example.retro.controllers;
+    opens com.example.retro.controllers to javafx.fxml;
+
+    exports com.example.retro.models;
+    opens com.example.retro.models to javafx.fxml;
 }
