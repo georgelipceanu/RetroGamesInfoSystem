@@ -1,15 +1,21 @@
 package com.example.retro;
 
-public class UltimateHash {
+public class UltimateHash<T> {
 
-    int[] hashTable;
+    private T[] hashTable;
+
 
     public UltimateHash(int size) {
-        hashTable=new int [size];
+        this.hashTable = (T[]) new Object[size];
     }
 
-    public int hashFunction(int key) {
-        return key%hashTable.length;
+    public int hashFunction(T key) {
+        int sum=0;
+        for (int i = 0; i < key.toString().length(); i++) {
+            if(Character.isDigit(key.toString().charAt(i)))
+                sum=sum+Character.getNumericValue(key.toString().charAt(i));
+        }
+        return sum%hashTable.length;
     }
 
     public void displayHashTable(){
@@ -18,10 +24,10 @@ public class UltimateHash {
             System.out.println(i+". "+hashTable[i]);
     }
 
-    public int add(int data) {
+    public int add(T data) {
         int home=hashFunction(data),loc=home;
         do {
-            if(hashTable[loc]==0) { //Free, so use it...
+            if(hashTable[loc]==null) { //Free, so use it...
                 hashTable[loc] = data;
                 return loc;
             }
