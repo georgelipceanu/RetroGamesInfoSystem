@@ -16,9 +16,9 @@ public class HelloApplication extends Application {
     public static Scene homeS,searchS;
     public static Stage mainStage;
 
-    public static MyNeatList<GameSystem> gameSystems = new MyNeatList<>();
-    public static MyNeatList<Game> games = new MyNeatList<>();
-    public static MyNeatList<GamePort> ports = new MyNeatList<>();
+    public static UltimateHash<GameSystem> gameSystems = new UltimateHash<>(50);
+    public static UltimateHash<Game> games = new UltimateHash<>(100);
+    public static UltimateHash<GamePort> ports = new UltimateHash<>(100);
 
     public static Scene changeScene(String file) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(file));
@@ -51,7 +51,7 @@ public class HelloApplication extends Application {
 
         //doing the actual serialisation to an XML file
         ObjectInputStream in = xstream.createObjectInputStream(new FileReader("retro.xml"));
-        gameSystems = (MyNeatList<GameSystem>) in.readObject();//loading data from retro.xml
+        gameSystems = (UltimateHash<GameSystem>) in.readObject();//loading data from retro.xml
         in.close();
     }
     public static void save() throws Exception { // save

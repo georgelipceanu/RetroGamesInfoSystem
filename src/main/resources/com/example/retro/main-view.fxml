@@ -110,7 +110,7 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Add" />
+                        <Button mnemonicParsing="false" onAction="#addGameSystem" prefHeight="60.0" prefWidth="118.0" text="Add" />
                      </children>
                   </HBox>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Game" textAlignment="CENTER" wrappingWidth="124.000004529953">
@@ -165,7 +165,7 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Add" />
+                        <Button mnemonicParsing="false" onAction="#addGame" prefHeight="60.0" prefWidth="118.0" text="Add" />
                      </children>
                   </HBox>
                   <Text layoutX="15.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Port" textAlignment="CENTER" wrappingWidth="124.000004529953">
@@ -196,6 +196,17 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="15.0" layoutY="396.0" prefHeight="18.0" prefWidth="367.0" spacing="5.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#addPort" prefHeight="60.0" prefWidth="118.0" text="Add" />
+                     </children>
                   </HBox>
                </children>
                <padding>

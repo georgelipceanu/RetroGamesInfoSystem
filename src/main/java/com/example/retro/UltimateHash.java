@@ -4,6 +4,9 @@ public class UltimateHash<T> {
 
     private T[] hashTable;
 
+    public T[] getHashTable() {
+        return hashTable;
+    }
 
     public UltimateHash(int size) {
         this.hashTable = (T[]) new Object[size];
