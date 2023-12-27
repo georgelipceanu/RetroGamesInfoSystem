@@ -37,4 +37,13 @@ public class GamePort extends Game{
     }
 
 
+    @Override
+    public String toString() {
+        return "GamePort{" +
+                "portDev='" + portDev + '\'' +
+                ", newCoverArt='" + newCoverArt + '\'' +
+                ", newYear=" + newYear +
+                '}';
+    }
+
 }

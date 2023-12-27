@@ -95,4 +95,18 @@ public class GameSystem {
     }
 
 
+    @Override
+    public String toString() {
+        return "GameSystem{" +
+                "name='" + name + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
+                ", media='" + media + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                ", launchYear=" + launchYear +
+                ", price=" + price +
+                ", games=" + games +
+                '}';
+    }
 }

@@ -21,7 +21,7 @@
                         <Font name="MS Gothic" size="25.0" />
                      </font>
                   </Text>
-                  <TreeView prefHeight="540.0" prefWidth="514.0">
+                  <TreeView fx:id="system" prefHeight="540.0" prefWidth="514.0">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -56,8 +56,8 @@
                   </Text>
                   <HBox alignment="CENTER" prefHeight="34.0" prefWidth="367.0" spacing="5.0">
                      <children>
-                        <TextField fx:id="name" prefHeight="36.0" prefWidth="165.0" promptText="Name" />
-                        <TextField fx:id="name1" layoutX="102.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Manufacturer" />
+                        <TextField fx:id="gameSysName" prefHeight="36.0" prefWidth="165.0" promptText="Name" />
+                        <TextField fx:id="gameSysManufacturer" layoutX="102.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Manufacturer" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -68,8 +68,8 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="88.0" prefHeight="40.0" prefWidth="367.0" spacing="5.0">
                      <children>
-                        <TextField layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Description" />
-                        <TextField prefHeight="36.0" prefWidth="165.0" promptText="Type" />
+                        <TextField fx:id="gameSysDesc" layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Description" />
+                        <TextField fx:id="gameSysType" prefHeight="36.0" prefWidth="165.0" promptText="Type" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -80,8 +80,8 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="122.0" prefHeight="40.0" prefWidth="367.0" spacing="5.0">
                      <children>
-                        <TextField layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Media" />
-                        <TextField prefHeight="36.0" prefWidth="165.0" promptText="Launch Year" />
+                        <TextField fx:id="gameSysMedia" layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Media" />
+                        <TextField fx:id="gameSysYear" prefHeight="36.0" prefWidth="165.0" promptText="Launch Year" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -92,8 +92,8 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="162.0" prefHeight="40.0" prefWidth="367.0" spacing="5.0">
                      <children>
-                        <TextField layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Price" />
-                        <TextField prefHeight="36.0" prefWidth="165.0" promptText="Image (URL)" />
+                        <TextField fx:id="gameSysPrice" layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Price" />
+                        <TextField fx:id="gameSysImage" prefHeight="36.0" prefWidth="165.0" promptText="Image (URL)" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -123,8 +123,8 @@
                   </Text>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="66.0" prefHeight="34.0" prefWidth="367.0" spacing="5.0">
                      <children>
-                        <TextField prefHeight="36.0" prefWidth="165.0" promptText="Name" />
-                        <TextField layoutX="102.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Publisher" />
+                        <TextField fx:id="gameName" prefHeight="36.0" prefWidth="165.0" promptText="Name" />
+                        <TextField fx:id="gamePublisher" layoutX="102.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Publisher" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -135,8 +135,8 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="100.0" prefHeight="40.0" prefWidth="367.0" spacing="5.0">
                      <children>
-                        <TextField layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Description" />
-                        <TextField prefHeight="36.0" prefWidth="165.0" promptText="Developer" />
+                        <TextField fx:id="gameDesc" layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Description" />
+                        <TextField fx:id="gameDev" prefHeight="36.0" prefWidth="165.0" promptText="Developer" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -147,8 +147,8 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="100.0" prefHeight="40.0" prefWidth="367.0" spacing="5.0">
                      <children>
-                        <TextField layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Release Date" />
-                        <TextField prefHeight="36.0" prefWidth="165.0" promptText="Cover Art (URL)" />
+                        <TextField fx:id="gameRelease" layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Release Date" />
+                        <TextField fx:id="gameCover" prefHeight="36.0" prefWidth="165.0" promptText="Cover Art (URL)" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -175,8 +175,8 @@
                   </Text>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="285.0" prefHeight="34.0" prefWidth="367.0" spacing="5.0">
                      <children>
-                        <TextField prefHeight="36.0" prefWidth="165.0" promptText="Port Dev" />
-                        <TextField layoutX="102.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Release Date of Port" />
+                        <TextField fx:id="portDev" prefHeight="36.0" prefWidth="165.0" promptText="Port Dev" />
+                        <TextField fx:id="portRelease" layoutX="102.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Release Date of Port" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />
@@ -187,8 +187,8 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="320.0" prefHeight="40.0" prefWidth="367.0" spacing="20.0">
                      <children>
-                        <TextField layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Description" />
-                        <ChoiceBox prefWidth="150.0" />
+                        <TextField fx:id="portCover" layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="New Cover Art (URL)" />
+                        <ChoiceBox fx:id="gameSystems" prefWidth="150.0" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />

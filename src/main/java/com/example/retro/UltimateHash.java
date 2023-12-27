@@ -18,12 +18,6 @@ public class UltimateHash<T> {
         return sum%hashTable.length;
     }
 
-    public void displayHashTable(){
-        System.out.println("Hash Table (using Linear Probing)\n=================");
-        for(int i=0;i<hashTable.length;i++)
-            System.out.println(i+". "+hashTable[i]);
-    }
-
     public int add(T data) {
         int home=hashFunction(data),loc=home;
         do {
@@ -37,7 +31,7 @@ public class UltimateHash<T> {
                 loc=(loc+1)%hashTable.length;
             }
 
-        }while(loc!=home);
+        } while(loc!=home);
         return -1; //Failed!!!!
     }
 

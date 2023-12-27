@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
 
     public static Scene changeScene(String file) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(file));
-        return new Scene(fxmlLoader.load(), 900, 600);
+        return new Scene(fxmlLoader.load(), 900, 700);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class HelloApplication extends Application {
         mainStage=stage;
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 700);
         stage.setTitle("Retro Video Games Information System");
         stage.setScene(scene);
         stage.show();

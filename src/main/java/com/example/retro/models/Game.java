@@ -74,5 +74,16 @@ public class Game {
         this.yearOfRelease = yearOfRelease;
     }
 
-
+    @Override
+    public String toString() {
+        return "Game{" +
+                "title='" + title + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", description='" + description + '\'' +
+                ", ogDeveloper='" + ogDeveloper + '\'' +
+                ", coverArtURL='" + coverArtURL + '\'' +
+                ", yearOfRelease=" + yearOfRelease +
+                ", ports=" + ports +
+                '}';
+    }
 }

@@ -22,12 +22,19 @@ public class MainController implements Initializable {
     @FXML
     private TreeView system;
 
+    public TreeView getSystem() {
+        return system;
+    }
+
     @FXML
     private ChoiceBox<GameSystem> gameSystems;
+
+    public ChoiceBox<GameSystem> getGameSystems() {
+        return gameSystems;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         mainController = this;
-
     }
 }
