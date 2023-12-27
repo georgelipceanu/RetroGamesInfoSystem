@@ -16,7 +16,82 @@ public class GameSystem {
 
 
     public GameSystem(String name, String manufacturer, String description, String type, String media, String imageURL, int launchYear, double price){
+        setName(name);
+        setManufacturer(manufacturer);
+        setDescription(description);
+        setType(type);
+        setMedia(media);
+        setImageURL(imageURL);
+        setLaunchYear(launchYear);
+        setPrice(price);
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getLaunchYear() {
+        return launchYear;
+    }
+
+    public String getMedia() {
+        return media;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public MyNeatList<Game> getGames() {
+        return games;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public void setLaunchYear(int launchYear) {
+        this.launchYear = launchYear;
+    }
+
+    public void setMedia(String media) {
+        this.media = media;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 
