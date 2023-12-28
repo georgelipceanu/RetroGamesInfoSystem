@@ -31,6 +31,10 @@ public class MainController implements Initializable {
         return system;
     }
 
+    public static TreeItem<String> getRoot() {
+        return root;
+    }
+
     @FXML
     private ChoiceBox<GameSystem> gameSystems;
 
@@ -142,6 +146,10 @@ public class MainController implements Initializable {
 //                } else Utilities.showWarningAlert("WARNING", "Enter valid details");
 //            } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
         }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
+    }
+
+    public void view(){
+
     }
 
     @Override

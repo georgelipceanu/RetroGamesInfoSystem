@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/view-view.fxml" afterDir="false" />
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="added system-view.fxml">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +124,7 @@
       <workItem from="1703634177016" duration="2341000" />
       <workItem from="1703686015802" duration="4584000" />
       <workItem from="1703699649556" duration="12678000" />
+      <workItem from="1703784107649" duration="5370000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -202,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703714714077</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added system-view.fxml">
+      <created>1703789477941</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703789477941</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +260,7 @@
     <MESSAGE value="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable" />
     <MESSAGE value="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml," />
     <MESSAGE value="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()" />
+    <MESSAGE value="added system-view.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="added system-view.fxml" />
   </component>
 </project>

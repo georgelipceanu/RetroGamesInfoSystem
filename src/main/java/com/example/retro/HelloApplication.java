@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.*;
 
 public class HelloApplication extends Application {
-    public static Scene homeS,searchS;
+    public static Scene mainS,searchS,systemS,gameS,portS;
     public static Stage mainStage;
 
     public static UltimateHash<GameSystem> gameSystems = new UltimateHash<>(50);
@@ -30,9 +30,13 @@ public class HelloApplication extends Application {
         mainStage=stage;
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 900, 700);
+        mainS = new Scene(fxmlLoader.load(), 900, 700);
+        systemS = changeScene("system-view.fxml");
+        gameS = changeScene("game-view.fxml");
+
+
         stage.setTitle("Retro Video Games Information System");
-        stage.setScene(scene);
+        stage.setScene(mainS);
         stage.show();
     }
 
