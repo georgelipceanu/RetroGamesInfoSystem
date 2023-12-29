@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,13 +75,22 @@ public class MainController implements Initializable {
             GameSystem gsToAdd = new GameSystem(name,manufacturer,desc,type,media,url,year,price);
             boolean uniqueName=true;
 
+            for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
+                if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+                    if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsToAdd.getName())) {
+                        uniqueName = false;
+                        break;
+                    }
+                }
+            }
+
 
             if (validPrice&&validYear&&Utilities.isValidURL(url)&&uniqueName){
-                HelloApplication.gameSystems.add(gsToAdd);;
+                gsToAdd.setPosition(HelloApplication.gameSystems.add(gsToAdd));
                 root.getChildren().add(new TreeItem<>(gsToAdd.getName()));
                 gameSystems.getItems().add(gsToAdd);
+                System.out.println(gsToAdd.getPosition());
             } else Utilities.showWarningAlert("WARNING", "Enter valid details");
-
         }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
     }
 
@@ -97,21 +107,39 @@ public class MainController implements Initializable {
             int year = 0;
             boolean validYear=true;
             try {
-                year = Integer.parseInt(gameRelease.getText());//getting each attribute of port
+                year = Integer.parseInt(gameRelease.getText());
             } catch (NumberFormatException e){
                 validYear=false;
             }
 
-
             Game gameToAdd = new Game(name,publisher,desc,dev,url,year);
             boolean uniqueName=true;
 
+            for (int i = 0; i<HelloApplication.games.size()-1;i++){
+                if (HelloApplication.games.getElementFromPosition(i)!=null) {
+                    if (HelloApplication.games.getElementFromPosition(i).getTitle().equalsIgnoreCase(gameToAdd.getTitle())) {
+                        uniqueName = false;
+                        break;
+                    }
+                }
+            }
 
             TreeItem<String> gsToAddToTI=system.getSelectionModel().getSelectedItem();
 
             if (system.getSelectionModel().getSelectedItem()!=null && gsToAddToTI!=root) {
-                if (validYear && Utilities.isValidURL(url) && uniqueName) {
-                    HelloApplication.games.add(gameToAdd);
+                GameSystem gsToAddTo = null;
+                String gsToAddToName = gsToAddToTI.getValue();
+                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
+                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsToAddToName)) {
+                            gsToAddTo=HelloApplication.gameSystems.getElementFromPosition(i);
+                            break;
+                        }
+                    }
+                }
+                if (validYear && Utilities.isValidURL(url) && uniqueName && gsToAddTo!=null) {
+                    gameToAdd.setPosition(HelloApplication.games.add(gameToAdd));
+                    gsToAddTo.getGames().add(gameToAdd);
                     gsToAddToTI.getChildren().add(new TreeItem<>(gameToAdd.getTitle()));
                 } else Utilities.showWarningAlert("WARNING", "Enter valid details");
             } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
@@ -149,6 +177,8 @@ public class MainController implements Initializable {
     }
 
     public void view(){
+
+//        SystemController.getSystemController().getSystemDetails().setRoot(SystemController.getSystemController().getSystem());
 
     }
 

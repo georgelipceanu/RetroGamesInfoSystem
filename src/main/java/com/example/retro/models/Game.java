@@ -2,6 +2,8 @@ package com.example.retro.models;
 
 import com.example.retro.MyNeatList;
 
+import java.util.Objects;
+
 public class Game {
     private String title;
     private String publisher;
@@ -74,16 +76,27 @@ public class Game {
         this.yearOfRelease = yearOfRelease;
     }
 
+    private int position=-1;
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
     @Override
     public String toString() {
-        return "Game{" +
-                "title='" + title + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", description='" + description + '\'' +
-                ", ogDeveloper='" + ogDeveloper + '\'' +
-                ", coverArtURL='" + coverArtURL + '\'' +
-                ", yearOfRelease=" + yearOfRelease +
-                ", ports=" + ports +
-                '}';
+        return title;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return yearOfRelease == game.yearOfRelease && Objects.equals(title, game.title) && Objects.equals(publisher, game.publisher) && Objects.equals(description, game.description) && Objects.equals(ogDeveloper, game.ogDeveloper) && Objects.equals(coverArtURL, game.coverArtURL) && Objects.equals(ports, game.ports);
+    }
+
 }

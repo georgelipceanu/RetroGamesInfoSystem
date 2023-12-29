@@ -1,5 +1,7 @@
 package com.example.retro.models;
 
+import java.util.Objects;
+
 public class GamePort extends Game{
     private String portDev;
     private String newCoverArt;
@@ -36,6 +38,15 @@ public class GamePort extends Game{
         this.newYear = newYear;
     }
 
+    private int portPosition=-1;
+
+    public int getPortPosition() {
+        return portPosition;
+    }
+
+    public void setPortPosition(int portPosition) {
+        this.portPosition = portPosition;
+    }
 
     @Override
     public String toString() {
@@ -44,6 +55,14 @@ public class GamePort extends Game{
                 ", newCoverArt='" + newCoverArt + '\'' +
                 ", newYear=" + newYear +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GamePort gamePort = (GamePort) o;
+        return newYear == gamePort.newYear && Objects.equals(portDev, gamePort.portDev) && Objects.equals(newCoverArt, gamePort.newCoverArt);
     }
 
 }

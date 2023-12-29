@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="added system-view.fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" afterDir="false" />
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="added controllers for all future views,&#10;added .fxml files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GameSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GameSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +66,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/retro/src/main/resources/com/example/retro",
+    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/hash",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -124,7 +126,7 @@
       <workItem from="1703634177016" duration="2341000" />
       <workItem from="1703686015802" duration="4584000" />
       <workItem from="1703699649556" duration="12678000" />
-      <workItem from="1703784107649" duration="5370000" />
+      <workItem from="1703784107649" duration="17787000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -217,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703789477941</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added controllers for all future views,&#10;added .fxml files">
+      <created>1703803280840</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703803280840</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +270,7 @@
     <MESSAGE value="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml," />
     <MESSAGE value="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()" />
     <MESSAGE value="added system-view.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="added system-view.fxml" />
+    <MESSAGE value="added controllers for all future views,&#10;added .fxml files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added controllers for all future views,&#10;added .fxml files" />
   </component>
 </project>
