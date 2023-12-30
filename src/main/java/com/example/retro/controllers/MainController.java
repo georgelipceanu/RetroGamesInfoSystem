@@ -211,15 +211,15 @@ public class MainController implements Initializable {
                     else games.getChildren().add(new TreeItem<>(game.getTitle() + " (Original Game)"));
                 }
 
-                SystemController.getSystemController().gameSysName.setText(gs.getName());
-                SystemController.getSystemController().gameSysDesc.setText(gs.getDescription());
-                SystemController.getSystemController().gameSysManufacturer.setText(gs.getManufacturer());
-                SystemController.getSystemController().gameSysImage.setText(gs.getImageURL());
-                SystemController.getSystemController().gameSysPrice.setText(String.valueOf(gs.getPrice()));
-                SystemController.getSystemController().gameSysYear.setText(String.valueOf(gs.getLaunchYear()));
-                SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
-                SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
-
+//                SystemController.getSystemController().gameSysName.setText(gs.getName());
+//                SystemController.getSystemController().gameSysDesc.setText(gs.getDescription());
+//                SystemController.getSystemController().gameSysManufacturer.setText(gs.getManufacturer());
+//                SystemController.getSystemController().gameSysImage.setText(gs.getImageURL());
+//                SystemController.getSystemController().gameSysPrice.setText(String.valueOf(gs.getPrice()));
+//                SystemController.getSystemController().gameSysYear.setText(String.valueOf(gs.getLaunchYear()));
+//                SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
+//                SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
+//
 
                 HelloApplication.mainStage.setScene(HelloApplication.systemS);
             }
