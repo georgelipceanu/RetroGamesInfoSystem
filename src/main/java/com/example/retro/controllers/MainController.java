@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -175,7 +176,6 @@ public class MainController implements Initializable {
 //        }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
     }
 
-    @FXML
     public void view(){
         int option = 0;
         if (system.getSelectionModel().getSelectedItem() != null)
@@ -185,44 +185,42 @@ public class MainController implements Initializable {
 
         switch (option){
             case 1 -> {
-                GameSystem gs = null;
+                GameSystem gs=null;
                 String gsName = system.getSelectionModel().getSelectedItem().getValue().substring(12);//getting rid of "| SYSTEM |  "
-                for (int i = 0; i < HelloApplication.gameSystems.size() - 1; i++) {
-                    if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
+                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
                         if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsName)) {
                             gs = HelloApplication.gameSystems.getElementFromPosition(i);
                             break;
                         }
                     }
                 }
-                if (gs != null) {
-                    SystemController.getSystemController().getSystemDetails().setRoot(new TreeItem<>(gs.getName()));
-                    SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Description: " + gs.getDescription()));
-                    SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Type: " + gs.getType()));
-//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Media: " + gs.getMedia()));
-//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Manufacturer: " + gs.getManufacturer()));
-//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Launch Year: " + gs.getLaunchYear()));
-//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Price: €" + gs.getPrice()));
-//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Image: " + gs.getImageURL()));//adding details to treeview
-//        TreeItem<String> games = new TreeItem<>("GAMES:");
-//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
-//        for (Game game : gs.getGames()) {
-//            if (game instanceof GamePort)
-//                games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port)"));
-//            else games.getChildren().add(new TreeItem<>(game.getTitle() + " (Original Game)"));
-//        }
-//
-//                SystemController.getSystemController().gameSysName.setText(gs.getName());
-//                SystemController.getSystemController().gameSysDesc.setText(gs.getDescription());
-//                SystemController.getSystemController().gameSysManufacturer.setText(gs.getManufacturer());
-//                SystemController.getSystemController().gameSysImage.setText(gs.getImageURL());
-//                SystemController.getSystemController().gameSysPrice.setText(String.valueOf(gs.getPrice()));
-//                SystemController.getSystemController().gameSysYear.setText(String.valueOf(gs.getLaunchYear()));
-//                SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
-//                SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
-
-                    HelloApplication.mainStage.setScene(HelloApplication.systemS);
+                SystemController.getSystemController().getSystemDetails().setRoot(new TreeItem<>(gs.getName()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+gs.getDescription()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Type: "+gs.getType()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Media: "+gs.getMedia()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Manufacturer: "+gs.getManufacturer()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Launch Year: "+gs.getLaunchYear()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Price: €"+gs.getPrice()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Image: "+gs.getImageURL()));//adding details to treeview
+                TreeItem<String> games = new TreeItem<>("GAMES:");
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
+                for (Game game : gs.getGames()) {
+                    if (game instanceof GamePort)
+                        games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port)"));
+                    else games.getChildren().add(new TreeItem<>(game.getTitle()));
                 }
+
+                SystemController.getSystemController().gameSysName.setText(gs.getName());
+                SystemController.getSystemController().gameSysDesc.setText(gs.getDescription());
+                SystemController.getSystemController().gameSysManufacturer.setText(gs.getManufacturer());
+                SystemController.getSystemController().gameSysImage.setText(gs.getImageURL());
+                SystemController.getSystemController().gameSysPrice.setText(String.valueOf(gs.getPrice()));
+                SystemController.getSystemController().gameSysYear.setText(String.valueOf(gs.getLaunchYear()));
+                SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
+                SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
+
+                HelloApplication.mainStage.setScene(HelloApplication.systemS);
             }
 
             case 2 ->{
@@ -235,45 +233,45 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void delete(){
-        int option = 0;
-        if (system.getSelectionModel().getSelectedItem() != null)
-            option = (system.getSelectionModel().getSelectedItem().getValue().contains("| SYSTEM |")) ? 1 :
-                    system.getSelectionModel().getSelectedItem().getValue().contains("| GAME |") ? 2 :
-                            system.getSelectionModel().getSelectedItem().getValue().contains("| PORT |") ? 3 : 0;
-
-        switch (option){
-            case 1 -> {
-                GameSystem gs=null;
-                String gsName = system.getSelectionModel().getSelectedItem().getValue().substring(12);//getting rid of "| SYSTEM |  "
-                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){ //finding game system in backend hash map
-                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
-                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsName)) {
-                            gs = HelloApplication.gameSystems.getElementFromPosition(i);
-                            HelloApplication.gameSystems.delete(i);
-                            system.getSelectionModel().getSelectedItem().getParent().getChildren().remove(system.getSelectionModel().getSelectedItem());
-                            break;
-                        }
-                    }
-                }
-            }
-
-            case 2 -> {
-
-            }
-
-            case 3 -> {
-
-            }
-
-            case 0 -> {
-                Utilities.showWarningAlert("WARNING!", "Select a what you would like to delete");
-            }
-        }
-    }
+    public void search(){HelloApplication.mainStage.setScene(HelloApplication.searchS);}
 
     @FXML
-    public void search(){HelloApplication.mainStage.setScene(HelloApplication.searchS);}
+    public void delete(){
+//        int option = 0;
+//        if (system.getSelectionModel().getSelectedItem() != null)
+//            option = (system.getSelectionModel().getSelectedItem().getValue().contains("| SYSTEM |")) ? 1 :
+//                    system.getSelectionModel().getSelectedItem().getValue().contains("| GAME |") ? 2 :
+//                            system.getSelectionModel().getSelectedItem().getValue().contains("| PORT |") ? 3 : 0;
+//
+//        switch (option){
+//            case 1 -> {
+//                GameSystem gs=null;
+//                String gsName = system.getSelectionModel().getSelectedItem().getValue().substring(12);//getting rid of "| SYSTEM |  "
+//                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){ //finding game system in backend hash map
+//                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+//                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsName)) {
+//                            gs = HelloApplication.gameSystems.getElementFromPosition(i);
+//                            HelloApplication.gameSystems.delete(i);
+//                            system.getSelectionModel().getSelectedItem().getParent().getChildren().re;
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//
+//            case 2 -> {
+//
+//            }
+//
+//            case 3 -> {
+//
+//            }
+//
+//            case 0 -> {
+//                Utilities.showWarningAlert("WARNING!", "Select a what you would like to delete");
+//            }
+//        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -148,7 +148,7 @@
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="100.0" prefHeight="40.0" prefWidth="367.0" spacing="5.0">
                      <children>
                         <TextField fx:id="gameRelease" layoutX="20.0" layoutY="35.0" prefHeight="36.0" prefWidth="165.0" promptText="Release Date" />
-                        <TextField fx:id="gameCover" prefHeight="36.0" prefWidth="165.0" promptText="Cover Art (URL)" />
+                        <TextField fx:id="gameCover" prefHeight="36.0" prefWidth="165.0" promptText="Cover Art URL" />
                      </children>
                      <padding>
                         <Insets left="5.0" right="5.0" />

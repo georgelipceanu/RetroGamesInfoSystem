@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="deleted system-view.fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="still working on fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GameSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GameSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +80,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\unimu\OneDrive - South East Technological University (Waterford Campus)\Semester 3\data_structures_and_algo\ca\2nd\retro\src\main\resources\com\example\retro" />
+      <recent name="C:\Users\unimu\OneDrive - South East Technological University (Waterford Campus)\Semester 3\data_structures_and_algo\ca\2nd\retro\src\main\java\com\example\retro" />
       <recent name="C:\Users\unimu\OneDrive - South East Technological University (Waterford Campus)\Semester 3\data_structures_and_algo\ca\2nd\retro\lib" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -82,6 +94,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.HelloApplication" />
+      <module name="retro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.retro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,6 +118,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HelloApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -121,7 +151,8 @@
       <workItem from="1703686015802" duration="4584000" />
       <workItem from="1703699649556" duration="12678000" />
       <workItem from="1703784107649" duration="25482000" />
-      <workItem from="1703943823209" duration="14994000" />
+      <workItem from="1703943823209" duration="18746000" />
+      <workItem from="1703972594429" duration="793000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -277,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703966264289</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="still working on fix">
+      <created>1703968922680</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1703968922680</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,21 +367,7 @@
     <MESSAGE value="worked on delete" />
     <MESSAGE value="working on fix for view" />
     <MESSAGE value="deleted system-view.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted system-view.fxml" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
-          <line>178</line>
-          <properties class="com.example.retro.controllers.MainController" method="view">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="still working on fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="still working on fix" />
   </component>
 </project>

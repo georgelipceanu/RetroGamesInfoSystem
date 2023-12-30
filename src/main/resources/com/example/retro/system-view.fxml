@@ -21,16 +21,12 @@
                         <Font name="MS Gothic" size="25.0" />
                      </font>
                   </Text>
-                  <TreeView fx:id="systemDetails" prefHeight="540.0" prefWidth="514.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TreeView>
+                  <TreeView fx:id="systemDetails" prefHeight="472.0" prefWidth="514.0" />
                   <HBox alignment="CENTER" prefHeight="98.0" prefWidth="514.0" spacing="10.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="View" />
-                        <Button layoutX="401.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Delete System" />
+                        <Button layoutX="144.0" layoutY="28.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Delete System" />
                         <Button layoutX="272.0" layoutY="29.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Delete Game" />
+                        <Button layoutX="208.0" layoutY="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="View" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -49,10 +45,13 @@
             </VBox>
             <VBox prefHeight="222.0" prefWidth="743.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" wrappingWidth="208.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" wrappingWidth="204.79998803138733">
                      <font>
                         <Font name="MS Gothic" size="25.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
                   </Text>
                   <HBox alignment="CENTER" prefHeight="34.0" prefWidth="367.0" spacing="5.0">
                      <children>
@@ -110,7 +109,7 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Add" />
+                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Save Changes" />
                      </children>
                   </HBox>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Game" textAlignment="CENTER" wrappingWidth="124.000004529953">
@@ -168,10 +167,13 @@
                         <Button mnemonicParsing="false" onAction="#addGame" prefHeight="60.0" prefWidth="118.0" text="Add" />
                      </children>
                   </HBox>
-                  <Text layoutX="15.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Port From Different Console" wrappingWidth="339.1999862194061">
+                  <Text layoutX="15.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Port from different System" wrappingWidth="314.3999984264374">
                      <font>
                         <Font name="MS Gothic" size="25.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
                   </Text>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="285.0" prefHeight="34.0" prefWidth="367.0" spacing="5.0">
                      <children>
@@ -217,7 +219,7 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="460.0" prefHeight="130.0" prefWidth="900.0" spacing="10.0">
          <children>
-            <Button onAction="#goBack" layoutX="465.0" layoutY="23.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Back to Home" />
+            <Button layoutX="401.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Back" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

@@ -2,7 +2,6 @@ package com.example.retro.controllers;
 
 import com.example.retro.HelloApplication;
 import com.example.retro.models.Game;
-import com.example.retro.models.GamePort;
 import com.example.retro.models.GameSystem;
 import com.example.retro.utils.Utilities;
 import javafx.fxml.FXML;
@@ -36,6 +35,8 @@ public class SystemController implements Initializable {
     public TreeView<String> getSystemDetails() {
         return systemDetails;
     }
+
+    private GameSystem gs;
 
     @FXML
     public void addGame() {
@@ -71,10 +72,6 @@ public class SystemController implements Initializable {
                 } else Utilities.showWarningAlert("WARNING", "Enter valid details");
             } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
         }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
-    }
-
-    public void goBack(){
-        HelloApplication.mainStage.setScene(HelloApplication.mainS);
     }
 
     @Override
