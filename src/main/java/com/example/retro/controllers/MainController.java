@@ -235,6 +235,44 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    public void delete(){
+//        int option = 0;
+//        if (system.getSelectionModel().getSelectedItem() != null)
+//            option = (system.getSelectionModel().getSelectedItem().getValue().contains("| SYSTEM |")) ? 1 :
+//                    system.getSelectionModel().getSelectedItem().getValue().contains("| GAME |") ? 2 :
+//                            system.getSelectionModel().getSelectedItem().getValue().contains("| PORT |") ? 3 : 0;
+//
+//        switch (option){
+//            case 1 -> {
+//                GameSystem gs=null;
+//                String gsName = system.getSelectionModel().getSelectedItem().getValue().substring(12);//getting rid of "| SYSTEM |  "
+//                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){ //finding game system in backend hash map
+//                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+//                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsName)) {
+//                            gs = HelloApplication.gameSystems.getElementFromPosition(i);
+//                            HelloApplication.gameSystems.delete(i);
+//                            system.getSelectionModel().getSelectedItem().getParent().getChildren().re;
+//                            break;
+//                        }
+//                    }
+//                }
+//            }
+//
+//            case 2 -> {
+//
+//            }
+//
+//            case 3 -> {
+//
+//            }
+//
+//            case 0 -> {
+//                Utilities.showWarningAlert("WARNING!", "Select a what you would like to delete");
+//            }
+//        }
+    }
+
+    @FXML
     public void search(){HelloApplication.mainStage.setScene(HelloApplication.searchS);}
 
     @Override

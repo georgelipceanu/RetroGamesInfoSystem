@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="Added rehash() to UltimateHash, enables rehashing when hash table becomes full">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" afterDir="false" />
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="added system-view.fxml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +119,7 @@
       <workItem from="1703686015802" duration="4584000" />
       <workItem from="1703699649556" duration="12678000" />
       <workItem from="1703784107649" duration="25482000" />
-      <workItem from="1703943823209" duration="5647000" />
+      <workItem from="1703943823209" duration="8436000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -248,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703952948501</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added system-view.fxml">
+      <created>1703960115389</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1703960115389</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,12 +297,12 @@
     <MESSAGE value="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable" />
     <MESSAGE value="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml," />
     <MESSAGE value="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()" />
-    <MESSAGE value="added system-view.fxml" />
     <MESSAGE value="added controllers for all future views,&#10;added .fxml files" />
     <MESSAGE value="Add methods add to backend list,&#10;added position attributes to each object type,&#10;added more methods to UltimateHash for convenience of use" />
     <MESSAGE value="Added more methods to UltimateHash,&#10;Added view() functionality (only works for game systems, still to be completed)" />
     <MESSAGE value="added delete to UltimateHash" />
     <MESSAGE value="Added rehash() to UltimateHash, enables rehashing when hash table becomes full" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rehash() to UltimateHash, enables rehashing when hash table becomes full" />
+    <MESSAGE value="added system-view.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="added system-view.fxml" />
   </component>
 </project>
