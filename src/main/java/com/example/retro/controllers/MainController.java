@@ -176,6 +176,7 @@ public class MainController implements Initializable {
 //        }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
     }
 
+    @FXML
     public void view(){
         int option = 0;
         if (system.getSelectionModel().getSelectedItem() != null)
@@ -208,10 +209,18 @@ public class MainController implements Initializable {
                 for (Game game : gs.getGames()) {
                     if (game instanceof GamePort)
                         games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port)"));
-                    else games.getChildren().add(new TreeItem<>(game.getTitle()));
+                    else games.getChildren().add(new TreeItem<>(game.getTitle() + " (Original Game)"));
                 }
 
                 SystemController.getSystemController().gameSysName.setText(gs.getName());
+                SystemController.getSystemController().gameSysDesc.setText(gs.getDescription());
+                SystemController.getSystemController().gameSysManufacturer.setText(gs.getManufacturer());
+                SystemController.getSystemController().gameSysImage.setText(gs.getImageURL());
+                SystemController.getSystemController().gameSysPrice.setText(String.valueOf(gs.getPrice()));
+                SystemController.getSystemController().gameSysYear.setText(String.valueOf(gs.getLaunchYear()));
+                SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
+                SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
+
 
                 HelloApplication.mainStage.setScene(HelloApplication.systemS);
             }
@@ -224,6 +233,9 @@ public class MainController implements Initializable {
         }
 
     }
+
+    @FXML
+    public void search(){HelloApplication.mainStage.setScene(HelloApplication.searchS);}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

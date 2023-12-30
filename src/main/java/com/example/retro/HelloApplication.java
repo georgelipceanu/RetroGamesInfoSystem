@@ -33,6 +33,7 @@ public class HelloApplication extends Application {
         mainS = new Scene(fxmlLoader.load(), 900, 700);
         systemS = changeScene("system-view.fxml");
         gameS = changeScene("game-view.fxml");
+        searchS=changeScene("search-view.fxml");
 
 
         stage.setTitle("Retro Video Games Information System");
