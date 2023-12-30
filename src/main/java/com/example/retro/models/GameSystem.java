@@ -106,9 +106,26 @@ public class GameSystem {
         this.position = position;
     }
 
+//    @Override
+//    public String toString() {
+//        return name; //simple toString() making game systems readable in fxml items (choiceboxes, listviews, etc)
+//    }
+
+
     @Override
     public String toString() {
-        return name; //simple toString() making game systems readable in fxml items (choiceboxes, listviews, etc)
+        return "GameSystem{" +
+                "name='" + name + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
+                ", media='" + media + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                ", launchYear=" + launchYear +
+                ", price=" + price +
+                ", games=" + games +
+                ", position=" + position +
+                '}';
     }
 
     @Override

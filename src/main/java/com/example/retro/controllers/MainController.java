@@ -185,32 +185,33 @@ public class MainController implements Initializable {
 
         switch (option){
             case 1 -> {
-                GameSystem gs=null;
+                GameSystem gs = null;
                 String gsName = system.getSelectionModel().getSelectedItem().getValue().substring(12);//getting rid of "| SYSTEM |  "
-                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
-                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+                for (int i = 0; i < HelloApplication.gameSystems.size() - 1; i++) {
+                    if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
                         if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsName)) {
                             gs = HelloApplication.gameSystems.getElementFromPosition(i);
                             break;
                         }
                     }
                 }
-                SystemController.getSystemController().getSystemDetails().setRoot(new TreeItem<>(gs.getName()));
-                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+gs.getDescription()));
-                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Type: "+gs.getType()));
-                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Media: "+gs.getMedia()));
-                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Manufacturer: "+gs.getManufacturer()));
-                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Launch Year: "+gs.getLaunchYear()));
-                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Price: €"+gs.getPrice()));
-                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Image: "+gs.getImageURL()));//adding details to treeview
-                TreeItem<String> games = new TreeItem<>("GAMES:");
-                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
-                for (Game game : gs.getGames()) {
-                    if (game instanceof GamePort)
-                        games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port)"));
-                    else games.getChildren().add(new TreeItem<>(game.getTitle() + " (Original Game)"));
-                }
-
+                if (gs != null) {
+                    SystemController.getSystemController().getSystemDetails().setRoot(new TreeItem<>(gs.getName()));
+                    SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Description: " + gs.getDescription()));
+                    SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Type: " + gs.getType()));
+//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Media: " + gs.getMedia()));
+//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Manufacturer: " + gs.getManufacturer()));
+//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Launch Year: " + gs.getLaunchYear()));
+//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Price: €" + gs.getPrice()));
+//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Image: " + gs.getImageURL()));//adding details to treeview
+//        TreeItem<String> games = new TreeItem<>("GAMES:");
+//        SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
+//        for (Game game : gs.getGames()) {
+//            if (game instanceof GamePort)
+//                games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port)"));
+//            else games.getChildren().add(new TreeItem<>(game.getTitle() + " (Original Game)"));
+//        }
+//
 //                SystemController.getSystemController().gameSysName.setText(gs.getName());
 //                SystemController.getSystemController().gameSysDesc.setText(gs.getDescription());
 //                SystemController.getSystemController().gameSysManufacturer.setText(gs.getManufacturer());
@@ -219,9 +220,9 @@ public class MainController implements Initializable {
 //                SystemController.getSystemController().gameSysYear.setText(String.valueOf(gs.getLaunchYear()));
 //                SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
 //                SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
-//
 
-                HelloApplication.mainStage.setScene(HelloApplication.systemS);
+                    HelloApplication.mainStage.setScene(HelloApplication.systemS);
+                }
             }
 
             case 2 ->{

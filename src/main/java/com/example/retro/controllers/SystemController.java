@@ -2,6 +2,7 @@ package com.example.retro.controllers;
 
 import com.example.retro.HelloApplication;
 import com.example.retro.models.Game;
+import com.example.retro.models.GamePort;
 import com.example.retro.models.GameSystem;
 import com.example.retro.utils.Utilities;
 import javafx.fxml.FXML;
@@ -35,8 +36,6 @@ public class SystemController implements Initializable {
     public TreeView<String> getSystemDetails() {
         return systemDetails;
     }
-
-    private GameSystem gs;
 
     @FXML
     public void addGame() {
