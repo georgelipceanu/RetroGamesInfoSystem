@@ -85,9 +85,9 @@ public class MainController implements Initializable {
             }
 
 
-            if (validPrice&&validYear&&Utilities.isValidURL(url)&&uniqueName){
+            if (validPrice&&validYear&&Utilities.isValidURL(url)&&uniqueName && !gsToAdd.getName().contains("| SYSTEM |")){
                 gsToAdd.setPosition(HelloApplication.gameSystems.add(gsToAdd));
-                root.getChildren().add(new TreeItem<>(gsToAdd.getName()));
+                root.getChildren().add(new TreeItem<>("| SYSTEM |  "+gsToAdd.getName()));
                 gameSystems.getItems().add(gsToAdd);
                 System.out.println(gsToAdd.getPosition());
             } else Utilities.showWarningAlert("WARNING", "Enter valid details");
@@ -131,16 +131,16 @@ public class MainController implements Initializable {
                 String gsToAddToName = gsToAddToTI.getValue();
                 for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
                     if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
-                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsToAddToName)) {
+                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsToAddToName.substring(12))) {
                             gsToAddTo=HelloApplication.gameSystems.getElementFromPosition(i);
                             break;
                         }
                     }
                 }
-                if (validYear && Utilities.isValidURL(url) && uniqueName && gsToAddTo!=null) {
+                if (validYear && Utilities.isValidURL(url) && uniqueName && gsToAddTo!=null && !gameToAdd.getTitle().contains("| GAME |")) {
                     gameToAdd.setPosition(HelloApplication.games.add(gameToAdd));
                     gsToAddTo.getGames().add(gameToAdd);
-                    gsToAddToTI.getChildren().add(new TreeItem<>(gameToAdd.getTitle()));
+                    gsToAddToTI.getChildren().add(new TreeItem<>("| GAME |  "+gameToAdd.getTitle()));
                 } else Utilities.showWarningAlert("WARNING", "Enter valid details");
             } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
         }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
@@ -148,37 +148,80 @@ public class MainController implements Initializable {
 
     @FXML
     public void addPort() {
-        if (!portCover.getText().isEmpty() && !portRelease.getText().isEmpty() && !portDev.getText().isEmpty()) { //checking if each text box is filled
-            String dev = portDev.getText();
-            String url = portCover.getText();
-
-            int year = 0;
-            boolean validYear=true;
-            try {
-                year = Integer.parseInt(portRelease.getText());//getting each attribute of port
-            } catch (NumberFormatException e){
-                validYear=false;
-            }
-
-
-//            Port portToAdd = new GamePort(name,publisher,desc,dev,url,year);
-//            boolean uniqueName=true;
+//        if (!portCover.getText().isEmpty() && !portRelease.getText().isEmpty() && !portDev.getText().isEmpty()) { //checking if each text box is filled
+//            String dev = portDev.getText();
+//            String url = portCover.getText();
+//
+//            int year = 0;
+//            boolean validYear=true;
+//            try {
+//                year = Integer.parseInt(portRelease.getText());//getting each attribute of port
+//            } catch (NumberFormatException e){
+//                validYear=false;
+//            }
 //
 //
-//            TreeItem<String> gsToAddToTI=system.getSelectionModel().getSelectedItem();
-//
-//            if (system.getSelectionModel().getSelectedItem()==null) {
-//                if (validYear && Utilities.isValidURL(url) && uniqueName) {
-//                    HelloApplication.games.add(gameToAdd);
-//                    gsToAddToTI.getChildren().add(new TreeItem<>(gameToAdd.getTitle()));
-//                } else Utilities.showWarningAlert("WARNING", "Enter valid details");
-//            } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
-        }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
+////            Port portToAdd = new GamePort(name,publisher,desc,dev,url,year);
+////            boolean uniqueName=true;
+////
+////
+////            TreeItem<String> gsToAddToTI=system.getSelectionModel().getSelectedItem();
+////
+////            if (system.getSelectionModel().getSelectedItem()==null) {
+////                if (validYear && Utilities.isValidURL(url) && uniqueName) {
+////                    HelloApplication.games.add(gameToAdd);
+////                    gsToAddToTI.getChildren().add(new TreeItem<>(gameToAdd.getTitle()));
+////                } else Utilities.showWarningAlert("WARNING", "Enter valid details");
+////            } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
+//        }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
     }
 
     public void view(){
+        int option = 0;
+        if (system.getSelectionModel().getSelectedItem() != null)
+            option = (system.getSelectionModel().getSelectedItem().getValue().contains("| SYSTEM |")) ? 1 :
+                system.getSelectionModel().getSelectedItem().getValue().contains("| GAME |") ? 2 :
+                        system.getSelectionModel().getSelectedItem().getValue().contains("| PORT |") ? 3 : 0;
 
-//        SystemController.getSystemController().getSystemDetails().setRoot(SystemController.getSystemController().getSystem());
+        switch (option){
+            case 1 -> {
+                GameSystem gs=null;
+                String gsName = system.getSelectionModel().getSelectedItem().getValue().substring(12);//getting rid of "| SYSTEM |  "
+                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
+                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsName)) {
+                            gs = HelloApplication.gameSystems.getElementFromPosition(i);
+                            break;
+                        }
+                    }
+                }
+                SystemController.getSystemController().getSystemDetails().setRoot(new TreeItem<>(gs.getName()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+gs.getDescription()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Type: "+gs.getType()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Media: "+gs.getMedia()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Manufacturer: "+gs.getManufacturer()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Launch Year: "+gs.getLaunchYear()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Price: €"+gs.getPrice()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Image: "+gs.getImageURL()));//adding details to treeview
+                TreeItem<String> games = new TreeItem<>("GAMES:");
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
+                for (Game game : gs.getGames()) {
+                    if (game instanceof GamePort)
+                        games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port)"));
+                    else games.getChildren().add(new TreeItem<>(game.getTitle()));
+                }
+
+                SystemController.getSystemController().gameSysName.setText(gs.getName());
+
+                HelloApplication.mainStage.setScene(HelloApplication.systemS);
+            }
+
+            case 2 ->{
+                System.out.println("to be completed");
+            }
+            case 3 -> System.out.println("to be completed");
+            case 0 -> Utilities.showWarningAlert("WARNING!", "Select a valid option");
+        }
 
     }
 

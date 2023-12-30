@@ -22,8 +22,17 @@ public class UltimateHash<T> {
         return null; //empty
     }
 
+    public void replace(T t, int i){//for editing
+        hashTable[i]=t;
+    }
 
-    public void displayHashTable(){
+    public void clear(){
+        int size= size();
+        hashTable = (T[]) new Object[size];//replacing current table with empty one of same size
+    }
+
+
+    public void displayHashTable(){//for debugging
         System.out.println("Hash Table (using Linear Probing)\n=================");
         for(int i=0;i<hashTable.length;i++)
             System.out.println(i+". "+hashTable[i]);

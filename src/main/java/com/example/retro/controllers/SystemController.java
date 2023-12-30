@@ -2,6 +2,7 @@ package com.example.retro.controllers;
 
 import com.example.retro.HelloApplication;
 import com.example.retro.models.Game;
+import com.example.retro.models.GameSystem;
 import com.example.retro.utils.Utilities;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -29,17 +30,13 @@ public class SystemController implements Initializable {
 
     @FXML
     private TreeView<String> systemDetails;
-    @FXML
-    private TreeItem<String> system;
 
-
-    public TreeItem<String> getSystem() {
-        return system;
-    }
 
     public TreeView<String> getSystemDetails() {
         return systemDetails;
     }
+
+    private GameSystem gs;
 
     @FXML
     public void addGame() {
@@ -68,7 +65,7 @@ public class SystemController implements Initializable {
 
 
 
-            if (systemDetails.getSelectionModel().getSelectedItem()!=null && gsToAddToTI!=system) {
+            if (systemDetails.getSelectionModel().getSelectedItem()!=null && gsToAddToTI!=systemDetails.getRoot()) {
                 if (validYear && Utilities.isValidURL(url) && uniqueName) {
                     HelloApplication.games.add(gameToAdd);
                     gsToAddToTI.getChildren().add(new TreeItem<>(gameToAdd.getTitle()));
