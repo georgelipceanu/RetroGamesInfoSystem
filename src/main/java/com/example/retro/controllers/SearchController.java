@@ -1,7 +1,5 @@
 package com.example.retro.controllers;
 
-import com.example.retro.HelloApplication;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -12,11 +10,6 @@ public class SearchController implements Initializable {
 
     public static SearchController getSearchController() {
         return searchController;
-    }
-
-    @FXML
-    public void goBack(){
-        HelloApplication.mainStage.setScene(HelloApplication.mainS);
     }
 
     @Override
