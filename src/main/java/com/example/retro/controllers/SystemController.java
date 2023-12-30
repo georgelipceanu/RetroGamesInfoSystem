@@ -74,6 +74,10 @@ public class SystemController implements Initializable {
         }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
     }
 
+    public void goBack(){
+        HelloApplication.mainStage.setScene(HelloApplication.mainS);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         systemController=this;
