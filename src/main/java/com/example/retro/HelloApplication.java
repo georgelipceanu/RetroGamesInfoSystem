@@ -9,21 +9,20 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import com.example.retro.controllers.MainController;
 
 import java.io.*;
 
 public class HelloApplication extends Application {
-    public static Scene homeS,searchS;
+    public static Scene mainS,searchS,systemS,gameS,portS;
     public static Stage mainStage;
 
-    public static MyNeatList<GameSystem> gameSystems = new MyNeatList<>();
-    public static MyNeatList<Game> games = new MyNeatList<>();
-    public static MyNeatList<GamePort> ports = new MyNeatList<>();
+    public static UltimateHash<GameSystem> gameSystems = new UltimateHash<>(50);
+    public static UltimateHash<Game> games = new UltimateHash<>(100);
+    public static UltimateHash<GamePort> ports = new UltimateHash<>(100);
 
     public static Scene changeScene(String file) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(file));
-        return new Scene(fxmlLoader.load(), 900, 600);
+        return new Scene(fxmlLoader.load(), 900, 700);
     }
 
     @Override
@@ -31,9 +30,14 @@ public class HelloApplication extends Application {
         mainStage=stage;
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
+        mainS = new Scene(fxmlLoader.load(), 900, 700);
+        systemS = changeScene("system-view.fxml");
+        gameS = changeScene("game-view.fxml");
+        searchS=changeScene("search-view.fxml");
+
+
+        stage.setTitle("Retro Video Games Information System");
+        stage.setScene(mainS);
         stage.show();
     }
 
@@ -52,7 +56,7 @@ public class HelloApplication extends Application {
 
         //doing the actual serialisation to an XML file
         ObjectInputStream in = xstream.createObjectInputStream(new FileReader("retro.xml"));
-        gameSystems = (MyNeatList<GameSystem>) in.readObject();//loading data from retro.xml
+        gameSystems = (UltimateHash<GameSystem>) in.readObject();//loading data from retro.xml
         in.close();
     }
     public static void save() throws Exception { // save

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="Added Main Page">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="added system-view.fxml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +58,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/retro",
+    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/retro/src/main/resources/com/example/retro",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -115,7 +113,13 @@
       <workItem from="1701855142908" duration="1542000" />
       <workItem from="1703367073059" duration="599000" />
       <workItem from="1703610336716" duration="3210000" />
-      <workItem from="1703631393171" duration="360000" />
+      <workItem from="1703631393171" duration="1774000" />
+      <workItem from="1703633939035" duration="58000" />
+      <workItem from="1703634177016" duration="2341000" />
+      <workItem from="1703686015802" duration="4584000" />
+      <workItem from="1703699649556" duration="12678000" />
+      <workItem from="1703784107649" duration="25482000" />
+      <workItem from="1703943823209" duration="8436000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -159,7 +163,98 @@
       <option name="project" value="LOCAL" />
       <updated>1703631246150</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed MainController not exporting to fxml">
+      <created>1703631838661</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703631838661</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Opened and export everything to fxml">
+      <created>1703631995802</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1703631995802</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added getters and setters,&#10;started work on UltimateHash (still not complete)">
+      <created>1703687017034</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703687017034</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable">
+      <created>1703691306560</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1703691306560</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml,">
+      <created>1703701723862</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1703701723862</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()">
+      <created>1703714714077</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1703714714077</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added system-view.fxml">
+      <created>1703789477941</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703789477941</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added controllers for all future views,&#10;added .fxml files">
+      <created>1703803280840</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703803280840</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add methods add to backend list,&#10;added position attributes to each object type,&#10;added more methods to UltimateHash for convenience of use">
+      <created>1703891988480</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1703891988480</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added more methods to UltimateHash,&#10;Added view() functionality (only works for game systems, still to be completed)">
+      <created>1703898233348</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1703898233348</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added delete to UltimateHash">
+      <created>1703898984543</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1703898984543</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added rehash() to UltimateHash, enables rehashing when hash table becomes full">
+      <created>1703952948501</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1703952948501</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added system-view.fxml">
+      <created>1703960115389</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1703960115389</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +291,18 @@
     <MESSAGE value="added MyNeatList.java,&#10;added neat lists in GameSystem.java" />
     <MESSAGE value="added Utilities.java,&#10;added scenes, back end lists, save and load," />
     <MESSAGE value="Added Main Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Main Page" />
+    <MESSAGE value="Fixed MainController not exporting to fxml" />
+    <MESSAGE value="Opened and export everything to fxml" />
+    <MESSAGE value="added getters and setters,&#10;started work on UltimateHash (still not complete)" />
+    <MESSAGE value="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable" />
+    <MESSAGE value="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml," />
+    <MESSAGE value="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()" />
+    <MESSAGE value="added controllers for all future views,&#10;added .fxml files" />
+    <MESSAGE value="Add methods add to backend list,&#10;added position attributes to each object type,&#10;added more methods to UltimateHash for convenience of use" />
+    <MESSAGE value="Added more methods to UltimateHash,&#10;Added view() functionality (only works for game systems, still to be completed)" />
+    <MESSAGE value="added delete to UltimateHash" />
+    <MESSAGE value="Added rehash() to UltimateHash, enables rehashing when hash table becomes full" />
+    <MESSAGE value="added system-view.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="added system-view.fxml" />
   </component>
 </project>
