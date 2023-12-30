@@ -31,6 +31,10 @@ public class UltimateHash<T> {
         hashTable = (T[]) new Object[size];//replacing current table with empty one of same size
     }
 
+    public void delete(int i){
+        hashTable[i]=null;
+    }
+
 
     public void displayHashTable(){//for debugging
         System.out.println("Hash Table (using Linear Probing)\n=================");
