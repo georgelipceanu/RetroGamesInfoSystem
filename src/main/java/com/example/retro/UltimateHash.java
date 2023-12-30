@@ -27,8 +27,7 @@ public class UltimateHash<T> {
     }
 
     public void clear(){
-        int size= size();
-        hashTable = (T[]) new Object[size];//replacing current table with empty one of same size
+        hashTable = (T[]) new Object[size()];//replacing current table with empty one of same size
     }
 
     public void delete(int i){
@@ -37,7 +36,7 @@ public class UltimateHash<T> {
 
 
     public void displayHashTable(){//for debugging
-        System.out.println("Hash Table (using Linear Probing)\n=================");
+        System.out.println("Hash Table");
         for(int i=0;i<hashTable.length;i++)
             System.out.println(i+". "+hashTable[i]);
     }
@@ -52,6 +51,19 @@ public class UltimateHash<T> {
     }
 
     public int add(T data) {
+
+        boolean needRehash=true;
+
+        for (T t : hashTable)
+            if (t==null) {
+                needRehash = false;
+                break;
+            }
+        if (needRehash){
+            rehash();
+            System.out.println("rehashing");
+        }
+
         int home=hashFunction(data),loc=home;
         do {
             if(hashTable[loc]==null) { //Free, so use it...
@@ -70,6 +82,19 @@ public class UltimateHash<T> {
         return -1; //Failed!!!!
     }
 
+    private void rehash() {
 
+        int newSize = hashTable.length * 2; // double the size for simplicity
+        T[] newHashTable = (T[]) new Object[newSize];
+
+        // Rehash existing elements
+        for (int i = 0; i < hashTable.length; i++) {
+            if (hashTable[i] != null) {
+                T data = hashTable[i];
+                newHashTable[i]=data;
+            }
+        }
+        hashTable=newHashTable;
+    }
 
 }
