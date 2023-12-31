@@ -88,7 +88,7 @@ public class Game {
 
     @Override
     public String toString() {
-        return title;
+        return title; //simple toString() making games readable in fxml items (choiceboxes, listviews, etc)
     }
 
     @Override

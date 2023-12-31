@@ -1,6 +1,7 @@
 package com.example.retro.controllers;
 
 import com.example.retro.HelloApplication;
+import com.example.retro.UltimateHash;
 import com.example.retro.models.Game;
 import com.example.retro.models.GamePort;
 import com.example.retro.models.GameSystem;
@@ -77,7 +78,7 @@ public class MainController implements Initializable {
 
             for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
                 if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
-                    if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsToAdd.getName())) {
+                    if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsToAdd.getName())) {//checking if name is unique
                         uniqueName = false;
                         break;
                     }
@@ -85,7 +86,7 @@ public class MainController implements Initializable {
             }
 
 
-            if (validPrice&&validYear&&Utilities.isValidURL(url)&&uniqueName && !gsToAdd.getName().contains("| SYSTEM |")){
+            if (validPrice&&validYear&&Utilities.isValidURL(url)&&uniqueName && !gsToAdd.getName().contains("| SYSTEM |")){//all valid details
                 gsToAdd.setPosition(HelloApplication.gameSystems.add(gsToAdd));
                 root.getChildren().add(new TreeItem<>("| SYSTEM |  "+gsToAdd.getName()));
                 gameSystems.getItems().add(gsToAdd);
@@ -185,16 +186,27 @@ public class MainController implements Initializable {
 
         switch (option){
             case 1 -> {
-                GameSystem gs=null;
+
                 String gsName = system.getSelectionModel().getSelectedItem().getValue().substring(12);//getting rid of "| SYSTEM |  "
-                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
-                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
-                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsName)) {
-                            gs = HelloApplication.gameSystems.getElementFromPosition(i);
-                            break;
+
+                int key = HelloApplication.gameSystems.hashFunction(gsName);
+                GameSystem gs=HelloApplication.gameSystems.getElementFromPosition(key);
+
+                if (!gs.getName().equals(gsName) || gs==null) {
+                    int home=key;
+                    do {
+                        key=(key+1)%(HelloApplication.gameSystems.size()-1);
+
+                        if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
+                            if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsName)) {
+                                gs = HelloApplication.gameSystems.getElementFromPosition(key);
+                                break;
+                            }
                         }
-                    }
+
+                    } while (home!=key);
                 }
+
                 SystemController.getSystemController().getSystemDetails().setRoot(new TreeItem<>(gs.getName()));
                 SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+gs.getDescription()));
                 SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Type: "+gs.getType()));
@@ -220,6 +232,7 @@ public class MainController implements Initializable {
                 SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
                 SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
 
+                System.out.println(gs.getPosition());
                 HelloApplication.mainStage.setScene(HelloApplication.systemS);
             }
 
@@ -236,33 +249,48 @@ public class MainController implements Initializable {
     public void search(){HelloApplication.mainStage.setScene(HelloApplication.searchS);}
 
     @FXML
-    public void delete(){
+    public void delete() {
         int option = 0;
         if (system.getSelectionModel().getSelectedItem() != null)
             option = (system.getSelectionModel().getSelectedItem().getValue().contains("| SYSTEM |")) ? 1 :
                     system.getSelectionModel().getSelectedItem().getValue().contains("| GAME |") ? 2 :
                             system.getSelectionModel().getSelectedItem().getValue().contains("| PORT |") ? 3 : 0;
 
-        switch (option){
+        switch (option) {
             case 1 -> {
-                GameSystem gs=null;
+                boolean successful=false;
                 TreeItem<String> gsToRemoveTI = system.getSelectionModel().getSelectedItem();
                 String gsName = system.getSelectionModel().getSelectedItem().getValue().substring(12);//getting rid of "| SYSTEM |  "
-                for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){ //finding game system in backend hash map
-                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
-                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsName)) {
-                            gs = HelloApplication.gameSystems.getElementFromPosition(i);
-                            for (Game game : gs.getGames()){
-                                HelloApplication.games.delete(game.getPosition());
+
+                int key = HelloApplication.gameSystems.hashFunction(gsName);//finding game system in backend hash map
+                GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(key);
+
+
+                    if (!gs.getName().equals(gsName) || gs==null) {//finding game system in backend hash map stored at diff location
+                        int home = key;
+                        do {
+                            key = (key + 1) % (HelloApplication.gameSystems.size() - 1);
+
+                            if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
+                                if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsName)) {
+                                    gs = HelloApplication.gameSystems.getElementFromPosition(key);
+
+                                    break;
+                                }
                             }
-                            HelloApplication.gameSystems.delete(i);
-                            gameSystems.getItems().remove(gs);
-                            gsToRemoveTI.getParent().getChildren().remove(gsToRemoveTI);
-                            break;
-                        }
+
+                        } while (home != key);
                     }
-                }
+
+
+                HelloApplication.gameSystems.delete(key);
+                gameSystems.getItems().remove(gs);
+                gsToRemoveTI.getParent().getChildren().remove(gsToRemoveTI);
+
+
+
             }
+
 //system.getSelectionModel().getSelectedItem().getParent().getChildren().remove;
             case 2 -> {
 
@@ -275,8 +303,11 @@ public class MainController implements Initializable {
             case 0 -> {
                 Utilities.showWarningAlert("WARNING!", "Select a what you would like to delete");
             }
+
         }
     }
+
+
 
 
 

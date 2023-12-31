@@ -42,10 +42,10 @@ public class UltimateHash<T> {
     }
 
 
-    public int hashFunction(T key) {
+    public int hashFunction(String key) {
         int sum=0;
-        for (int i = 0; i < key.toString().length(); i++) {
-            sum=sum+key.toString().charAt(i);
+        for (int i = 0; i < key.length(); i++) {
+            sum=sum+key.charAt(i);
         }
         return sum%hashTable.length;
     }
@@ -64,7 +64,7 @@ public class UltimateHash<T> {
             System.out.println("rehashing");
         }
 
-        int home=hashFunction(data),loc=home;
+        int home=hashFunction(data.toString()),loc=home;
         do {
             if(hashTable[loc]==null) { //Free, so use it...
                 hashTable[loc] = data;

@@ -50,11 +50,7 @@ public class GamePort extends Game{
 
     @Override
     public String toString() {
-        return "GamePort{" +
-                "portDev='" + portDev + '\'' +
-                ", newCoverArt='" + newCoverArt + '\'' +
-                ", newYear=" + newYear +
-                '}';
+        return super.getTitle(); //simple toString() making game systems readable in fxml items (choiceboxes, listviews, etc), and for hash function
     }
 
     @Override

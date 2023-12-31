@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     public static Scene mainS,searchS,systemS,gameS,portS;
     public static Stage mainStage;
 
-    public static UltimateHash<GameSystem> gameSystems = new UltimateHash<>(50);
+    public static UltimateHash<GameSystem> gameSystems = new UltimateHash<>(3);
     public static UltimateHash<Game> games = new UltimateHash<>(100);
     public static UltimateHash<GamePort> ports = new UltimateHash<>(100);
 
