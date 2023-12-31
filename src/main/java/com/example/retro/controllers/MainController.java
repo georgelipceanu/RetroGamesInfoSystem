@@ -214,7 +214,7 @@ public class MainController implements Initializable {
                     }
 
                     if (validYear && Utilities.isValidURL(url)&&uniquePort) {
-                        HelloApplication.ports.add(portToAdd);
+                        portToAdd.setPortPosition(HelloApplication.ports.add(portToAdd));
                         gameToPort.getPorts().add(portToAdd);
                         realGS.getGames().add(portToAdd);
                         gameToAddToTI.getChildren().add(new TreeItem<>("| PORT |  "+portToAdd.getTitle()));
@@ -276,7 +276,7 @@ public class MainController implements Initializable {
                 for (Game game : gs.getGames()) {
                     if (game instanceof GamePort)
                         games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port)"));
-                    else games.getChildren().add(new TreeItem<>(game.getTitle()));
+                    else games.getChildren().add(new TreeItem<>(game.getTitle()+ " (Original game)"));
                 }
 
                 SystemController.getSystemController().gameSysName.setText(gs.getName());
@@ -339,8 +339,92 @@ public class MainController implements Initializable {
 
             }
 
-//system.getSelectionModel().getSelectedItem().getParent().getChildren().remove;
             case 2 -> {
+                TreeItem<String> gameToRemoveTI = system.getSelectionModel().getSelectedItem();
+                String gameName = system.getSelectionModel().getSelectedItem().getValue().substring(10);//getting rid of "| GAME |  "
+                int key = HelloApplication.games.hashFunction(gameName);
+                Game game = HelloApplication.games.getElementFromPosition(key);
+
+                if (!game.getTitle().equals(gameName) || game==null){
+                    int home = key;
+                    do {
+                        key = (key + 1) % (HelloApplication.games.size() - 1);
+                        if (HelloApplication.games.getElementFromPosition(key) != null) {
+                            if (HelloApplication.games.getElementFromPosition(key).getTitle().equalsIgnoreCase(gameName)) {
+                                game = HelloApplication.games.getElementFromPosition(key);
+                                break;
+                            }
+                        }
+                    } while (home!=key);
+                }
+
+                for (TreeItem<String> system : root.getChildren()) {//looking through systems in treeview from root
+
+                    String gsName = system.getValue().substring(12);//getting rid of "| SYSTEM |  "
+
+                    int keyForGS = HelloApplication.gameSystems.hashFunction(gsName);//finding game system in backend hash map
+                    GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+
+                    if (!gs.getName().equals(gsName) || gs==null) {//finding game system in backend hash map stored at diff location
+                        int home = keyForGS;
+                        do {
+                            keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size() - 1);
+                            if (HelloApplication.gameSystems.getElementFromPosition(keyForGS) != null) {
+                                if (HelloApplication.gameSystems.getElementFromPosition(keyForGS).getName().equalsIgnoreCase(gsName)) {
+                                    gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+                                    break;
+                                }
+                            }
+                        } while (home != keyForGS);
+                    }
+
+                    for (Game port : gs.getGames()){//removing port from system in backend
+                        if (port instanceof GamePort)
+                            if (port.getTitle().equals(game.getTitle())){
+                                gs.getGames().remove(port);
+                                break;
+                            }
+                    }
+
+                    for (TreeItem<String> child : system.getChildren()) {
+                        String childS = child.getValue();//getting text only from treeitem
+                        System.out.println(childS);
+                        if (childS.equalsIgnoreCase("| PORT |  " + game.getTitle())) {
+                            child.getParent().getChildren().remove(child);
+                            break;
+                        }
+                    }
+                }
+
+
+
+                for (GamePort port : game.getPorts()){//removed from backend
+                    HelloApplication.ports.delete(port.getPortPosition());
+                }
+
+                TreeItem<String> gsToRemoveFromTI = gameToRemoveTI.getParent();//removing from system games list
+                String gsToRemoveFromName = gsToRemoveFromTI.getValue().substring(12);//getting rid of "| SYSTEM |  "
+                int keyForGSToRemoveFrom = HelloApplication.gameSystems.hashFunction(gsToRemoveFromName);
+                GameSystem gsToRemoveFrom=HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom);
+
+
+                if (!gsToRemoveFrom.getName().equals(gsToRemoveFromName)) {//finding game system in backend hash map stored at diff location
+                    int home = keyForGSToRemoveFrom;
+                    do {
+                        keyForGSToRemoveFrom = (keyForGSToRemoveFrom + 1) % (HelloApplication.gameSystems.size() - 1);
+                        if (HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom) != null) {
+                            if (HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom).getName().equalsIgnoreCase(gsToRemoveFromName)) {
+                                gsToRemoveFrom = HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom);
+                                break;
+                            }
+                        }
+                    } while (home != keyForGSToRemoveFrom);
+                }
+
+                gsToRemoveFrom.getGames().remove(game);
+                HelloApplication.games.delete(game.getPosition());
+                gameToRemoveTI.getParent().getChildren().remove(gameToRemoveTI);
+
 
             }
 
