@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="Implemented greater use of hashing in delete() and view()">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="Implemented greater use of hashing in addGame()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +140,7 @@
       <workItem from="1703784107649" duration="25482000" />
       <workItem from="1703943823209" duration="18746000" />
       <workItem from="1703972594429" duration="2953000" />
-      <workItem from="1704025371453" duration="5148000" />
+      <workItem from="1704025371453" duration="11496000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -322,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704033291710</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Implemented greater use of hashing in addGame()">
+      <created>1704034906511</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704034906511</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +362,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added Game.java" />
     <MESSAGE value="added GamePort.java,&#10;added some fields to Game.java,&#10;added GameSystemTest.java" />
     <MESSAGE value="added fields to all models,&#10;added xstream to project" />
     <MESSAGE value="added MyNeatList.java,&#10;added neat lists in GameSystem.java" />
@@ -378,6 +386,7 @@
     <MESSAGE value="Issue fixed by reverting to older version and going from there" />
     <MESSAGE value="Delete working for GameSystems on main page" />
     <MESSAGE value="Implemented greater use of hashing in delete() and view()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented greater use of hashing in delete() and view()" />
+    <MESSAGE value="Implemented greater use of hashing in addGame()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented greater use of hashing in addGame()" />
   </component>
 </project>

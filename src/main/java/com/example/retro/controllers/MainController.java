@@ -127,7 +127,7 @@ public class MainController implements Initializable {
 
             TreeItem<String> gsToAddToTI=system.getSelectionModel().getSelectedItem();
 
-            if (system.getSelectionModel().getSelectedItem()!=null && gsToAddToTI!=root) {
+            if (system.getSelectionModel().getSelectedItem()!=null && gsToAddToTI!=root && gsToAddToTI.getValue().contains("| SYSTEM |")) {//check if a system is selected
 
                 String gsToAddToName = gsToAddToTI.getValue().substring(12);
                 int key = HelloApplication.gameSystems.hashFunction(gsToAddToName);
@@ -159,32 +159,78 @@ public class MainController implements Initializable {
 
     @FXML
     public void addPort() {
-//        if (!portCover.getText().isEmpty() && !portRelease.getText().isEmpty() && !portDev.getText().isEmpty()) { //checking if each text box is filled
-//            String dev = portDev.getText();
-//            String url = portCover.getText();
-//
-//            int year = 0;
-//            boolean validYear=true;
-//            try {
-//                year = Integer.parseInt(portRelease.getText());//getting each attribute of port
-//            } catch (NumberFormatException e){
-//                validYear=false;
-//            }
-//
-//
-////            Port portToAdd = new GamePort(name,publisher,desc,dev,url,year);
-////            boolean uniqueName=true;
-////
-////
-////            TreeItem<String> gsToAddToTI=system.getSelectionModel().getSelectedItem();
-////
-////            if (system.getSelectionModel().getSelectedItem()==null) {
-////                if (validYear && Utilities.isValidURL(url) && uniqueName) {
-////                    HelloApplication.games.add(gameToAdd);
-////                    gsToAddToTI.getChildren().add(new TreeItem<>(gameToAdd.getTitle()));
-////                } else Utilities.showWarningAlert("WARNING", "Enter valid details");
-////            } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
-//        }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
+        if (!portCover.getText().isEmpty() && !portRelease.getText().isEmpty() && !portDev.getText().isEmpty()) { //checking if each text box is filled
+            String dev = portDev.getText();
+            String url = portCover.getText();
+
+            int year = 0;
+            boolean validYear = true;
+            try {
+                year = Integer.parseInt(portRelease.getText());//getting each attribute of port
+            } catch (NumberFormatException e) {
+                validYear = false;
+            }
+
+            TreeItem<String> gameToAddToTI = system.getSelectionModel().getSelectedItem();
+            if (gameToAddToTI != null && gameToAddToTI.getValue().contains("| GAME |")) {
+
+                String gameName = gameToAddToTI.getValue().substring(10); //cutting out "| GAME |  "
+                int key = HelloApplication.games.hashFunction(gameName);
+                Game gameToPort = HelloApplication.games.getElementFromPosition(key);
+                if (!gameToPort.getTitle().equals(gameName) || gameToPort == null) {
+                    int home = key;
+                    do {
+                        key = (key + 1) % (HelloApplication.games.size() - 1);
+
+                        if (HelloApplication.games.getElementFromPosition(key) != null) {
+                            if (HelloApplication.games.getElementFromPosition(key).getTitle().equalsIgnoreCase(gameName)) {
+                                gameToPort = HelloApplication.games.getElementFromPosition(key);
+                                break;
+                            }
+                        }
+
+                    } while (home != key);
+                }
+
+                GameSystem gsToAddTo = gameSystems.getSelectionModel().getSelectedItem();//getting system from choicebox
+                GameSystem realGS = HelloApplication.gameSystems.getElementFromPosition(gsToAddTo.getPosition());//getting actual system from backend
+                if (gsToAddTo != null) {
+
+                    GamePort portToAdd = new GamePort(gameToPort.getTitle(), gameToPort.getPublisher(), gameToPort.getDescription(), gameToPort.getOgDeveloper()
+                            , gameToPort.getCoverArtURL(), gameToPort.getYearOfRelease(), dev, url, year);
+
+                    boolean uniquePort=true;
+
+                    for (Game game : realGS.getGames()) {
+                        if (game instanceof GamePort)
+                            if (game == portToAdd) {
+                                uniquePort = false;
+                                break;
+                            }
+                        if (portToAdd.getTitle().equals(game.getTitle())){
+                            uniquePort=false;
+                            break;
+                        }
+                    }
+
+                    if (validYear && Utilities.isValidURL(url)&&uniquePort) {
+                        HelloApplication.ports.add(portToAdd);
+                        gameToPort.getPorts().add(portToAdd);
+                        realGS.getGames().add(portToAdd);
+                        gameToAddToTI.getChildren().add(new TreeItem<>("| PORT |  "+portToAdd.getTitle()));
+
+                        for (TreeItem<String> child : root.getChildren()) {//looking for system in treeview from root
+                            if (child.getValue().equals("| SYSTEM |  "+ realGS.getName())) {
+                                child.getChildren().add(new TreeItem<>("| PORT |  "+portToAdd.getTitle()));
+                                break;
+                            }
+                        }
+
+
+                    } else Utilities.showWarningAlert("WARNING", "Enter valid details");
+                } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
+            } else Utilities.showWarningAlert("WARNING", "Select a game to port");
+        }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
     }
 
     public void view(){
