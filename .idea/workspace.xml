@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="still working on fix">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="Issue fixed by reverting to older version and going from there">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GameSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GameSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +140,7 @@
       <workItem from="1703699649556" duration="12678000" />
       <workItem from="1703784107649" duration="25482000" />
       <workItem from="1703943823209" duration="18746000" />
-      <workItem from="1703972594429" duration="793000" />
+      <workItem from="1703972594429" duration="2796000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -315,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703968922680</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Issue fixed by reverting to older version and going from there">
+      <created>1703973430098</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1703973430098</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,6 +363,7 @@
     <MESSAGE value="working on fix for view" />
     <MESSAGE value="deleted system-view.fxml" />
     <MESSAGE value="still working on fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="still working on fix" />
+    <MESSAGE value="Issue fixed by reverting to older version and going from there" />
+    <option name="LAST_COMMIT_MESSAGE" value="Issue fixed by reverting to older version and going from there" />
   </component>
 </project>
