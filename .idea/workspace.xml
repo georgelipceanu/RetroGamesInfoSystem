@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="still working on delete for ports">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="changed delete for games and systems to facilitate for the addPort() changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +140,7 @@
       <workItem from="1703943823209" duration="18746000" />
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
-      <workItem from="1704110525240" duration="8739000" />
+      <workItem from="1704110525240" duration="9574000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -386,7 +387,21 @@
       <option name="project" value="LOCAL" />
       <updated>1704121539202</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="changed add for ports to include the name of system being added to underneath games section">
+      <created>1704122064248</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1704122064248</updated>
+    </task>
+    <task id="LOCAL-00037" summary="changed delete for games and systems to facilitate for the addPort() changes">
+      <created>1704122274444</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1704122274444</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,8 +432,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable" />
-    <MESSAGE value="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml," />
     <MESSAGE value="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()" />
     <MESSAGE value="added controllers for all future views,&#10;added .fxml files" />
     <MESSAGE value="Add methods add to backend list,&#10;added position attributes to each object type,&#10;added more methods to UltimateHash for convenience of use" />
@@ -442,7 +455,9 @@
     <MESSAGE value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
     <MESSAGE value="working on delete for ports" />
     <MESSAGE value="still working on delete for ports" />
-    <option name="LAST_COMMIT_MESSAGE" value="still working on delete for ports" />
+    <MESSAGE value="changed add for ports to include the name of system being added to underneath games section" />
+    <MESSAGE value="changed delete for games and systems to facilitate for the addPort() changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed delete for games and systems to facilitate for the addPort() changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

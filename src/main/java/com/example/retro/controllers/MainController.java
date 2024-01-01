@@ -233,7 +233,7 @@ public class MainController implements Initializable {
                         portToAdd.setPortPosition(HelloApplication.ports.add(portToAdd));
                         gameToPort.getPorts().add(portToAdd);
                         realGS.getGames().add(portToAdd);
-                        gameToAddToTI.getChildren().add(new TreeItem<>("| PORT |  "+portToAdd.getTitle() + " " + realGS.getName() ));
+                        gameToAddToTI.getChildren().add(new TreeItem<>("| PORT |  "+portToAdd.getTitle() + "  | " + realGS.getName() + " |" ));
 
                         for (TreeItem<String> child : root.getChildren()) {//looking for system in treeview from root
                             if (child.getValue().equals("| SYSTEM |  "+ realGS.getName())) {
