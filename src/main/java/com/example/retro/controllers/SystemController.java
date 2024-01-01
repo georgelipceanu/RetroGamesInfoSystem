@@ -67,13 +67,17 @@ public class SystemController implements Initializable {
 
             if (systemDetails.getSelectionModel().getSelectedItem()!=null && gsToAddToTI!=systemDetails.getRoot()) {
                 if (validYear && Utilities.isValidURL(url) && uniqueName) {
-                    HelloApplication.games.add(gameToAdd);
+                    gameToAdd.setPosition(HelloApplication.games.add(gameToAdd));
                     gsToAddToTI.getChildren().add(new TreeItem<>(gameToAdd.getTitle()));
                 } else Utilities.showWarningAlert("WARNING", "Enter valid details");
             } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
         }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
     }
 
+    @FXML
+    public void goBack(){
+        HelloApplication.mainStage.setScene(HelloApplication.mainS);
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         systemController=this;

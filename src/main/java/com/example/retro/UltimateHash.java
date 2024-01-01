@@ -9,11 +9,11 @@ public class UltimateHash<T> {
     }
 
     public UltimateHash(int size) {
-        this.hashTable = (T[]) new Object[size];
+        this.hashTable = (T[]) new Object[size];//downcast object array to T array
     }
 
     public int size(){
-        return hashTable.length +1;
+        return hashTable.length;
     }
 
     public T getElementFromPosition(int pos){
@@ -23,7 +23,7 @@ public class UltimateHash<T> {
     }
 
     public void replace(T t, int i){//for editing
-        hashTable[i]=t;
+        hashTable[i]=t;//assigning element at position i with new object
     }
 
     public void clear(){
@@ -31,7 +31,7 @@ public class UltimateHash<T> {
     }
 
     public void delete(int i){
-        hashTable[i]=null;
+        hashTable[i]=null;//making space available for new object
     }
 
 
@@ -42,12 +42,12 @@ public class UltimateHash<T> {
     }
 
 
-    public int hashFunction(T key) {
+    public int hashFunction(String key) {
         int sum=0;
-        for (int i = 0; i < key.toString().length(); i++) {
-            sum=sum+key.toString().charAt(i);
+        for (int i = 0; i < key.length(); i++) {
+            sum=sum+key.charAt(i);
         }
-        return sum%hashTable.length;
+        return sum%hashTable.length;//getting sum of hall characters and getting the modulus by hashtable length
     }
 
     public int add(T data) {
@@ -55,16 +55,16 @@ public class UltimateHash<T> {
         boolean needRehash=true;
 
         for (T t : hashTable)
-            if (t==null) {
+            if (t==null) {//checking if there are any empty spaces
                 needRehash = false;
                 break;
             }
         if (needRehash){
-            rehash();
+            rehash();//rehash if there are no empty spaces
             System.out.println("rehashing");
         }
 
-        int home=hashFunction(data),loc=home;
+        int home=hashFunction(data.toString()),loc=home;
         do {
             if(hashTable[loc]==null) { //Free, so use it...
                 hashTable[loc] = data;

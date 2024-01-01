@@ -108,7 +108,7 @@ public class GameSystem {
 
     @Override
     public String toString() {
-        return name; //simple toString() making game systems readable in fxml items (choiceboxes, listviews, etc)
+        return name; //simple toString() making game systems readable in fxml items (choiceboxes, listviews, etc), and for hash function
     }
 
     @Override

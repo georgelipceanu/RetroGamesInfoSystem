@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="still working on fix">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GameSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GameSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,21 +48,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/retro/src/main/resources/com/example/retro",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/retro/src/main/resources/com/example/retro&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\unimu\OneDrive - South East Technological University (Waterford Campus)\Semester 3\data_structures_and_algo\ca\2nd\retro\src\main\resources\com\example\retro" />
@@ -152,7 +138,9 @@
       <workItem from="1703699649556" duration="12678000" />
       <workItem from="1703784107649" duration="25482000" />
       <workItem from="1703943823209" duration="18746000" />
-      <workItem from="1703972594429" duration="793000" />
+      <workItem from="1703972594429" duration="2953000" />
+      <workItem from="1704025371453" duration="30875000" />
+      <workItem from="1704110525240" duration="3321000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -315,7 +303,77 @@
       <option name="project" value="LOCAL" />
       <updated>1703968922680</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Issue fixed by reverting to older version and going from there">
+      <created>1703973430098</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1703973430098</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Delete working for GameSystems on main page">
+      <created>1703981196494</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1703981196494</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Implemented greater use of hashing in delete() and view()">
+      <created>1704033291710</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1704033291710</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Implemented greater use of hashing in addGame()">
+      <created>1704034906511</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704034906511</updated>
+    </task>
+    <task id="LOCAL-00028" summary="addPort fully functioning">
+      <created>1704048970952</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1704048970952</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added port-view.fxml">
+      <created>1704050711849</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1704050711849</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Deleting games fully functioning in MainController">
+      <created>1704065015127</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1704065015127</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fixed issue in delete() for system where it would not delete ports from other systems">
+      <created>1704069718604</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1704069718604</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fixed issue where size() in UltimateHash returned 1 more than it should have">
+      <created>1704072991353</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1704072991353</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted">
+      <created>1704075054535</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1704075054535</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,13 +404,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added Game.java" />
-    <MESSAGE value="added GamePort.java,&#10;added some fields to Game.java,&#10;added GameSystemTest.java" />
-    <MESSAGE value="added fields to all models,&#10;added xstream to project" />
-    <MESSAGE value="added MyNeatList.java,&#10;added neat lists in GameSystem.java" />
-    <MESSAGE value="added Utilities.java,&#10;added scenes, back end lists, save and load," />
-    <MESSAGE value="Added Main Page" />
-    <MESSAGE value="Fixed MainController not exporting to fxml" />
     <MESSAGE value="Opened and export everything to fxml" />
     <MESSAGE value="added getters and setters,&#10;started work on UltimateHash (still not complete)" />
     <MESSAGE value="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable" />
@@ -368,6 +419,31 @@
     <MESSAGE value="working on fix for view" />
     <MESSAGE value="deleted system-view.fxml" />
     <MESSAGE value="still working on fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="still working on fix" />
+    <MESSAGE value="Issue fixed by reverting to older version and going from there" />
+    <MESSAGE value="Delete working for GameSystems on main page" />
+    <MESSAGE value="Implemented greater use of hashing in delete() and view()" />
+    <MESSAGE value="Implemented greater use of hashing in addGame()" />
+    <MESSAGE value="addPort fully functioning" />
+    <MESSAGE value="added port-view.fxml" />
+    <MESSAGE value="Deleting games fully functioning in MainController" />
+    <MESSAGE value="fixed issue in delete() for system where it would not delete ports from other systems" />
+    <MESSAGE value="fixed issue where size() in UltimateHash returned 1 more than it should have" />
+    <MESSAGE value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
+          <line>330</line>
+          <properties class="com.example.retro.controllers.MainController" method="delete">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

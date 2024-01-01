@@ -16,9 +16,9 @@ public class HelloApplication extends Application {
     public static Scene mainS,searchS,systemS,gameS,portS;
     public static Stage mainStage;
 
-    public static UltimateHash<GameSystem> gameSystems = new UltimateHash<>(50);
-    public static UltimateHash<Game> games = new UltimateHash<>(100);
-    public static UltimateHash<GamePort> ports = new UltimateHash<>(100);
+    public static UltimateHash<GameSystem> gameSystems = new UltimateHash<>(10);
+    public static UltimateHash<Game> games = new UltimateHash<>(20);
+    public static UltimateHash<GamePort> ports = new UltimateHash<>(20);
 
     public static Scene changeScene(String file) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(file));
@@ -33,6 +33,7 @@ public class HelloApplication extends Application {
         mainS = new Scene(fxmlLoader.load(), 900, 700);
         systemS = changeScene("system-view.fxml");
         gameS = changeScene("game-view.fxml");
+        portS = changeScene("port-view.fxml");
         searchS = changeScene("search-view.fxml");
 
 
