@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="working on delete for ports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
     </list>
@@ -140,7 +140,7 @@
       <workItem from="1703943823209" duration="18746000" />
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
-      <workItem from="1704110525240" duration="3321000" />
+      <workItem from="1704110525240" duration="8058000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -373,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704075054535</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="working on delete for ports">
+      <created>1704116678261</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1704116678261</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +411,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Opened and export everything to fxml" />
     <MESSAGE value="added getters and setters,&#10;started work on UltimateHash (still not complete)" />
     <MESSAGE value="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable" />
     <MESSAGE value="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml," />
@@ -429,7 +435,8 @@
     <MESSAGE value="fixed issue in delete() for system where it would not delete ports from other systems" />
     <MESSAGE value="fixed issue where size() in UltimateHash returned 1 more than it should have" />
     <MESSAGE value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
+    <MESSAGE value="working on delete for ports" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on delete for ports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
