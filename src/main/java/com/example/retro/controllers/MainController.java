@@ -55,19 +55,19 @@ public class MainController implements Initializable {
             String manufacturer = gameSysManufacturer.getText();
             String type = gameSysType.getText();
             String media = gameSysMedia.getText();
-            String url = gameSysImage.getText();
+            String url = gameSysImage.getText();//getting details from boxes
 
             int year = 0;
             boolean validYear=true;
-            try {
-                year = Integer.parseInt(gameSysYear.getText());//getting each attribute of port
+            try {//checking if number is entered
+                year = Integer.parseInt(gameSysYear.getText());
             } catch (NumberFormatException e){
                 validYear=false;
             }
 
             double price=0;
             boolean validPrice=true;
-            try {
+            try {//checking if number is entered
                 price = Double.parseDouble(gameSysPrice.getText());
             } catch (NumberFormatException e){
                 validPrice=false;
@@ -76,7 +76,7 @@ public class MainController implements Initializable {
             GameSystem gsToAdd = new GameSystem(name,manufacturer,desc,type,media,url,year,price);
             boolean uniqueName=true;
 
-            for (int i = 0; i<HelloApplication.gameSystems.size()-1;i++){
+            for (int i = 0; i<HelloApplication.gameSystems.size();i++){
                 if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
                     if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsToAdd.getName())) {//checking if name is unique
                         uniqueName = false;
@@ -103,11 +103,11 @@ public class MainController implements Initializable {
             String desc = gameDesc.getText();
             String publisher = gamePublisher.getText();
             String dev = gameDev.getText();
-            String url = gameCover.getText();
+            String url = gameCover.getText();//getting details from boxes
 
             int year = 0;
             boolean validYear=true;
-            try {
+            try {//checking if number is entered
                 year = Integer.parseInt(gameRelease.getText());
             } catch (NumberFormatException e){
                 validYear=false;
@@ -116,9 +116,9 @@ public class MainController implements Initializable {
             Game gameToAdd = new Game(name,publisher,desc,dev,url,year);
             boolean uniqueName=true;
 
-            for (int i = 0; i<HelloApplication.games.size()-1;i++){
+            for (int i = 0; i<HelloApplication.games.size();i++){
                 if (HelloApplication.games.getElementFromPosition(i)!=null) {
-                    if (HelloApplication.games.getElementFromPosition(i).getTitle().equalsIgnoreCase(gameToAdd.getTitle())) {
+                    if (HelloApplication.games.getElementFromPosition(i).getTitle().equalsIgnoreCase(gameToAdd.getTitle())) {//check for unique name across all games
                         uniqueName = false;
                         break;
                     }
@@ -131,12 +131,12 @@ public class MainController implements Initializable {
 
                 String gsToAddToName = gsToAddToTI.getValue().substring(12);
                 int key = HelloApplication.gameSystems.hashFunction(gsToAddToName);
-                GameSystem gsToAddTo=HelloApplication.gameSystems.getElementFromPosition(key);
+                GameSystem gsToAddTo=HelloApplication.gameSystems.getElementFromPosition(key);//getting system from selected item
 
-                if (!gsToAddTo.getName().equals(gsToAddToName) || gsToAddTo==null) {
+                if (!gsToAddTo.getName().equals(gsToAddToName) || gsToAddTo==null) {//searching through map if system has been probed from where it should be
                     int home=key;
                     do {
-                        key=(key+1)%(HelloApplication.gameSystems.size()-1);
+                        key=(key+1)%(HelloApplication.gameSystems.size());
 
                         if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
                             if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsToAddToName)) {
@@ -148,7 +148,7 @@ public class MainController implements Initializable {
                     } while (home!=key);
                 }
 
-                if (validYear && Utilities.isValidURL(url) && uniqueName && gsToAddTo!=null && !gameToAdd.getTitle().contains("| GAME |")) {
+                if (validYear && Utilities.isValidURL(url) && uniqueName && gsToAddTo!=null && !gameToAdd.getTitle().contains("| GAME |")) {//all details valid
                     gameToAdd.setPosition(HelloApplication.games.add(gameToAdd));
                     gsToAddTo.getGames().add(gameToAdd);
                     gsToAddToTI.getChildren().add(new TreeItem<>("| GAME |  "+gameToAdd.getTitle()));
@@ -161,7 +161,7 @@ public class MainController implements Initializable {
     public void addPort() {
         if (!portCover.getText().isEmpty() && !portRelease.getText().isEmpty() && !portDev.getText().isEmpty()) { //checking if each text box is filled
             String dev = portDev.getText();
-            String url = portCover.getText();
+            String url = portCover.getText();//getting details from boxes
 
             int year = 0;
             boolean validYear = true;
@@ -180,7 +180,7 @@ public class MainController implements Initializable {
                 if (!gameToPort.getTitle().equals(gameName) || gameToPort == null) {
                     int home = key;
                     do {
-                        key = (key + 1) % (HelloApplication.games.size() - 1);
+                        key = (key + 1) % (HelloApplication.games.size());
 
                         if (HelloApplication.games.getElementFromPosition(key) != null) {
                             if (HelloApplication.games.getElementFromPosition(key).getTitle().equalsIgnoreCase(gameName)) {
@@ -251,7 +251,7 @@ public class MainController implements Initializable {
                 if (!gs.getName().equals(gsName) || gs==null) {
                     int home=key;
                     do {
-                        key=(key+1)%(HelloApplication.gameSystems.size()-1);
+                        key=(key+1)%(HelloApplication.gameSystems.size());
 
                         if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
                             if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsName)) {
@@ -324,7 +324,7 @@ public class MainController implements Initializable {
                 if (!gs.getName().equals(gsName) || gs==null) {//finding game system in backend hash map stored at diff location
                     int home = key;
                     do {
-                        key = (key + 1) % (HelloApplication.gameSystems.size() - 1);
+                        key = (key + 1) % (HelloApplication.gameSystems.size());
                         if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
                             if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsName)) {
                                 gs = HelloApplication.gameSystems.getElementFromPosition(key);
@@ -347,7 +347,7 @@ public class MainController implements Initializable {
                                 if (!gameSystemToRemovePortFrom.getName().equals(gsName) || gs==null) {//finding game system in backend hash map stored at diff location
                                     int home = keyGSOfPortToRemoveFrom;
                                     do {
-                                        keyGSOfPortToRemoveFrom = (keyGSOfPortToRemoveFrom + 1) % (HelloApplication.gameSystems.size() - 1);
+                                        keyGSOfPortToRemoveFrom = (keyGSOfPortToRemoveFrom + 1) % (HelloApplication.gameSystems.size());
                                         if (HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom) != null) {
                                             if (HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom).getName().equalsIgnoreCase(gsNameToRemovePortFrom)) {
                                                 gameSystemToRemovePortFrom = HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom);
@@ -394,7 +394,7 @@ public class MainController implements Initializable {
                 if (!game.getTitle().equals(gameName) || game==null){
                     int home = key;
                     do {
-                        key = (key + 1) % (HelloApplication.games.size() - 1);
+                        key = (key + 1) % (HelloApplication.games.size());
                         if (HelloApplication.games.getElementFromPosition(key) != null) {
                             if (HelloApplication.games.getElementFromPosition(key).getTitle().equalsIgnoreCase(gameName)) {
                                 game = HelloApplication.games.getElementFromPosition(key);
@@ -414,7 +414,7 @@ public class MainController implements Initializable {
                     if (!gs.getName().equals(gsName) || gs==null) {//finding game system in backend hash map stored at diff location
                         int home = keyForGS;
                         do {
-                            keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size() - 1);
+                            keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size());
                             if (HelloApplication.gameSystems.getElementFromPosition(keyForGS) != null) {
                                 if (HelloApplication.gameSystems.getElementFromPosition(keyForGS).getName().equalsIgnoreCase(gsName)) {
                                     gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
@@ -457,7 +457,7 @@ public class MainController implements Initializable {
                 if (!gsToRemoveFrom.getName().equals(gsToRemoveFromName)) {//finding game system in backend hash map stored at diff location
                     int home = keyForGSToRemoveFrom;
                     do {
-                        keyForGSToRemoveFrom = (keyForGSToRemoveFrom + 1) % (HelloApplication.gameSystems.size() - 1);
+                        keyForGSToRemoveFrom = (keyForGSToRemoveFrom + 1) % (HelloApplication.gameSystems.size());
                         if (HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom) != null) {
                             if (HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom).getName().equalsIgnoreCase(gsToRemoveFromName)) {
                                 gsToRemoveFrom = HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom);
@@ -475,6 +475,8 @@ public class MainController implements Initializable {
             }
 
             case 3 -> {
+                TreeItem<String> portToDeleteTI = system.getSelectionModel().getSelectedItem();
+                String portName = portToDeleteTI.getValue();
 
             }
 

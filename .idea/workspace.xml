@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="Deleting games fully functioning in MainController">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="fixed issue in delete() for system where it would not delete ports from other systems">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +140,7 @@
       <workItem from="1703784107649" duration="25482000" />
       <workItem from="1703943823209" duration="18746000" />
       <workItem from="1703972594429" duration="2953000" />
-      <workItem from="1704025371453" duration="26636000" />
+      <workItem from="1704025371453" duration="28478000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -351,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704065015127</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fixed issue in delete() for system where it would not delete ports from other systems">
+      <created>1704069718604</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1704069718604</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +390,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added Utilities.java,&#10;added scenes, back end lists, save and load," />
     <MESSAGE value="Added Main Page" />
     <MESSAGE value="Fixed MainController not exporting to fxml" />
     <MESSAGE value="Opened and export everything to fxml" />
@@ -407,20 +414,12 @@
     <MESSAGE value="addPort fully functioning" />
     <MESSAGE value="added port-view.fxml" />
     <MESSAGE value="Deleting games fully functioning in MainController" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleting games fully functioning in MainController" />
+    <MESSAGE value="fixed issue in delete() for system where it would not delete ports from other systems" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed issue in delete() for system where it would not delete ports from other systems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
-          <line>160</line>
-          <properties class="com.example.retro.controllers.MainController" method="addPort">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
           <line>307</line>
