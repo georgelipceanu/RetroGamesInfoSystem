@@ -8,8 +8,8 @@ module com.example.retro {
     exports com.example.retro;
 
     exports com.example.retro.controllers;
-    opens com.example.retro.controllers to javafx.fxml;
+    opens com.example.retro.controllers to javafx.fxml,xstream;
 
     exports com.example.retro.models;
-    opens com.example.retro.models to javafx.fxml;
+    opens com.example.retro.models to javafx.fxml,xstream;
 }

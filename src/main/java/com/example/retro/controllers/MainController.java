@@ -752,9 +752,18 @@ public class MainController implements Initializable {
         }
     }
 
+    @FXML
+    public void save(){
+        try {
+            HelloApplication.save();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    public void load(){
 
-
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -58,14 +58,21 @@ public class HelloApplication extends Application {
         //doing the actual serialisation to an XML file
         ObjectInputStream in = xstream.createObjectInputStream(new FileReader("retro.xml"));
         gameSystems = (UltimateHash<GameSystem>) in.readObject();//loading data from retro.xml
+        games = (UltimateHash<Game>) in.readObject();
+        ports = (UltimateHash<GamePort>) in.readObject();
         in.close();
     }
     public static void save() throws Exception { // save
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("retro.xml"));
-        out.writeObject(ports); ;//saving only game systems to retro.fxml since all data is linked to these
+        out.writeObject(gameSystems); //saving all maps
+        out.writeObject(games); //saving all maps
+        out.writeObject(ports); //saving all maps
 
         out.close();
     }
+
+
+
 
 }

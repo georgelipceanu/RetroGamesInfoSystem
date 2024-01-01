@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="delete port when //| SYSTEM | -&gt; | GAME | -&gt; | PORT | functioning">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="delete port fully functioning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +142,8 @@
       <workItem from="1703943823209" duration="18746000" />
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
-      <workItem from="1704110525240" duration="11994000" />
+      <workItem from="1704110525240" duration="12661000" />
+      <workItem from="1704127627657" duration="1257000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -415,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704124228735</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="delete port fully functioning">
+      <created>1704125281421</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1704125281421</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +456,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add methods add to backend list,&#10;added position attributes to each object type,&#10;added more methods to UltimateHash for convenience of use" />
     <MESSAGE value="Added more methods to UltimateHash,&#10;Added view() functionality (only works for game systems, still to be completed)" />
     <MESSAGE value="added delete to UltimateHash" />
     <MESSAGE value="Added rehash() to UltimateHash, enables rehashing when hash table becomes full" />
@@ -471,21 +480,7 @@
     <MESSAGE value="changed delete for games and systems to facilitate for the addPort() changes" />
     <MESSAGE value="changed delete again for games and systems to facilitate for the addPort() changes" />
     <MESSAGE value="delete port when //| SYSTEM | -&gt; | GAME | -&gt; | PORT | functioning" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete port when //| SYSTEM | -&gt; | GAME | -&gt; | PORT | functioning" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
-          <line>330</line>
-          <properties class="com.example.retro.controllers.MainController" method="delete">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="delete port fully functioning" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete port fully functioning" />
   </component>
 </project>
