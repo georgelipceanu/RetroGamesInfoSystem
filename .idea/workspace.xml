@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="Still working on fixing delete method for ports (doesn't work with multiple ports)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
     </list>
@@ -141,7 +141,7 @@
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="12661000" />
-      <workItem from="1704127627657" duration="13088000" />
+      <workItem from="1704127627657" duration="19729000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -444,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704140182577</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Still working on fixing delete method for ports (doesn't work with multiple ports)">
+      <created>1704143160118</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1704143160118</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +482,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added system-view.fxml" />
     <MESSAGE value="worked on delete" />
     <MESSAGE value="working on fix for view" />
     <MESSAGE value="deleted system-view.fxml" />
@@ -500,7 +506,8 @@
     <MESSAGE value="save method functioning" />
     <MESSAGE value="view method for games full functioning" />
     <MESSAGE value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
-    <option name="LAST_COMMIT_MESSAGE" value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
+    <MESSAGE value="Still working on fixing delete method for ports (doesn't work with multiple ports)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Still working on fixing delete method for ports (doesn't work with multiple ports)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
