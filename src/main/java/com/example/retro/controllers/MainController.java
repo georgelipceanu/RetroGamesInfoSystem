@@ -1,7 +1,6 @@
 package com.example.retro.controllers;
 
 import com.example.retro.HelloApplication;
-import com.example.retro.UltimateHash;
 import com.example.retro.models.Game;
 import com.example.retro.models.GamePort;
 import com.example.retro.models.GameSystem;
@@ -13,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
-import java.lang.reflect.InvocationTargetException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -131,16 +130,24 @@ public class MainController implements Initializable {
 
                 String gsToAddToName = gsToAddToTI.getValue().substring(12);
                 int key = HelloApplication.gameSystems.hashFunction(gsToAddToName);
-                GameSystem gsToAddTo=HelloApplication.gameSystems.getElementFromPosition(key);//getting system from selected item
+                GameSystem gsToAddTo=HelloApplication.gameSystems.getElementFromPosition(key);//getting system from selected item based on key from hash function
+                boolean gsEmpty = (gsToAddTo==null);
 
-                if (!gsToAddTo.getName().equals(gsToAddToName) || gsToAddTo==null) {//searching through map if system has been probed from where it should be
+                if (gsEmpty)
+                    for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                        if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                            gsToAddTo=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
+
+                if (!gsToAddTo.getName().equals(gsToAddToName)) {//searching through map if system has been probed from where it should be
                     int home=key;
                     do {
                         key=(key+1)%(HelloApplication.gameSystems.size());
 
                         if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
                             if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsToAddToName)) {
-                                gsToAddTo = HelloApplication.gameSystems.getElementFromPosition(key);
+                                gsToAddTo = HelloApplication.gameSystems.getElementFromPosition(key);//assigns system when it is found
                                 break;
                             }
                         }
@@ -177,7 +184,16 @@ public class MainController implements Initializable {
                 String gameName = gameToAddToTI.getValue().substring(10); //cutting out "| GAME |  "
                 int key = HelloApplication.games.hashFunction(gameName);
                 Game gameToPort = HelloApplication.games.getElementFromPosition(key);
-                if (!gameToPort.getTitle().equals(gameName) || gameToPort == null) {
+                boolean gameEmpty=(gameToPort==null);
+
+                if (gameEmpty)
+                    for (int i=0;i<HelloApplication.games.size();i++)
+                        if (HelloApplication.games.getElementFromPosition(i)!=null){
+                            gameToPort=HelloApplication.games.getElementFromPosition(i);//assigning dummy game to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
+
+                if (!gameToPort.getTitle().equals(gameName)) {
                     int home = key;
                     do {
                         key = (key + 1) % (HelloApplication.games.size());
@@ -247,8 +263,15 @@ public class MainController implements Initializable {
 
                 int key = HelloApplication.gameSystems.hashFunction(gsName);
                 GameSystem gs=HelloApplication.gameSystems.getElementFromPosition(key);
+                boolean gsEmpty=(gs==null);
+                if (gsEmpty)
+                    for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                        if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                            gs=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
 
-                if (!gs.getName().equals(gsName) || gs==null) {
+                if (!gs.getName().equals(gsName)) {
                     int home=key;
                     do {
                         key=(key+1)%(HelloApplication.gameSystems.size());
@@ -319,9 +342,15 @@ public class MainController implements Initializable {
 
                 int key = HelloApplication.gameSystems.hashFunction(gsName);//finding game system in backend hash map
                 GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(key);
+                boolean gsEmpty=(gs==null);
+                if (gsEmpty)
+                    for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                        if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                            gs=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
 
-
-                if (!gs.getName().equals(gsName) || gs==null) {//finding game system in backend hash map stored at diff location
+                if (!gs.getName().equals(gsName)) {//finding game system in backend hash map stored at diff location
                     int home = key;
                     do {
                         key = (key + 1) % (HelloApplication.gameSystems.size());
@@ -344,7 +373,15 @@ public class MainController implements Initializable {
                                 String gsNameToRemovePortFrom = system.getValue().substring(12);//removing "| SYSTEM |  "
                                 int keyGSOfPortToRemoveFrom = HelloApplication.gameSystems.hashFunction(gsNameToRemovePortFrom);
                                 GameSystem gameSystemToRemovePortFrom = HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom);
-                                if (!gameSystemToRemovePortFrom.getName().equals(gsName) || gs==null) {//finding game system in backend hash map stored at diff location
+                                boolean gsOfPortToRemoveFrom=(gameSystemToRemovePortFrom)==null;
+                                if (gsOfPortToRemoveFrom)
+                                    for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                                        if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                                            gameSystemToRemovePortFrom=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                                            break;
+                                        }
+
+                                if (!gameSystemToRemovePortFrom.getName().equals(gsName)) {//finding game system in backend hash map stored at diff location
                                     int home = keyGSOfPortToRemoveFrom;
                                     do {
                                         keyGSOfPortToRemoveFrom = (keyGSOfPortToRemoveFrom + 1) % (HelloApplication.gameSystems.size());
@@ -390,8 +427,15 @@ public class MainController implements Initializable {
                 String gameName = system.getSelectionModel().getSelectedItem().getValue().substring(10);//getting rid of "| GAME |  "
                 int key = HelloApplication.games.hashFunction(gameName);
                 Game game = HelloApplication.games.getElementFromPosition(key);
+                boolean gameEmpty=(game==null);
+                if (gameEmpty)
+                    for (int i=0;i<HelloApplication.games.size();i++)
+                        if (HelloApplication.games.getElementFromPosition(i)!=null){
+                            game=HelloApplication.games.getElementFromPosition(i);//assigning dummy game to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
 
-                if (!game.getTitle().equals(gameName) || game==null){
+                if (!game.getTitle().equals(gameName)){
                     int home = key;
                     do {
                         key = (key + 1) % (HelloApplication.games.size());
@@ -411,7 +455,15 @@ public class MainController implements Initializable {
                     int keyForGS = HelloApplication.gameSystems.hashFunction(gsName);//finding game system in backend hash map
                     GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
 
-                    if (!gs.getName().equals(gsName) || gs==null) {//finding game system in backend hash map stored at diff location
+                    boolean gsEmpty=(gs)==null;
+                    if (gsEmpty)
+                        for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                            if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                                gs=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                                break;
+                            }
+
+                    if (!gs.getName().equals(gsName)) {//finding game system in backend hash map stored at diff location
                         int home = keyForGS;
                         do {
                             keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size());
@@ -452,6 +504,14 @@ public class MainController implements Initializable {
                 String gsToRemoveFromName = gsToRemoveFromTI.getValue().substring(12);//getting rid of "| SYSTEM |  "
                 int keyForGSToRemoveFrom = HelloApplication.gameSystems.hashFunction(gsToRemoveFromName);
                 GameSystem gsToRemoveFrom=HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom);
+
+                boolean gsToRemoveFromEmpty=(gsToRemoveFrom)==null;
+                if (gsToRemoveFromEmpty)
+                    for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                        if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                            gsToRemoveFrom=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
 
 
                 if (!gsToRemoveFrom.getName().equals(gsToRemoveFromName)) {//finding game system in backend hash map stored at diff location

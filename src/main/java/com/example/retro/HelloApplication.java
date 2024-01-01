@@ -33,9 +33,9 @@ public class HelloApplication extends Application {
         mainS = new Scene(fxmlLoader.load(), 900, 700);
         systemS = changeScene("system-view.fxml");
         gameS = changeScene("game-view.fxml");
+        portS = changeScene("port-view.fxml");
         searchS = changeScene("search-view.fxml");
-        System.out.println(ports.size());
-        ports.displayHashTable();
+
 
         stage.setTitle("Retro Video Games Information System");
         stage.setScene(mainS);

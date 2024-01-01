@@ -9,7 +9,7 @@ public class UltimateHash<T> {
     }
 
     public UltimateHash(int size) {
-        this.hashTable = (T[]) new Object[size];
+        this.hashTable = (T[]) new Object[size];//downcast object array to T array
     }
 
     public int size(){
