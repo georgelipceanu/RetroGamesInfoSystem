@@ -231,6 +231,7 @@ public class MainController implements Initializable {
 
                     if (validYear && Utilities.isValidURL(url)&&uniquePort) {
                         portToAdd.setPortPosition(HelloApplication.ports.add(portToAdd));
+                        portToAdd.setGsPortedTo(realGS.getName());
                         gameToPort.getPorts().add(portToAdd);
                         realGS.getGames().add(portToAdd);
                         gameToAddToTI.getChildren().add(new TreeItem<>("| PORT |  "+portToAdd.getTitle() + "  | " + realGS.getName() + " |" ));
@@ -368,7 +369,66 @@ public class MainController implements Initializable {
                 GameController.getGameController().gameDev.setText(game.getOgDeveloper());
                 HelloApplication.mainStage.setScene(HelloApplication.gameS);
             }
-            case 3 -> System.out.println("to be completed");
+            case 3 -> {
+                TreeItem<String> portTI=system.getSelectionModel().getSelectedItem();
+                if (portTI.getValue().endsWith("| ")){// | SYSTEM | -> | GAME | -> | PORT |
+                    String gsName = portTI.getParent().getParent().getValue();
+                    int endToRemove = gsName.substring(12).length()+6;//6="  | " + " |"
+                    String portName = portTI.getValue().substring(10,portTI.getValue().length()-endToRemove);//getting rid of "| PORT |  and system";
+                    int key = HelloApplication.ports.hashFunction(portName);
+                    GamePort port = HelloApplication.ports.getElementFromPosition(key);
+                    boolean portEmpty = (port == null);
+                    if (portEmpty)
+                        for (int i = 0; i < HelloApplication.ports.size(); i++)
+                            if (HelloApplication.ports.getElementFromPosition(i) != null) {
+                                port = HelloApplication.ports.getElementFromPosition(i);//assigning dummy game to avoid null pointer exception if gsToAddTo is initially null
+                                break;
+                            }
+
+                    if (!port.getTitle().equals(portName)) {
+                        int home = key;
+                        do {
+                            key = (key + 1) % (HelloApplication.ports.size());
+                            if (HelloApplication.ports.getElementFromPosition(key) != null) {
+                                if (HelloApplication.ports.getElementFromPosition(key).getTitle().equalsIgnoreCase(portName)) {//getting actual port if it has been linearly probed
+                                    port = HelloApplication.ports.getElementFromPosition(key);
+                                    break;
+                                }
+                            }
+                        } while (home != key);
+                    }
+
+                    int keyForGS = HelloApplication.gameSystems.hashFunction(gsName);
+                    GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+                    boolean gsEmpty = (gs==null);
+
+                    if (gsEmpty)
+                        for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
+                            if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                                gs = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                                break;
+                            }
+
+                    if (!gs.getName().equals(gsName)) {
+                        int home = keyForGS;
+                        do {
+                            keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size());
+                            if (HelloApplication.gameSystems.getElementFromPosition(keyForGS) != null) {
+                                if (HelloApplication.gameSystems.getElementFromPosition(keyForGS).getName().equalsIgnoreCase(portName)) {//getting actual port if it has been linearly probed
+                                    gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+                                    break;
+                                }
+                            }
+                        } while (home != keyForGS);
+                    }
+
+
+
+                } else {// | SYSTEM | -> | PORT |
+
+                }
+                HelloApplication.mainStage.setScene(HelloApplication.portS);
+            }
             case 0 -> Utilities.showWarningAlert("WARNING!", "Select a valid option");
         }
 
