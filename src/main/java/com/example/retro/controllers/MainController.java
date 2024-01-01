@@ -316,7 +316,57 @@ public class MainController implements Initializable {
             }
 
             case 2 ->{
-                System.out.println("to be completed");
+                TreeItem<String> gameTI = system.getSelectionModel().getSelectedItem();
+                String gameName = gameTI.getValue().substring(10);
+                int key = HelloApplication.games.hashFunction(gameName);
+                Game game = HelloApplication.games.getElementFromPosition(key);
+                boolean gameEmpty= (game==null);
+
+                if (gameEmpty)
+                    for (int i=0;i<HelloApplication.games.size();i++)
+                        if (HelloApplication.games.getElementFromPosition(i)!=null){
+                            game=HelloApplication.games.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
+
+                if (!game.getTitle().equals(gameName)) {
+                    int home=key;
+                    do {
+                        key=(key+1)%(HelloApplication.games.size());
+
+                        if (HelloApplication.games.getElementFromPosition(key) != null) {
+                            if (HelloApplication.games.getElementFromPosition(key).getTitle().equalsIgnoreCase(gameName)) {
+                                game = HelloApplication.games.getElementFromPosition(key);
+                                break;
+                            }
+                        }
+
+                    } while (home!=key);
+                }
+
+
+                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+game.getDescription()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+game.getPublisher()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Developer: "+game.getOgDeveloper()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Year of release: "+game.getYearOfRelease()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Cover Art (URL): "+game.getCoverArtURL()));
+                TreeItem<String> ports =new TreeItem<>("PORTS: ");
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(ports);
+
+
+                for (TreeItem<String> child: gameTI.getChildren()) {
+                    String portSystem=child.getValue().substring(10+gameName.length()+2);//getting system name of each port
+                    ports.getChildren().add(new TreeItem<>(portSystem));
+                }
+
+                GameController.getGameController().gameName.setText(gameName);
+                GameController.getGameController().gameDesc.setText(game.getDescription());
+                GameController.getGameController().gamePublisher.setText(game.getPublisher());
+                GameController.getGameController().gameCover.setText(game.getCoverArtURL());
+                GameController.getGameController().gameRelease.setText(String.valueOf(game.getYearOfRelease()));
+                GameController.getGameController().gameDev.setText(game.getOgDeveloper());
+                HelloApplication.mainStage.setScene(HelloApplication.gameS);
             }
             case 3 -> System.out.println("to be completed");
             case 0 -> Utilities.showWarningAlert("WARNING!", "Select a valid option");
