@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="changed delete for games and systems to facilitate for the addPort() changes">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="changed delete again for games and systems to facilitate for the addPort() changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
     </list>
@@ -140,7 +140,7 @@
       <workItem from="1703943823209" duration="18746000" />
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
-      <workItem from="1704110525240" duration="9574000" />
+      <workItem from="1704110525240" duration="10808000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -401,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704122274444</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="changed delete again for games and systems to facilitate for the addPort() changes">
+      <created>1704122886925</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1704122886925</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +439,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()" />
     <MESSAGE value="added controllers for all future views,&#10;added .fxml files" />
     <MESSAGE value="Add methods add to backend list,&#10;added position attributes to each object type,&#10;added more methods to UltimateHash for convenience of use" />
     <MESSAGE value="Added more methods to UltimateHash,&#10;Added view() functionality (only works for game systems, still to be completed)" />
@@ -457,7 +463,8 @@
     <MESSAGE value="still working on delete for ports" />
     <MESSAGE value="changed add for ports to include the name of system being added to underneath games section" />
     <MESSAGE value="changed delete for games and systems to facilitate for the addPort() changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed delete for games and systems to facilitate for the addPort() changes" />
+    <MESSAGE value="changed delete again for games and systems to facilitate for the addPort() changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed delete again for games and systems to facilitate for the addPort() changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
