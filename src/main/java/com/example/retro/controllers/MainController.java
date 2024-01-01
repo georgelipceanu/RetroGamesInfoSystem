@@ -401,7 +401,7 @@ public class MainController implements Initializable {
                                     }
 
                                 for (TreeItem<String> child : system.getChildren()){
-                                    if (child.getValue().equals("| PORT |  "+port.getTitle())){
+                                    if (child.getValue().contains("| PORT |  "+port.getTitle())){
                                         child.getParent().getChildren().remove(child);
                                         break;
                                     }
