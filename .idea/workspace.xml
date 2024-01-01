@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="view method for games full functioning">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/models/GamePort.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +141,7 @@
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="12661000" />
-      <workItem from="1704127627657" duration="10033000" />
+      <workItem from="1704127627657" duration="13088000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -438,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704135052506</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)">
+      <created>1704140182577</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1704140182577</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +475,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added rehash() to UltimateHash, enables rehashing when hash table becomes full" />
     <MESSAGE value="added system-view.fxml" />
     <MESSAGE value="worked on delete" />
     <MESSAGE value="working on fix for view" />
@@ -494,14 +499,15 @@
     <MESSAGE value="delete port fully functioning" />
     <MESSAGE value="save method functioning" />
     <MESSAGE value="view method for games full functioning" />
-    <option name="LAST_COMMIT_MESSAGE" value="view method for games full functioning" />
+    <MESSAGE value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
+    <option name="LAST_COMMIT_MESSAGE" value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
-          <line>252</line>
+          <line>254</line>
           <properties class="com.example.retro.controllers.MainController" method="view">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -510,12 +516,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
-          <line>440</line>
+          <line>442</line>
           <properties class="com.example.retro.controllers.MainController" method="delete">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

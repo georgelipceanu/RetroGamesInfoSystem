@@ -230,8 +230,8 @@ public class MainController implements Initializable {
                     }
 
                     if (validYear && Utilities.isValidURL(url)&&uniquePort) {
-                        portToAdd.setPortPosition(HelloApplication.ports.add(portToAdd));
                         portToAdd.setGsPortedTo(realGS.getName());
+                        portToAdd.setPortPosition(HelloApplication.ports.add(portToAdd));
                         gameToPort.getPorts().add(portToAdd);
                         realGS.getGames().add(portToAdd);
                         gameToAddToTI.getChildren().add(new TreeItem<>("| PORT |  "+portToAdd.getTitle() + "  | " + realGS.getName() + " |" ));
@@ -242,6 +242,8 @@ public class MainController implements Initializable {
                                 break;
                             }
                         }
+
+                        System.out.println(portToAdd.getGsPortedTo());
 
 
                     } else Utilities.showWarningAlert("WARNING", "Enter valid details");
@@ -646,12 +648,14 @@ public class MainController implements Initializable {
 
             case 3 -> {
                 TreeItem<String> portToDeleteTI = system.getSelectionModel().getSelectedItem();
+
                 if (portToDeleteTI.getValue().endsWith(" |" )) {//| SYSTEM | -> | GAME | -> | PORT |
-                    String tempGSName = portToDeleteTI.getParent().getParent().getValue();
-                    int endToRemove = tempGSName.substring(12).length()+6;//6="  | " + " |"
-                    String portName = portToDeleteTI.getValue().substring(10,portToDeleteTI.getValue().length()-endToRemove);//getting rid of "| PORT |  ";
+                    String tempGSName = portToDeleteTI.getParent().getParent().getValue().substring(12);
+                    int endToRemove = tempGSName.length()+7;// "  | " + " |"
+                    String portName = portToDeleteTI.getValue().substring(10,portToDeleteTI.getValue().length()-endToRemove);//getting rid of "| PORT |  " and system;
                     int key = HelloApplication.ports.hashFunction(portName);
                     GamePort port = HelloApplication.ports.getElementFromPosition(key);
+                    String gsPortedTo = portToDeleteTI.getValue().substring(10 + portName.length()+4,portToDeleteTI.getValue().length()-2);//get system name
                     boolean portEmpty = (port == null);
                     if (portEmpty)
                         for (int i = 0; i < HelloApplication.ports.size(); i++)
@@ -660,12 +664,12 @@ public class MainController implements Initializable {
                                 break;
                             }
 
-                    if (!port.getTitle().equals(portName)) {
+                    if (!(port.getTitle().equals(portName) && port.getGsPortedTo().equals(gsPortedTo))) {
                         int home = key;
                         do {
                             key = (key + 1) % (HelloApplication.ports.size());
                             if (HelloApplication.ports.getElementFromPosition(key) != null) {
-                                if (HelloApplication.ports.getElementFromPosition(key).getTitle().equalsIgnoreCase(portName)) {//getting actual port if it has been linearly probed
+                                if (HelloApplication.ports.getElementFromPosition(key).getTitle().equalsIgnoreCase(portName) && port.getGsPortedTo().equals(tempGSName)) {//getting actual port if it has been linearly probed
                                     port = HelloApplication.ports.getElementFromPosition(key);
                                     break;
                                 }
@@ -700,48 +704,52 @@ public class MainController implements Initializable {
 
                         for (TreeItem<String> child : system.getChildren()) {
                             boolean portRemoved = false;
-                            if (child.getValue().equals("| PORT |  " + port.getTitle())) {
-                                gs.getGames().remove(port);//removing port from systems game list
-                                child.getParent().getChildren().remove(child);
-                                break;
+                            boolean inThisGS = (gsPortedTo.equals(gs.getName()));
 
-                            } else if (child.getValue().equals("| GAME |  " + port.getTitle())) {
-                                for (TreeItem<String> game : child.getChildren()) {
-                                    String gameName = game.getValue().substring(10,portToDeleteTI.getValue().length()-endToRemove);//getting rid of "| GAME |  ";
-                                    int keyForGame = HelloApplication.games.hashFunction(gameName);
-                                    Game gameToRemovePortFrom = HelloApplication.games.getElementFromPosition(keyForGame);
+                            if (inThisGS) {
+                                if (child.getValue().equals("| PORT |  " + port.getTitle())) {
+                                    gs.getGames().remove(port);//removing port from systems game list
+                                    child.getParent().getChildren().remove(child);
+                                    break;
 
-                                    boolean gameEmpty = (gameToRemovePortFrom == null);
-                                    if (gameEmpty)
-                                        for (int i = 0; i < HelloApplication.games.size(); i++)
-                                            if (HelloApplication.games.getElementFromPosition(i) != null) {
-                                                gameToRemovePortFrom = HelloApplication.games.getElementFromPosition(i);//assigning dummy game to avoid null pointer exception if gsToAddTo is initially null
-                                                break;
-                                            }
+                                } else if (child.getValue().equals("| GAME |  " + port.getTitle())) {
+                                    for (TreeItem<String> game : child.getChildren()) {
+                                        String gameName = game.getValue().substring(10, portToDeleteTI.getValue().length() - endToRemove);//getting rid of "| GAME |  ";
+                                        int keyForGame = HelloApplication.games.hashFunction(gameName);
+                                        Game gameToRemovePortFrom = HelloApplication.games.getElementFromPosition(keyForGame);
 
-                                    if (!gameToRemovePortFrom.getTitle().equals(gameName)) {
-                                        int homeOfGame = keyForGame;
-                                        do {
-                                            keyForGame = (keyForGame + 1) % (HelloApplication.games.size());
-                                            if (HelloApplication.games.getElementFromPosition(keyForGame) != null) {
-                                                if (HelloApplication.games.getElementFromPosition(keyForGame).getTitle().equalsIgnoreCase(portName)) {//getting actual port if it has been linearly probed
-                                                    gameToRemovePortFrom = HelloApplication.games.getElementFromPosition(keyForGame);
+                                        boolean gameEmpty = (gameToRemovePortFrom == null);
+                                        if (gameEmpty)
+                                            for (int i = 0; i < HelloApplication.games.size(); i++)
+                                                if (HelloApplication.games.getElementFromPosition(i) != null) {
+                                                    gameToRemovePortFrom = HelloApplication.games.getElementFromPosition(i);//assigning dummy game to avoid null pointer exception if gsToAddTo is initially null
                                                     break;
                                                 }
-                                            }
-                                        } while (homeOfGame != keyForGame);
-                                    }
 
-                                    for (GamePort port1 : gameToRemovePortFrom.getPorts()) {
-                                        if (port1.getTitle().equals(port.getTitle())) {
-                                            gameToRemovePortFrom.getPorts().remove(port1);
-                                            portRemoved = true;
-                                            break;
+                                        if (!gameToRemovePortFrom.getTitle().equals(gameName)) {
+                                            int homeOfGame = keyForGame;
+                                            do {
+                                                keyForGame = (keyForGame + 1) % (HelloApplication.games.size());
+                                                if (HelloApplication.games.getElementFromPosition(keyForGame) != null) {
+                                                    if (HelloApplication.games.getElementFromPosition(keyForGame).getTitle().equalsIgnoreCase(portName)) {//getting actual port if it has been linearly probed
+                                                        gameToRemovePortFrom = HelloApplication.games.getElementFromPosition(keyForGame);
+                                                        break;
+                                                    }
+                                                }
+                                            } while (homeOfGame != keyForGame);
                                         }
-                                    }
-                                    if (portRemoved == true) break;//break for | GAME | route
-                                }
 
+                                        for (GamePort port1 : gameToRemovePortFrom.getPorts()) {
+                                            if (port1.getTitle().equals(port.getTitle())) {
+                                                gameToRemovePortFrom.getPorts().remove(port1);
+                                                portRemoved = true;
+                                                break;
+                                            }
+                                        }
+                                        if (portRemoved) break;//break for | GAME | route
+                                    }
+
+                                }
                             }
                         }
                     }
@@ -842,7 +850,7 @@ public class MainController implements Initializable {
                                             break;
                                         }
                                     }
-                                    if (portRemoved == true) break;//break for | GAME | route
+                                    if (portRemoved) break;//break for | GAME | route
                                 }
 
                             }
