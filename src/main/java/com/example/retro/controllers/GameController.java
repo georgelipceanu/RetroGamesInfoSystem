@@ -133,11 +133,55 @@ public class GameController implements Initializable {
     @FXML
     public void delete(){
         gs.getGames().remove(game);
+        HelloApplication.gameSystems.replace(gs,gs.getPosition());//updating with gs without game
+
+        for (GamePort port : game.getPorts()){
+            String gsToRemoveFromName = port.getGsPortedTo();
+            int keyForGSToRemoveFrom = HelloApplication.gameSystems.hashFunction(gsToRemoveFromName);
+            GameSystem gsToRemoveFrom=HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom);
+
+            boolean gsToRemoveFromEmpty=(gsToRemoveFrom)==null;
+            if (gsToRemoveFromEmpty)
+                for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                    if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                        gsToRemoveFrom=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                        break;
+                    }
+
+
+            if (!gsToRemoveFrom.getName().equals(gsToRemoveFromName)) {//finding game system in backend hash map stored at diff location
+                int home = keyForGSToRemoveFrom;
+                do {
+                    keyForGSToRemoveFrom = (keyForGSToRemoveFrom + 1) % (HelloApplication.gameSystems.size());
+                    if (HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom) != null) {
+                        if (HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom).getName().equalsIgnoreCase(gsToRemoveFromName)) {
+                            gsToRemoveFrom = HelloApplication.gameSystems.getElementFromPosition(keyForGSToRemoveFrom);
+                            break;
+                        }
+                    }
+                } while (home != keyForGSToRemoveFrom);
+            }
+            gsToRemoveFrom.getGames().remove(port);
+            HelloApplication.gameSystems.replace(gsToRemoveFrom,gsToRemoveFrom.getPosition());
+        }
+
+        HelloApplication.games.delete(game.getPosition());
+
+        MainController.getMainController().clear();//refreshing main page with changes made on view pages
+        MainController.getMainController().refresh();
+        HelloApplication.mainStage.setScene(HelloApplication.mainS);
+
+    }
+
+    @FXML
+    public void view(){
+
     }
 
     @FXML
     public void goBack(){
         MainController.getMainController().clear();//refreshing main page with changes made on view pages
+        MainController.getMainController().refresh();
         HelloApplication.mainStage.setScene(HelloApplication.mainS);
     }
     @Override

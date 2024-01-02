@@ -170,7 +170,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void addPort() {
-        if (!portCover.getText().isEmpty() && !portRelease.getText().isEmpty() && !portDev.getText().isEmpty()) { //checking if each text box is filled
+        if (!portCover.getText().isEmpty() && !portRelease.getText().isEmpty() && !portDev.getText().isEmpty()&&gameSystems.getSelectionModel().getSelectedItem()!=null) { //checking if each text box is filled
             String dev = portDev.getText();
             String url = portCover.getText();//getting details from boxes
 

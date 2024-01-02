@@ -24,8 +24,8 @@
                   <TreeView fx:id="gameDetails" prefHeight="472.0" prefWidth="514.0" />
                   <HBox alignment="CENTER" prefHeight="98.0" prefWidth="514.0" spacing="10.0">
                      <children>
-                        <Button layoutX="144.0" layoutY="28.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Delete Game" />
-                        <Button layoutX="208.0" layoutY="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="View" />
+                        <Button onAction="#delete" layoutX="144.0" layoutY="28.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Delete Game" />
+                        <Button onAction="#view" layoutX="208.0" layoutY="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="View" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

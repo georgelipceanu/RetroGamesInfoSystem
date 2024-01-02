@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="working on edit in game view">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/retro/MyNeatListTest.java" afterDir="false" />
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="edit in game view functioning&#10;added tests for MyNeatList">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" afterDir="false" />
     </list>
@@ -84,7 +82,7 @@
       <recent name="com.example.retro.models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MyNeatListTest.add">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.retro.HelloApplication" />
       <module name="retro" />
@@ -164,9 +162,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.MyNeatListTest.add" />
         <item itemvalue="JUnit.MyNeatListTest.set" />
-        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.UltimateHashTest.testReplace" />
         <item itemvalue="JUnit.UltimateHashTest.testDelete" />
       </list>
@@ -204,14 +202,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
-      <workItem from="1704218045626" duration="19635000" />
-    </task>
-    <task id="LOCAL-00013" summary="added system-view.fxml">
-      <created>1703789477941</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1703789477941</updated>
+      <workItem from="1704218045626" duration="21492000" />
     </task>
     <task id="LOCAL-00014" summary="added controllers for all future views,&#10;added .fxml files">
       <created>1703803280840</created>
@@ -549,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704234967727</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="edit in game view functioning&#10;added tests for MyNeatList">
+      <created>1704237892676</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1704237892676</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +578,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="changed delete for games and systems to facilitate for the addPort() changes" />
     <MESSAGE value="changed delete again for games and systems to facilitate for the addPort() changes" />
     <MESSAGE value="delete port when //| SYSTEM | -&gt; | GAME | -&gt; | PORT | functioning" />
     <MESSAGE value="delete port fully functioning" />
@@ -605,7 +602,8 @@
     <MESSAGE value="searchGame by name fully functional" />
     <MESSAGE value="working on searchPort by year ascending, sorting method must be fixed" />
     <MESSAGE value="working on edit in game view" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on edit in game view" />
+    <MESSAGE value="edit in game view functioning&#10;added tests for MyNeatList" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit in game view functioning&#10;added tests for MyNeatList" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
