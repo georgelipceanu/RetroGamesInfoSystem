@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="still working on ports">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="view for SystemController complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/retro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/retro/models/GameSystemTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,14 +142,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="12661000" />
       <workItem from="1704127627657" duration="26840000" />
-      <workItem from="1704198071097" duration="16014000" />
-    </task>
-    <task id="LOCAL-00005" summary="added Utilities.java,&#10;added scenes, back end lists, save and load,">
-      <created>1701708151386</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1701708151386</updated>
+      <workItem from="1704198071097" duration="16975000" />
     </task>
     <task id="LOCAL-00006" summary="Added Main Page">
       <created>1703631246150</created>
@@ -490,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704208866928</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="view for SystemController complete">
+      <created>1704215808701</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1704215808701</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +518,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Deleting games fully functioning in MainController" />
     <MESSAGE value="fixed issue in delete() for system where it would not delete ports from other systems" />
     <MESSAGE value="fixed issue where size() in UltimateHash returned 1 more than it should have" />
     <MESSAGE value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
@@ -546,7 +542,8 @@
     <MESSAGE value="edit in SystemController functioning" />
     <MESSAGE value="view in SystemController functioning for games (working on ports)" />
     <MESSAGE value="still working on ports" />
-    <option name="LAST_COMMIT_MESSAGE" value="still working on ports" />
+    <MESSAGE value="view for SystemController complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="view for SystemController complete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
