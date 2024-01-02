@@ -48,7 +48,7 @@ public class SearchController implements Initializable {
 //                searchedListOfGameSystems.getItems().addAll(strSearchedGameSystems);//adds them to listview
 //            }else Utilities.showWarningAlert("WARNING!","No goods of this description found");
 //        }else Utilities.showWarningAlert("WARNING!","Search bar is empty");
-//
+
     }
 
 
