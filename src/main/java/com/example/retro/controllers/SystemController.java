@@ -25,8 +25,8 @@ public class SystemController implements Initializable {
 
     @FXML
     public TextField gameSysName,gameSysManufacturer,gameSysDesc,gameSysType,gameSysMedia,gameSysYear,gameSysPrice,gameSysImage,
-            gameName,gamePublisher,gameDesc,gameDev,gameRelease,gameCover,
-            portDev,portRelease,portCover;
+            gameName,gamePublisher,gameDesc,gameDev,gameRelease,gameCover;
+
 
 
     @FXML
@@ -38,6 +38,24 @@ public class SystemController implements Initializable {
     }
 
     private GameSystem gs;
+
+    public GameSystem getGs() {
+        return gs;
+    }
+
+    public void setGs(GameSystem gs) {
+        this.gs = gs;
+    }
+
+    private TreeItem<String> games;
+
+    public TreeItem<String> getGames() {
+        return games;
+    }
+
+    public void setGames(TreeItem<String> games) {
+        this.games = games;
+    }
 
     @FXML
     public void addGame() {
@@ -61,17 +79,26 @@ public class SystemController implements Initializable {
             Game gameToAdd = new Game(name,publisher,desc,dev,url,year);
             boolean uniqueName=true;
 
+            for (int i = 0; i<HelloApplication.games.size();i++){
+                if (HelloApplication.games.getElementFromPosition(i)!=null) {
+                    if (HelloApplication.games.getElementFromPosition(i).getTitle().equalsIgnoreCase(gameToAdd.getTitle())) {//check for unique name across all games
+                        uniqueName = false;
+                        break;
+                    }
+                }
+            }
 
-            TreeItem<String> gsToAddToTI=systemDetails.getSelectionModel().getSelectedItem();
 
 
 
-            if (systemDetails.getSelectionModel().getSelectedItem()!=null && gsToAddToTI!=systemDetails.getRoot()) {
-                if (validYear && Utilities.isValidURL(url) && uniqueName) {
-                    gameToAdd.setPosition(HelloApplication.games.add(gameToAdd));
-                    gsToAddToTI.getChildren().add(new TreeItem<>(gameToAdd.getTitle()));
-                } else Utilities.showWarningAlert("WARNING", "Enter valid details");
-            } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
+
+
+            if (validYear && Utilities.isValidURL(url) && uniqueName) {
+                gameToAdd.setPosition(HelloApplication.games.add(gameToAdd));
+                gs.getGames().add(gameToAdd);
+                games.getChildren().add(new TreeItem<>(gameToAdd.getTitle() + " (Original Game)"));
+            } else Utilities.showWarningAlert("WARNING", "Enter valid details");
+
         }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
     }
 
@@ -88,7 +115,7 @@ public class SystemController implements Initializable {
                         TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
                         gs.getChildren().add(gameTI);
                         for (GamePort port : game.getPorts())
-                            gameTI.getChildren().add(new TreeItem<>("| PORT |  "+ port.getTitle() + "  | " + port.getGsPortedTo()));
+                            gameTI.getChildren().add(new TreeItem<>("| PORT |  "+ port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
                     } else gs.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
                 }
             }

@@ -303,6 +303,7 @@ public class MainController implements Initializable {
                 SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Image: "+gs.getImageURL()));//adding details to treeview
                 TreeItem<String> games = new TreeItem<>("GAMES:");
                 SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
+                SystemController.getSystemController().setGames(games);
                 for (Game game : gs.getGames()) {
                     if (game instanceof GamePort)
                         games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port)"));
@@ -318,6 +319,7 @@ public class MainController implements Initializable {
                 SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
                 SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
 
+                SystemController.getSystemController().setGs(gs);
                 System.out.println(gs.getPosition());
                 HelloApplication.mainStage.setScene(HelloApplication.systemS);
             }

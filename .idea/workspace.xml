@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="fixed load when loading a games ports in the treeview">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +146,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="12661000" />
       <workItem from="1704127627657" duration="26840000" />
-      <workItem from="1704198071097" duration="657000" />
+      <workItem from="1704198071097" duration="1612000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -467,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704156448022</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="fixed load when loading a games ports in the treeview">
+      <created>1704198979077</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1704198979077</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +508,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="deleted system-view.fxml" />
     <MESSAGE value="still working on fix" />
     <MESSAGE value="Issue fixed by reverting to older version and going from there" />
     <MESSAGE value="Delete working for GameSystems on main page" />
@@ -523,7 +532,8 @@
     <MESSAGE value="Still working on fixing delete method for ports (doesn't work with multiple ports)" />
     <MESSAGE value="Delete fully working (hopefully)" />
     <MESSAGE value="view fully working (hopefull)" />
-    <option name="LAST_COMMIT_MESSAGE" value="view fully working (hopefull)" />
+    <MESSAGE value="fixed load when loading a games ports in the treeview" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed load when loading a games ports in the treeview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
