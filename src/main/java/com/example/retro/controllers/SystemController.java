@@ -104,8 +104,8 @@ public class SystemController implements Initializable {
                 for (TreeItem<String> portTI : games.getChildren()) {
                     boolean portRemoved=false;
 
-                    String gsPortedToName = portTI.getValue().substring(game.getTitle().length()+12,portTI.getValue().length()-1);
-                    int keyGSOfPortToRemoveFrom = HelloApplication.gameSystems.hashFunction(gsPortedToName);
+                    String gsPortedFrom = portTI.getValue().substring(game.getTitle().length()+12,portTI.getValue().length()-1);
+                    int keyGSOfPortToRemoveFrom = HelloApplication.gameSystems.hashFunction(gsPortedFrom);
                     GameSystem gameSystemToRemovePortFrom = HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom);
                     boolean gsOfPortToRemoveFrom = (gameSystemToRemovePortFrom) == null;
                     if (gsOfPortToRemoveFrom)
@@ -115,12 +115,12 @@ public class SystemController implements Initializable {
                                 break;
                             }
 
-                    if (!gameSystemToRemovePortFrom.getName().equals(gsPortedToName)) {//finding game system in backend hash map stored at diff location
+                    if (!gameSystemToRemovePortFrom.getName().equals(gsPortedFrom)) {//finding game system in backend hash map stored at diff location
                         int home = keyGSOfPortToRemoveFrom;
                         do {
                             keyGSOfPortToRemoveFrom = (keyGSOfPortToRemoveFrom + 1) % (HelloApplication.gameSystems.size());
                             if (HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom) != null) {
-                                if (HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom).getName().equalsIgnoreCase(gsPortedToName)) {
+                                if (HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom).getName().equalsIgnoreCase(gsPortedFrom)) {
                                     gameSystemToRemovePortFrom = HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom);
                                     break;
                                 }
@@ -129,11 +129,15 @@ public class SystemController implements Initializable {
                     }
 
                     for (Game game1 : gameSystemToRemovePortFrom.getGames()) { //removing port from ported to system
-                        if (game1 instanceof GamePort) {
+                        if (!(game1 instanceof GamePort)) {
                             if (game1.getTitle().equals(game.getTitle())) {
-                                gameSystemToRemovePortFrom.getGames().remove(game1);
-                                portRemoved=true;
-                                break;
+                                for (GamePort gamePort : game1.getPorts()) {
+                                    if (gamePort.getGsPortedTo().equals(((GamePort) game).getGsPortedTo())) {
+                                        game1.getPorts().remove(gamePort);
+                                        portRemoved = true;
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }

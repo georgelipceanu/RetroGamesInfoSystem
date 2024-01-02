@@ -305,8 +305,26 @@ public class MainController implements Initializable {
                 SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
                 SystemController.getSystemController().setGames(games);
                 for (Game game : gs.getGames()) {
-                    if (game instanceof GamePort)
-                        games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port from " + ((GamePort) game).getGsPortedTo() + ")"));
+
+                    if (game instanceof GamePort) {
+                        boolean foundOGGS = false;
+                        String ogSystem="";
+                        for (int i=0;i<HelloApplication.gameSystems.size();i++){
+                            if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+                                for (Game game1 : HelloApplication.gameSystems.getElementFromPosition(i).getGames()) {//finding original system of ports orignal game
+                                    if (!(game1 instanceof GamePort) && game1.getTitle().equals(game.getTitle())) {
+                                        ogSystem = HelloApplication.gameSystems.getElementFromPosition(i).getName();
+                                        foundOGGS = true;
+                                        break;
+                                    }
+
+                                }
+                            }
+                            if (foundOGGS) break;
+                        }
+
+                        games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port from " + ogSystem + ")"));
+                    }
                     else games.getChildren().add(new TreeItem<>(game.getTitle()+ " (Original game)"));
                 }
 
