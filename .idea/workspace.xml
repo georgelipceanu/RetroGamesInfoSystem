@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="deleteSystem in SystemController fully functioning">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="view in SystemController functioning for games (working on ports)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,14 +145,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="12661000" />
       <workItem from="1704127627657" duration="26840000" />
-      <workItem from="1704198071097" duration="7522000" />
-    </task>
-    <task id="LOCAL-00003" summary="added fields to all models,&#10;added xstream to project">
-      <created>1701279692851</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1701279692851</updated>
+      <workItem from="1704198071097" duration="10300000" />
     </task>
     <task id="LOCAL-00004" summary="added MyNeatList.java,&#10;added neat lists in GameSystem.java">
       <created>1701705062079</created>
@@ -486,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704204868825</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="edit in SystemController functioning">
+      <created>1704205910609</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1704205910610</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,8 +521,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implemented greater use of hashing in addGame()" />
-    <MESSAGE value="addPort fully functioning" />
     <MESSAGE value="added port-view.fxml" />
     <MESSAGE value="Deleting games fully functioning in MainController" />
     <MESSAGE value="fixed issue in delete() for system where it would not delete ports from other systems" />
@@ -542,7 +544,9 @@
     <MESSAGE value="working on deleteSystem() in SystemController" />
     <MESSAGE value="working on deleteSystem() in SystemController,&#10;issue with deleting ports on main page after load" />
     <MESSAGE value="deleteSystem in SystemController fully functioning" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleteSystem in SystemController fully functioning" />
+    <MESSAGE value="edit in SystemController functioning" />
+    <MESSAGE value="view in SystemController functioning for games (working on ports)" />
+    <option name="LAST_COMMIT_MESSAGE" value="view in SystemController functioning for games (working on ports)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

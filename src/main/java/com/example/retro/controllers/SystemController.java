@@ -190,6 +190,57 @@ public class SystemController implements Initializable {
     }
 
     @FXML
+    public void deleteGame(){
+
+    }
+
+    @FXML
+    public void view(){
+        int option=0;
+        if (systemDetails.getSelectionModel().getSelectedItem() != null) {
+            if (systemDetails.getSelectionModel().getSelectedItem().getParent() != systemDetails.getRoot()) {
+                String gameName= systemDetails.getSelectionModel().getSelectedItem().getValue();
+                option = (gameName.endsWith(" (Original game)")) ? 1 : gameName.contains("(Port From") ? 2 : 0;
+
+                switch (option) {
+                    case 1 -> {//original game
+                        System.out.println("og game");
+                        gameName=gameName.substring(0,gameName.length()-16);//16 for " (Original game)"
+                        for (Game game : gs.getGames()){
+                            if (game.getTitle().equals(gameName)){
+                                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle()));
+                                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+game.getDescription()));
+                                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+game.getPublisher()));
+                                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Developer: "+game.getOgDeveloper()));
+                                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Year of release: "+game.getYearOfRelease()));
+                                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Cover Art (URL): "+game.getCoverArtURL()));
+                                TreeItem<String> ports =new TreeItem<>("PORTS: ");
+                                GameController.getGameController().getGameDetails().getRoot().getChildren().add(ports);
+                                for (GamePort port : game.getPorts()){
+                                    ports.getChildren().add(new TreeItem<>(port.getGsPortedTo()));//system of port
+                                }
+                                GameController.getGameController().gameName.setText(game.getTitle());
+                                GameController.getGameController().gameDesc.setText(game.getDescription());
+                                GameController.getGameController().gamePublisher.setText(game.getPublisher());
+                                GameController.getGameController().gameCover.setText(game.getCoverArtURL());
+                                GameController.getGameController().gameRelease.setText(String.valueOf(game.getYearOfRelease()));
+                                GameController.getGameController().gameDev.setText(game.getOgDeveloper());
+                                HelloApplication.mainStage.setScene(HelloApplication.gameS);
+                            }
+                        }
+                    }
+
+                    case 2 -> {
+                        System.out.println("port");
+                    }
+
+                    case 0 -> Utilities.showWarningAlert("WARNING", "Please select a game");
+                }
+            } else Utilities.showWarningAlert("WARNING", "Please select a game");
+        } else Utilities.showWarningAlert("WARNING", "Please select a game");
+    }
+
+    @FXML
     public void edit(){
         int key = gs.getPosition();
         if (!gameSysName.getText().isEmpty() && !gameSysPrice.getText().isEmpty() && !gameSysDesc.getText().isEmpty() && !gameSysManufacturer.getText().isEmpty() &&

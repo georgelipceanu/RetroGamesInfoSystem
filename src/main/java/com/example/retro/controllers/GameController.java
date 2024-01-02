@@ -3,6 +3,7 @@ package com.example.retro.controllers;
 import com.example.retro.HelloApplication;
 import com.example.retro.models.Game;
 import com.example.retro.models.GamePort;
+import com.example.retro.models.GameSystem;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
@@ -29,6 +30,26 @@ public class GameController implements Initializable {
     @FXML
     public TextField gameName,gamePublisher,gameDesc,gameDev,gameRelease,gameCover,
             portDev,portRelease,portCover;
+
+    private Game game;
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    private GameSystem gs;
+
+    public GameSystem getGs() {
+        return gs;
+    }
+
+    public void setGs(GameSystem gs) {
+        this.gs = gs;
+    }
 
     @FXML
     public void goBack(){

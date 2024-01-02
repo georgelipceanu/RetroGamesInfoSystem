@@ -233,7 +233,7 @@ public class MainController implements Initializable {
                         }
                     }
 
-                    if (validYear && Utilities.isValidURL(url)&&uniquePort) {
+                    if (validYear && Utilities.isValidURL(url)&&uniquePort && year>=gameToPort.getYearOfRelease()) {
                         portToAdd.setGsPortedTo(realGS.getName());
                         portToAdd.setPortPosition(HelloApplication.ports.add(portToAdd));
                         gameToPort.getPorts().add(portToAdd);
