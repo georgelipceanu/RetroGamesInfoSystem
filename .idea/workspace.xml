@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="view for SystemController complete">
+
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="insertion sort added. search functionality started. begin tests for sorting">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/retro/UltimateHashTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/retro/utils/SortUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/retro/utils/SortUtilsTest.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -57,7 +62,9 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+
     &quot;last_opened_file_path&quot;: &quot;C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/ship&quot;,
+
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
@@ -76,12 +83,29 @@
       <recent name="C:\Users\unimu\OneDrive - South East Technological University (Waterford Campus)\Semester 3\data_structures_and_algo\ca\2nd\retro\src\main\java\com\example\retro" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.retro" />
+      <recent name="com.example.retro.utils" />
       <recent name="com.example.retro.models" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.retro.HelloApplication" />
+  <component name="RunManager" selected="JUnit.UltimateHashTest.testReplace">
+    <configuration name="SortUtilsTest.testInsertionSortAscending" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="retro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.retro.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.retro.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.utils.SortUtilsTest" />
+      <option name="METHOD_NAME" value="testInsertionSortAscending" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UltimateHashTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="retro" />
       <extension name="coverage">
         <pattern>
@@ -89,6 +113,57 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.example.retro" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.UltimateHashTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UltimateHashTest.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="retro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.retro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.retro" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.UltimateHashTest" />
+      <option name="METHOD_NAME" value="testDelete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UltimateHashTest.testHashFunction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="retro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.retro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.retro" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.UltimateHashTest" />
+      <option name="METHOD_NAME" value="testHashFunction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UltimateHashTest.testReplace" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="retro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.retro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.retro" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.UltimateHashTest" />
+      <option name="METHOD_NAME" value="testReplace" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,7 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.UltimateHashTest.testReplace" />
+        <item itemvalue="JUnit.UltimateHashTest.testDelete" />
+        <item itemvalue="JUnit.SortUtilsTest.testInsertionSortAscending" />
+        <item itemvalue="JUnit.UltimateHashTest" />
+        <item itemvalue="JUnit.UltimateHashTest.testHashFunction" />
       </list>
     </recent_temporary>
   </component>
@@ -140,9 +219,45 @@
       <workItem from="1703943823209" duration="18746000" />
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
-      <workItem from="1704110525240" duration="12661000" />
-      <workItem from="1704127627657" duration="26840000" />
-      <workItem from="1704198071097" duration="16975000" />
+
+      <workItem from="1704110525240" duration="3321000" />
+      <workItem from="1704202550963" duration="9506000" />
+    </task>
+    <task id="LOCAL-00001" summary="added Game.java">
+      <created>1700817977399</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700817977399</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added GamePort.java,&#10;added some fields to Game.java,&#10;added GameSystemTest.java">
+      <created>1701250932826</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701250932826</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added fields to all models,&#10;added xstream to project">
+      <created>1701279692851</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701279692851</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added MyNeatList.java,&#10;added neat lists in GameSystem.java">
+      <created>1701705062079</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701705062079</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added Utilities.java,&#10;added scenes, back end lists, save and load,">
+      <created>1701708151386</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701708151386</updated>
+
     </task>
     <task id="LOCAL-00006" summary="Added Main Page">
       <created>1703631246150</created>
@@ -340,6 +455,7 @@
       <option name="project" value="LOCAL" />
       <updated>1704075054535</updated>
     </task>
+
     <task id="LOCAL-00034" summary="working on delete for ports">
       <created>1704116678261</created>
       <option name="number" value="00034" />
@@ -488,6 +604,7 @@
       <updated>1704215808701</updated>
     </task>
     <option name="localTasksCounter" value="55" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,6 +635,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+
     <MESSAGE value="fixed issue in delete() for system where it would not delete ports from other systems" />
     <MESSAGE value="fixed issue where size() in UltimateHash returned 1 more than it should have" />
     <MESSAGE value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
@@ -568,5 +686,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+
   </component>
 </project>

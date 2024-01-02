@@ -35,6 +35,40 @@ public class UltimateHash<T> {
     }
 
 
+    public void deleteElement(T data) {
+        int home = hashFunction(data.toString());
+        int loc = home;
+
+        do {
+            T currentData = hashTable[loc];
+            if (currentData != null && currentData.equals(data)) {
+                // Found the element, delete it
+                hashTable[loc] = null;
+                return;
+            } else {
+                // Not found, so probe ahead by 1 with wrap-round
+                loc = (loc + 1) % hashTable.length;
+            }
+        } while (loc != home);
+    }
+
+    public void replaceElement(T newData, T oldData) {
+        int home = hashFunction(oldData.toString());
+        int loc = home;
+
+        do {
+            T currentData = hashTable[loc];
+            if (currentData != null && currentData.equals(oldData)) {
+                // Found the element to replace, update it with the new value
+                hashTable[loc] = newData;
+                return;
+            } else {
+                // Not found, so probe ahead by 1 with wrap-round
+                loc = (loc + 1) % hashTable.length;
+            }
+        } while (loc != home);
+    }
+
     public void displayHashTable(){//for debugging
         System.out.println("Hash Table");
         for(int i=0;i<hashTable.length;i++)
@@ -96,5 +130,26 @@ public class UltimateHash<T> {
         }
         hashTable=newHashTable;
     }
+
+    public T find(T data) {
+        int home = hashFunction(data.toString());
+        int loc = home;
+
+        do {
+            T currentData = hashTable[loc];
+            if (currentData != null && currentData.equals(data)) {
+                // Found the element
+                return currentData;
+            } else {
+                // Not found, so probe ahead by 1 with wrap-round
+                loc = (loc + 1) % hashTable.length;
+            }
+        } while (loc != home);
+
+        // Element not found
+        return null;
+    }
+
+
 
 }
