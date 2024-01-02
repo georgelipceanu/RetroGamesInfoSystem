@@ -393,6 +393,9 @@ public class MainController implements Initializable {
                 GameController.getGameController().gameCover.setText(game.getCoverArtURL());
                 GameController.getGameController().gameRelease.setText(String.valueOf(game.getYearOfRelease()));
                 GameController.getGameController().gameDev.setText(game.getOgDeveloper());
+
+                GameController.getGameController().setGame(game);
+
                 HelloApplication.mainStage.setScene(HelloApplication.gameS);
             }
             case 3 -> {

@@ -43,7 +43,36 @@
         <position>4</position>
       </com.example.retro.models.GameSystem>
       <null/>
-      <null/>
+      <com.example.retro.models.GameSystem>
+        <name>55</name>
+        <manufacturer>5</manufacturer>
+        <description>5</description>
+        <type>5</type>
+        <media>5</media>
+        <imageURL>http://www.w.com</imageURL>
+        <launchYear>5</launchYear>
+        <price>5.0</price>
+        <games>
+          <head>
+            <contents class="com.example.retro.models.GamePort">
+              <title>222</title>
+              <publisher>43242</publisher>
+              <description>4234</description>
+              <ogDeveloper>432</ogDeveloper>
+              <coverArtURL>http://www.w.com</coverArtURL>
+              <yearOfRelease>432</yearOfRelease>
+              <ports/>
+              <position>-1</position>
+              <portDev>3</portDev>
+              <newCoverArt>http://www.w.com</newCoverArt>
+              <newYear>2004</newYear>
+              <portPosition>10</portPosition>
+              <gsPortedTo>55</gsPortedTo>
+            </contents>
+          </head>
+        </games>
+        <position>6</position>
+      </com.example.retro.models.GameSystem>
       <null/>
       <null/>
       <null/>
@@ -68,7 +97,25 @@
         <ogDeveloper>432</ogDeveloper>
         <coverArtURL>http://www.w.com</coverArtURL>
         <yearOfRelease>432</yearOfRelease>
-        <ports/>
+        <ports>
+          <head>
+            <contents class="com.example.retro.models.GamePort">
+              <title>222</title>
+              <publisher>43242</publisher>
+              <description>4234</description>
+              <ogDeveloper>432</ogDeveloper>
+              <coverArtURL>http://www.w.com</coverArtURL>
+              <yearOfRelease>432</yearOfRelease>
+              <ports/>
+              <position>-1</position>
+              <portDev>3</portDev>
+              <newCoverArt>http://www.w.com</newCoverArt>
+              <newYear>2004</newYear>
+              <portPosition>10</portPosition>
+              <gsPortedTo>55</gsPortedTo>
+            </contents>
+          </head>
+        </ports>
         <position>10</position>
       </com.example.retro.models.Game>
       <null/>
@@ -103,7 +150,21 @@
       <null/>
       <null/>
       <null/>
-      <null/>
+      <com.example.retro.models.GamePort>
+        <title>222</title>
+        <publisher>43242</publisher>
+        <description>4234</description>
+        <ogDeveloper>432</ogDeveloper>
+        <coverArtURL>http://www.w.com</coverArtURL>
+        <yearOfRelease>432</yearOfRelease>
+        <ports/>
+        <position>-1</position>
+        <portDev>3</portDev>
+        <newCoverArt>http://www.w.com</newCoverArt>
+        <newYear>2004</newYear>
+        <portPosition>10</portPosition>
+        <gsPortedTo>55</gsPortedTo>
+      </com.example.retro.models.GamePort>
       <null/>
       <null/>
       <null/>

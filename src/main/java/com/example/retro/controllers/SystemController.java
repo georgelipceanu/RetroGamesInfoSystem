@@ -200,7 +200,7 @@ public class SystemController implements Initializable {
         if (systemDetails.getSelectionModel().getSelectedItem() != null) {
             if (systemDetails.getSelectionModel().getSelectedItem().getParent() != systemDetails.getRoot()) {
                 String gameName= systemDetails.getSelectionModel().getSelectedItem().getValue();
-                option = (gameName.endsWith(" (Original game)")) ? 1 : gameName.contains("(Port From") ? 2 : 0;
+                option = (gameName.endsWith(" (Original game)")) ? 1 : gameName.contains(" (Port from ") ? 2 : 0;
 
                 switch (option) {
                     case 1 -> {//original game
@@ -232,6 +232,86 @@ public class SystemController implements Initializable {
 
                     case 2 -> {
                         System.out.println("port");
+                        GamePort port = null;
+                        String ogSys = gameName.split("\\(")[1].trim();//extracting the system name using "("
+                        ogSys=ogSys.substring(10,ogSys.length()-1);
+
+                        String portName = gameName.substring(0, gameName.length() - (13+ogSys.length()));
+
+
+                        int keyForGS = HelloApplication.gameSystems.hashFunction(ogSys);//finding game system in backend hash map
+                        GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+
+                        boolean gsEmpty = (gs) == null;
+                        if (gsEmpty)
+                            for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
+                                if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                                    gs = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                                    break;
+                                }
+
+                        if (!gs.getName().equals(ogSys)) {//finding game system in backend hash map stored at diff location
+                            int home = keyForGS;
+                            do {
+                                keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size());
+                                if (HelloApplication.gameSystems.getElementFromPosition(keyForGS) != null) {
+                                    if (HelloApplication.gameSystems.getElementFromPosition(keyForGS).getName().equalsIgnoreCase(ogSys)) {
+                                        gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+                                        break;
+                                    }
+                                }
+                            } while (home != keyForGS);
+                        }
+
+                        for (Game game : this.gs.getGames()){
+                            if (game instanceof GamePort){
+                                if (game.getTitle().equals(portName)){//finding port object in system
+                                    port = (GamePort) game;
+                                    break;
+                                }
+                            }
+                        }
+
+                        GameSystem ogSystem=gs;//for clarity
+                        Game ogGame=null;
+
+                        for (int i =0;i<HelloApplication.gameSystems.size();i++){//finding system of original game
+                            boolean gameFound=false;
+                            if(HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+                                for (Game game : HelloApplication.gameSystems.getElementFromPosition(i).getGames()) {
+                                    if (!(game instanceof GamePort) && game.getTitle().equals(port.getTitle())) {
+                                        ogGame = game;
+                                        ogSystem = HelloApplication.gameSystems.getElementFromPosition(i);
+                                        gameFound = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (gameFound) break;
+                        }
+
+
+                        PortController.getPortController().portDev.setText(port.getPortDev());
+                        PortController.getPortController().portCover.setText(port.getNewCoverArt());
+                        PortController.getPortController().portRelease.setText(String.valueOf(port.getNewYear()));
+
+                        PortController.getPortController().getPortDetails().setRoot(new TreeItem<>(port.getTitle() + " (Port from " + ogSystem.getName() + " to "+ port.getGsPortedTo()+")"));
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+port.getDescription()));
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+port.getPublisher()));
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Original Developer: "+port.getOgDeveloper()));
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Initial Year of release: "+port.getYearOfRelease()));
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Original Cover Art (URL): "+port.getCoverArtURL()));
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Port Developer: "+port.getPortDev()));
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Year of Port release: "+port.getNewYear()));
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Port Cover Art (URL): "+port.getNewCoverArt()));
+                        TreeItem<String> portsSystems = new TreeItem<>("Systems this game is on: ");
+                        PortController.getPortController().getPortDetails().getRoot().getChildren().add(portsSystems);
+
+                        for (GamePort portOfOG:ogGame.getPorts()){//adding all ports to treeview
+                            portsSystems.getChildren().add(new TreeItem<>(portOfOG.getGsPortedTo()+ " (" + portOfOG.getNewYear() +")"));
+                        }
+
+                        HelloApplication.mainStage.setScene(HelloApplication.portS);
                     }
 
                     case 0 -> Utilities.showWarningAlert("WARNING", "Please select a game");
