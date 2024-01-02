@@ -95,6 +95,19 @@ public class GameController implements Initializable {
 
                 gameToAdd.setPosition(key);
                 HelloApplication.games.replace(gameToAdd,key);
+                int index = 0;
+                for (Game game1 : gs.getGames()){
+                    if (game1==game){
+                        index=gs.getGames().indexOf(game1);//getting index for set() method in MyNeatList<>
+                        break;
+                    }
+
+                }
+
+                gs.getGames().set(index,gameToAdd);//updating game in games list
+                HelloApplication.gameSystems.replace(gs,gs.getPosition());//updating gs with new game in games list
+                gameToAdd.setPosition(game.getPosition());
+                HelloApplication.games.replace(gameToAdd,game.getPosition());
 
                 game=gameToAdd;
 
@@ -111,8 +124,15 @@ public class GameController implements Initializable {
                     ports.getChildren().add(new TreeItem<>("| " + port.getGsPortedTo() + " |"));
                 }
 
+
+
             } else Utilities.showWarningAlert("WARNING", "Enter valid details");
         }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
+    }
+
+    @FXML
+    public void delete(){
+        gs.getGames().remove(game);
     }
 
     @FXML

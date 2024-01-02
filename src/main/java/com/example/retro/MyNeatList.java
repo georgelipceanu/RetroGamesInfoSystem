@@ -109,7 +109,7 @@ public class MyNeatList<F> implements List<F>, Serializable {
     @Override
     public F get(int index) {
         NeatNode temp = head;
-        while (indexOf(temp)<index)
+        while (indexOf(temp.contents)<index)
             temp=temp.next;//goes through list until the index of temp equals index inputted
         return (F) temp.getContents();//returns object at given index
     }
@@ -117,7 +117,7 @@ public class MyNeatList<F> implements List<F>, Serializable {
     @Override
     public F set(int index, F element) {
         NeatNode temp = head;
-        while (indexOf(temp)<index) {
+        while (indexOf(temp.contents)<index) {
             temp = temp.next;//goes through list until the index of temp equals index inputted
         }
         temp.setContents(element);
@@ -151,7 +151,7 @@ public class MyNeatList<F> implements List<F>, Serializable {
         NeatNode temp = head;
         int i = 0;
 
-        while (temp != o) {
+        while (temp.contents != o) {
             temp = temp.next;
             i++;//adds 1 to the index until temp is equal to the object
         }

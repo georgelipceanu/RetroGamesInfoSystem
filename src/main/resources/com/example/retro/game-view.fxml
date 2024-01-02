@@ -96,7 +96,7 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Save Changes" />
+                        <Button onAction="#edit" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Save Changes" />
                      </children>
                   </HBox>
                   <Text layoutX="15.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Port to different System" wrappingWidth="314.3999984264374">

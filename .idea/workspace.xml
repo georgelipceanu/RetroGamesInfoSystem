@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="working on searchPort by year ascending, sorting method must be fixed">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="working on edit in game view">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/retro/MyNeatListTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/MyNeatList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/port-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/port-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/2nd again/lib/xstream-1.4.17.jar",
+    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/ship",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -87,7 +84,7 @@
       <recent name="com.example.retro.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloApplication">
+  <component name="RunManager" selected="JUnit.MyNeatListTest.add">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.retro.HelloApplication" />
       <module name="retro" />
@@ -101,23 +98,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SortUtilsTest.testInsertionSortAscending" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="retro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.retro.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.retro.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.example.retro.utils.SortUtilsTest" />
-      <option name="METHOD_NAME" value="testInsertionSortAscending" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UltimateHashTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MyNeatListTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="retro" />
       <extension name="coverage">
         <pattern>
@@ -126,8 +107,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.retro" />
-      <option name="MAIN_CLASS_NAME" value="com.example.retro.UltimateHashTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.MyNeatListTest" />
+      <option name="METHOD_NAME" value="add" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyNeatListTest.set" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="retro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.retro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.retro" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.MyNeatListTest" />
+      <option name="METHOD_NAME" value="set" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MyNeatListTest.add" />
+        <item itemvalue="JUnit.MyNeatListTest.set" />
         <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.UltimateHashTest.testReplace" />
         <item itemvalue="JUnit.UltimateHashTest.testDelete" />
-        <item itemvalue="JUnit.SortUtilsTest.testInsertionSortAscending" />
-        <item itemvalue="JUnit.UltimateHashTest" />
       </list>
     </recent_temporary>
   </component>
@@ -206,14 +204,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
-      <workItem from="1704218045626" duration="16817000" />
-    </task>
-    <task id="LOCAL-00012" summary="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()">
-      <created>1703714714077</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1703714714077</updated>
+      <workItem from="1704218045626" duration="19635000" />
     </task>
     <task id="LOCAL-00013" summary="added system-view.fxml">
       <created>1703789477941</created>
@@ -551,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704232290076</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="working on edit in game view">
+      <created>1704234967727</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1704234967727</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +580,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="changed add for ports to include the name of system being added to underneath games section" />
     <MESSAGE value="changed delete for games and systems to facilitate for the addPort() changes" />
     <MESSAGE value="changed delete again for games and systems to facilitate for the addPort() changes" />
     <MESSAGE value="delete port when //| SYSTEM | -&gt; | GAME | -&gt; | PORT | functioning" />
@@ -607,7 +604,8 @@
     <MESSAGE value="searchSystem by name fully functional" />
     <MESSAGE value="searchGame by name fully functional" />
     <MESSAGE value="working on searchPort by year ascending, sorting method must be fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on searchPort by year ascending, sorting method must be fixed" />
+    <MESSAGE value="working on edit in game view" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on edit in game view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
