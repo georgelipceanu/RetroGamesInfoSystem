@@ -102,7 +102,52 @@ public class SearchController implements Initializable {
                         }
 
                     } else {//descending
+                        MyNeatList<String> sortedNames = SortUtils.sortByGameSystemNameDescendingReturn();
+                        for (String gsName : sortedNames) {
+                            if (gsName.contains(gsNameToSearchFor)) {
+                                int key = HelloApplication.gameSystems.hashFunction(gsName);
+                                GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(key);
+                                boolean gsEmpty = (gs == null);
+                                if (gsEmpty)
+                                    for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
+                                        if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                                            gs = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                                            break;
+                                        }
 
+                                if (!gs.getName().equals(gsName)) {
+                                    int home = key;
+                                    do {
+                                        key = (key + 1) % (HelloApplication.gameSystems.size());
+
+                                        if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
+                                            if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsName)) {
+                                                gs = HelloApplication.gameSystems.getElementFromPosition(key);
+                                                break;
+                                            }
+                                        }
+
+                                    } while (home != key);
+                                }
+                                TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
+
+                                root.getChildren().add(gsTI);
+
+                                for (Game game : gs.getGames()) {
+                                    if (game instanceof GamePort) {
+                                        gsTI.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
+                                    } else {
+                                        TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                        gsTI.getChildren().add(gameTI);
+                                        for (GamePort port : game.getPorts()) {
+                                            gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
                     }
                 }
 

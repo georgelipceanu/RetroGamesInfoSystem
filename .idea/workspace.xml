@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="updated search-view.fxml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,14 +200,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
-      <workItem from="1704218045626" duration="5810000" />
-    </task>
-    <task id="LOCAL-00008" summary="Opened and export everything to fxml">
-      <created>1703631995802</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1703631995802</updated>
+      <workItem from="1704218045626" duration="6435000" />
     </task>
     <task id="LOCAL-00009" summary="added getters and setters,&#10;started work on UltimateHash (still not complete)">
       <created>1703687017034</created>
@@ -547,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704220253939</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="updated search-view.fxml">
+      <created>1704224340034</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1704224340034</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,15 +623,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
-          <line>48</line>
-          <properties class="com.example.retro.controllers.SearchController" method="searchSystem">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
