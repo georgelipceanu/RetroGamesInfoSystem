@@ -16,17 +16,43 @@
          <children>
             <VBox prefHeight="562.0" prefWidth="910.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="208.0">
-                     <font>
-                        <Font name="MS Gothic" size="25.0" />
-                     </font>
-                  </Text>
+                  <HBox alignment="BOTTOM_RIGHT" layoutX="30.0" layoutY="40.0" prefHeight="87.0" prefWidth="861.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sort for Systems" textAlignment="CENTER" wrappingWidth="118.40000629425049">
+                           <font>
+                              <Font name="MS Gothic" size="25.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="336.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort for Games" textAlignment="CENTER" wrappingWidth="123.20001065731049">
+                           <font>
+                              <Font name="MS Gothic" size="25.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="446.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort for Ports" textAlignment="CENTER" wrappingWidth="122.39996480941772">
+                           <font>
+                              <Font name="MS Gothic" size="25.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="555.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Asc. Or Desc." textAlignment="CENTER" wrappingWidth="133.59997749328613">
+                           <font>
+                              <Font name="MS Gothic" size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="524.0" prefHeight="98.0" prefWidth="514.0" spacing="10.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="326.0" />
-                        <ChoiceBox prefWidth="150.0" />
-                        <ChoiceBox prefWidth="150.0" />
-                        <ChoiceBox layoutX="415.0" layoutY="22.0" prefWidth="150.0" />
+                        <TextField fx:id="searchBar" prefHeight="26.0" prefWidth="326.0" />
+                        <ChoiceBox fx:id="gsFilter" prefWidth="150.0" />
+                        <ChoiceBox fx:id="gameFilter" prefWidth="150.0" />
+                        <ChoiceBox fx:id="portFilter" layoutX="415.0" layoutY="22.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="ascOrDesc" layoutX="694.0" layoutY="31.0" prefWidth="150.0" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -37,9 +63,9 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="40.0" prefHeight="98.0" prefWidth="514.0" spacing="10.0">
                      <children>
-                        <Button layoutX="208.0" layoutY="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Search Systems" />
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Search Games" />
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Search Ports" />
+                        <Button onAction="#searchSystem" layoutX="208.0" layoutY="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Search Systems" />
+                        <Button onAction="#searchGame" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Search Games" />
+                        <Button onAction="#searchPort" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Search Ports" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -48,10 +74,9 @@
                         <Insets />
                      </opaqueInsets>
                   </HBox>
-                  <TreeView fx:id="systemDetails" prefHeight="422.0" prefWidth="810.0" />
+                  <TreeView fx:id="searchResults" prefHeight="422.0" prefWidth="810.0" />
                   <HBox alignment="CENTER" prefHeight="98.0" prefWidth="514.0" spacing="10.0">
                      <children>
-                        <Button layoutX="144.0" layoutY="28.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Delete" />
                         <Button layoutX="208.0" layoutY="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="View" />
                      </children>
                      <padding>
@@ -73,7 +98,7 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="460.0" prefHeight="71.0" prefWidth="900.0" spacing="10.0">
          <children>
-            <Button onAction="#goBack" layoutX="401.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Back" />
+            <Button layoutX="401.0" layoutY="20.0" mnemonicParsing="false" onAction="#goBack" prefHeight="60.0" prefWidth="118.0" text="Back" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

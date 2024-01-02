@@ -190,11 +190,6 @@ public class SystemController implements Initializable {
     }
 
     @FXML
-    public void deleteGame(){
-
-    }
-
-    @FXML
     public void view(){
         int option=0;
         if (systemDetails.getSelectionModel().getSelectedItem() != null) {
@@ -225,6 +220,8 @@ public class SystemController implements Initializable {
                                 GameController.getGameController().gameCover.setText(game.getCoverArtURL());
                                 GameController.getGameController().gameRelease.setText(String.valueOf(game.getYearOfRelease()));
                                 GameController.getGameController().gameDev.setText(game.getOgDeveloper());
+                                GameController.getGameController().setGs(gs);
+                                GameController.getGameController().setGame(game);
                                 HelloApplication.mainStage.setScene(HelloApplication.gameS);
                             }
                         }
@@ -371,9 +368,8 @@ public class SystemController implements Initializable {
                     gsToAdd.getGames().add(game);//adding all games back to new gs
                 }
 
-
-                HelloApplication.gameSystems.replace(gsToAdd,key);
                 gsToAdd.setPosition(key);
+                HelloApplication.gameSystems.replace(gsToAdd,key);
                 gs=gsToAdd;
 
 
@@ -389,7 +385,6 @@ public class SystemController implements Initializable {
                 SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
                 SystemController.getSystemController().setGames(games);
                 for (Game game : gs.getGames()) {
-
                     if (game instanceof GamePort) {
                         boolean foundOGGS = false;
                         String ogSystem="";
