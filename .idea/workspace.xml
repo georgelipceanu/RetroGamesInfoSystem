@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="fixed load when loading a games ports in the treeview">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="added system refresh to all back buttons on view page,&#10;addGame() in system fully functioning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/system-view.fxml" afterDir="false" />
     </list>
@@ -146,7 +144,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="12661000" />
       <workItem from="1704127627657" duration="26840000" />
-      <workItem from="1704198071097" duration="1612000" />
+      <workItem from="1704198071097" duration="3777000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -477,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704198979077</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="added system refresh to all back buttons on view page,&#10;addGame() in system fully functioning">
+      <created>1704199905846</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1704199905846</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +513,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="still working on fix" />
     <MESSAGE value="Issue fixed by reverting to older version and going from there" />
     <MESSAGE value="Delete working for GameSystems on main page" />
     <MESSAGE value="Implemented greater use of hashing in delete() and view()" />
@@ -533,21 +537,7 @@
     <MESSAGE value="Delete fully working (hopefully)" />
     <MESSAGE value="view fully working (hopefull)" />
     <MESSAGE value="fixed load when loading a games ports in the treeview" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed load when loading a games ports in the treeview" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
-          <line>258</line>
-          <properties class="com.example.retro.controllers.MainController" method="view">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="added system refresh to all back buttons on view page,&#10;addGame() in system fully functioning" />
+    <option name="LAST_COMMIT_MESSAGE" value="added system refresh to all back buttons on view page,&#10;addGame() in system fully functioning" />
   </component>
 </project>
