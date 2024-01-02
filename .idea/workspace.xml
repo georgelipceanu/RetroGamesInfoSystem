@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="Delete fully working (hopefully)">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/port-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/port-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,21 +49,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/retro/src/main/resources/com/example/retro&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/ship",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\unimu\OneDrive - South East Technological University (Waterford Campus)\Semester 3\data_structures_and_algo\ca\2nd\retro\src\main\resources\com\example\retro" />
@@ -143,7 +142,7 @@
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="12661000" />
-      <workItem from="1704127627657" duration="25302000" />
+      <workItem from="1704127627657" duration="26840000" />
     </task>
     <task id="LOCAL-00001" summary="added Game.java">
       <created>1700817977399</created>
@@ -460,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704149920572</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="view fully working (hopefull)">
+      <created>1704156448022</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1704156448022</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +497,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="working on fix for view" />
     <MESSAGE value="deleted system-view.fxml" />
     <MESSAGE value="still working on fix" />
     <MESSAGE value="Issue fixed by reverting to older version and going from there" />
@@ -516,7 +521,8 @@
     <MESSAGE value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
     <MESSAGE value="Still working on fixing delete method for ports (doesn't work with multiple ports)" />
     <MESSAGE value="Delete fully working (hopefully)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete fully working (hopefully)" />
+    <MESSAGE value="view fully working (hopefull)" />
+    <option name="LAST_COMMIT_MESSAGE" value="view fully working (hopefull)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

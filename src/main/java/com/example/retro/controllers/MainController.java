@@ -1027,6 +1027,10 @@ public class MainController implements Initializable {
         }
     }
 
+    public void clear(){//for load
+        for (TreeItem<String> gs : root.getChildren()) system.getRoot().getChildren().remove(gs);
+    }
+
     @FXML
     public void save(){
         try {
@@ -1036,7 +1040,26 @@ public class MainController implements Initializable {
         }
     }
 
-    public void load(){
+    @FXML
+    public void load() throws Exception {
+        clear();
+        HelloApplication.load();
+
+        for (int i = 0 ; i<HelloApplication.gameSystems.size();i++){//adding everything back into fxml elements
+            if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+                TreeItem<String> gs = new TreeItem<>("| SYSTEM |  " + HelloApplication.gameSystems.getElementFromPosition(i).getName());
+                root.getChildren().add(gs);
+                gameSystems.getItems().add(HelloApplication.gameSystems.getElementFromPosition(i));
+                for (Game game : HelloApplication.gameSystems.getElementFromPosition(i).getGames()) {
+                    if (!(game instanceof GamePort)){
+                        TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                        gs.getChildren().add(gameTI);
+                        for (GamePort port : game.getPorts())
+                            gameTI.getChildren().add(new TreeItem<>("| PORT |  "+ port.getTitle() + "  | " + port.getGsPortedTo()));
+                    } else gs.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
+                }
+            }
+        }
 
     }
 
