@@ -1,91 +1,56 @@
 <object-stream>
   <com.example.retro.UltimateHash>
     <hashTable>
-      <com.example.retro.models.GameSystem>
-        <name>2</name>
-        <manufacturer>4</manufacturer>
-        <description>4</description>
-        <type>4</type>
-        <media>4</media>
-        <imageURL>http://www.c.com</imageURL>
-        <launchYear>4</launchYear>
-        <price>4.0</price>
-        <games/>
-        <position>0</position>
-      </com.example.retro.models.GameSystem>
+      <null/>
+      <null/>
+      <null/>
       <null/>
       <com.example.retro.models.GameSystem>
-        <name>4</name>
+        <name>44</name>
         <manufacturer>4</manufacturer>
         <description>4</description>
         <type>4</type>
         <media>4</media>
-        <imageURL>http://www.c.com</imageURL>
+        <imageURL>http://www.w.com</imageURL>
         <launchYear>4</launchYear>
-        <price>4.0</price>
+        <price>44.0</price>
         <games>
           <head>
+            <next>
+              <contents class="com.example.retro.models.Game">
+                <title>43534</title>
+                <publisher>43242</publisher>
+                <description>4234</description>
+                <ogDeveloper>432</ogDeveloper>
+                <coverArtURL>http://www.w.com</coverArtURL>
+                <yearOfRelease>432</yearOfRelease>
+                <ports/>
+                <position>19</position>
+              </contents>
+            </next>
             <contents class="com.example.retro.models.Game">
-              <title>5</title>
-              <publisher>5</publisher>
-              <description>5</description>
-              <ogDeveloper>5</ogDeveloper>
-              <coverArtURL>http://www.c.com</coverArtURL>
-              <yearOfRelease>5</yearOfRelease>
-              <ports>
-                <head>
-                  <contents class="com.example.retro.models.GamePort">
-                    <title>5</title>
-                    <publisher>5</publisher>
-                    <description>5</description>
-                    <ogDeveloper>5</ogDeveloper>
-                    <coverArtURL>http://www.c.com</coverArtURL>
-                    <yearOfRelease>5</yearOfRelease>
-                    <ports/>
-                    <position>-1</position>
-                    <portDev>5</portDev>
-                    <newCoverArt>http://www.c.com</newCoverArt>
-                    <newYear>5</newYear>
-                    <portPosition>13</portPosition>
-                    <gsPortedTo>1</gsPortedTo>
-                  </contents>
-                </head>
-              </ports>
-              <position>13</position>
+              <title>222</title>
+              <publisher>43242</publisher>
+              <description>4234</description>
+              <ogDeveloper>432</ogDeveloper>
+              <coverArtURL>http://www.w.com</coverArtURL>
+              <yearOfRelease>432</yearOfRelease>
+              <ports/>
+              <position>10</position>
             </contents>
           </head>
         </games>
-        <position>2</position>
+        <position>4</position>
       </com.example.retro.models.GameSystem>
       <null/>
       <null/>
       <null/>
       <null/>
       <null/>
-      <null/>
-      <com.example.retro.models.GameSystem>
-        <name>1</name>
-        <manufacturer>4</manufacturer>
-        <description>4</description>
-        <type>4</type>
-        <media>4</media>
-        <imageURL>http://www.c.com</imageURL>
-        <launchYear>4</launchYear>
-        <price>4.0</price>
-        <games>
-          <head>
-            <contents class="com.example.retro.models.GamePort" reference="../../../../com.example.retro.models.GameSystem[2]/games/head/contents/ports/head/contents"/>
-          </head>
-        </games>
-        <position>9</position>
-      </com.example.retro.models.GameSystem>
     </hashTable>
   </com.example.retro.UltimateHash>
   <com.example.retro.UltimateHash>
     <hashTable>
-      <null/>
-      <null/>
-      <null/>
       <null/>
       <null/>
       <null/>
@@ -97,32 +62,14 @@
       <null/>
       <null/>
       <com.example.retro.models.Game>
-        <title>5</title>
-        <publisher>5</publisher>
-        <description>5</description>
-        <ogDeveloper>5</ogDeveloper>
-        <coverArtURL>http://www.c.com</coverArtURL>
-        <yearOfRelease>5</yearOfRelease>
-        <ports>
-          <head>
-            <contents class="com.example.retro.models.GamePort">
-              <title>5</title>
-              <publisher>5</publisher>
-              <description>5</description>
-              <ogDeveloper>5</ogDeveloper>
-              <coverArtURL>http://www.c.com</coverArtURL>
-              <yearOfRelease>5</yearOfRelease>
-              <ports/>
-              <position>-1</position>
-              <portDev>5</portDev>
-              <newCoverArt>http://www.c.com</newCoverArt>
-              <newYear>5</newYear>
-              <portPosition>13</portPosition>
-              <gsPortedTo>1</gsPortedTo>
-            </contents>
-          </head>
-        </ports>
-        <position>13</position>
+        <title>222</title>
+        <publisher>43242</publisher>
+        <description>4234</description>
+        <ogDeveloper>432</ogDeveloper>
+        <coverArtURL>http://www.w.com</coverArtURL>
+        <yearOfRelease>432</yearOfRelease>
+        <ports/>
+        <position>10</position>
       </com.example.retro.models.Game>
       <null/>
       <null/>
@@ -130,6 +77,18 @@
       <null/>
       <null/>
       <null/>
+      <null/>
+      <null/>
+      <com.example.retro.models.Game>
+        <title>43534</title>
+        <publisher>43242</publisher>
+        <description>4234</description>
+        <ogDeveloper>432</ogDeveloper>
+        <coverArtURL>http://www.w.com</coverArtURL>
+        <yearOfRelease>432</yearOfRelease>
+        <ports/>
+        <position>19</position>
+      </com.example.retro.models.Game>
     </hashTable>
   </com.example.retro.UltimateHash>
   <com.example.retro.UltimateHash>
@@ -147,21 +106,7 @@
       <null/>
       <null/>
       <null/>
-      <com.example.retro.models.GamePort>
-        <title>5</title>
-        <publisher>5</publisher>
-        <description>5</description>
-        <ogDeveloper>5</ogDeveloper>
-        <coverArtURL>http://www.c.com</coverArtURL>
-        <yearOfRelease>5</yearOfRelease>
-        <ports/>
-        <position>-1</position>
-        <portDev>5</portDev>
-        <newCoverArt>http://www.c.com</newCoverArt>
-        <newYear>5</newYear>
-        <portPosition>13</portPosition>
-        <gsPortedTo>1</gsPortedTo>
-      </com.example.retro.models.GamePort>
+      <null/>
       <null/>
       <null/>
       <null/>

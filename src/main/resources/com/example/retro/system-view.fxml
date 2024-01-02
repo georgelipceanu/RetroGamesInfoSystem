@@ -108,7 +108,7 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Save Changes" />
+                        <Button onAction="#edit" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Save Changes" />
                      </children>
                   </HBox>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Game" textAlignment="CENTER" wrappingWidth="124.000004529953">

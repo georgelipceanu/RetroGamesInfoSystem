@@ -190,6 +190,102 @@ public class SystemController implements Initializable {
     }
 
     @FXML
+    public void edit(){
+        int key = gs.getPosition();
+        if (!gameSysName.getText().isEmpty() && !gameSysPrice.getText().isEmpty() && !gameSysDesc.getText().isEmpty() && !gameSysManufacturer.getText().isEmpty() &&
+                !gameSysType.getText().isEmpty() && !gameSysDesc.getText().isEmpty() && !gameSysYear.getText().isEmpty()&& !gameSysImage.getText().isEmpty() &&
+                !gameSysMedia.getText().isEmpty()) { //checking if each text box is filled
+            String name = gameSysName.getText();
+            String desc = gameSysDesc.getText();
+            String manufacturer = gameSysManufacturer.getText();
+            String type = gameSysType.getText();
+            String media = gameSysMedia.getText();
+            String url = gameSysImage.getText();//getting details from boxes
+
+            int year = 0;
+            boolean validYear=true;
+            try {//checking if number is entered
+                year = Integer.parseInt(gameSysYear.getText());
+            } catch (NumberFormatException e){
+                validYear=false;
+            }
+
+            double price=0;
+            boolean validPrice=true;
+            try {//checking if number is entered
+                price = Double.parseDouble(gameSysPrice.getText());
+            } catch (NumberFormatException e){
+                validPrice=false;
+            }
+
+            GameSystem gsToAdd = new GameSystem(name,manufacturer,desc,type,media,url,year,price);
+            boolean uniqueName = true;
+            if (!gs.getName().equals(name)) {//only checks name if it has been changed
+
+
+                for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
+                    if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                        if (HelloApplication.gameSystems.getElementFromPosition(i).getName().equalsIgnoreCase(gsToAdd.getName())) {//checking if name is unique
+                            uniqueName = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+
+
+            if (validPrice&&validYear&&Utilities.isValidURL(url)&&uniqueName && !gsToAdd.getName().contains("| SYSTEM |")){//all valid details
+                for (Game game : gs.getGames()){
+                    gsToAdd.getGames().add(game);//adding all games back to new gs
+                }
+
+
+                HelloApplication.gameSystems.replace(gsToAdd,key);
+                gsToAdd.setPosition(key);
+                gs=gsToAdd;
+
+
+                SystemController.getSystemController().getSystemDetails().setRoot(new TreeItem<>(gs.getName()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+gs.getDescription()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Type: "+gs.getType()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Media: "+gs.getMedia()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Manufacturer: "+gs.getManufacturer()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Launch Year: "+gs.getLaunchYear()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Price: €"+gs.getPrice()));
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(new TreeItem<>("Image: "+gs.getImageURL()));//adding details to treeview
+                TreeItem<String> games = new TreeItem<>("GAMES:");
+                SystemController.getSystemController().getSystemDetails().getRoot().getChildren().add(games);
+                SystemController.getSystemController().setGames(games);
+                for (Game game : gs.getGames()) {
+
+                    if (game instanceof GamePort) {
+                        boolean foundOGGS = false;
+                        String ogSystem="";
+                        for (int i=0;i<HelloApplication.gameSystems.size();i++){
+                            if (HelloApplication.gameSystems.getElementFromPosition(i)!=null) {
+                                for (Game game1 : HelloApplication.gameSystems.getElementFromPosition(i).getGames()) {//finding original system of ports orignal game
+                                    if (!(game1 instanceof GamePort) && game1.getTitle().equals(game.getTitle())) {
+                                        ogSystem = HelloApplication.gameSystems.getElementFromPosition(i).getName();
+                                        foundOGGS = true;
+                                        break;
+                                    }
+
+                                }
+                            }
+                            if (foundOGGS) break;
+                        }
+
+                        games.getChildren().add(new TreeItem<>(game.getTitle() + " (Port from " + ogSystem + ")"));
+                    }
+                    else games.getChildren().add(new TreeItem<>(game.getTitle()+ " (Original game)"));
+                }
+
+            } else Utilities.showWarningAlert("WARNING", "Enter valid details");
+        }else Utilities.showWarningAlert("WARNING", "Fill all boxes");
+    }
+
+    @FXML
     public void goBack(){
         MainController.getMainController().clear();//refreshing main page with changes made on view pages
         MainController.getMainController().refresh();
