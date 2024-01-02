@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="updated search-view.fxml">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="searchSystem by name fully functional">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,14 +203,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
-      <workItem from="1704218045626" duration="6435000" />
-    </task>
-    <task id="LOCAL-00009" summary="added getters and setters,&#10;started work on UltimateHash (still not complete)">
-      <created>1703687017034</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1703687017034</updated>
+      <workItem from="1704218045626" duration="9839000" />
     </task>
     <task id="LOCAL-00010" summary="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable">
       <created>1703691306560</created>
@@ -545,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704224340034</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="searchSystem by name fully functional">
+      <created>1704224560602</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1704224560602</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +579,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
     <MESSAGE value="working on delete for ports" />
     <MESSAGE value="still working on delete for ports" />
     <MESSAGE value="changed add for ports to include the name of system being added to underneath games section" />
@@ -601,7 +603,8 @@
     <MESSAGE value="view for SystemController complete" />
     <MESSAGE value="test commit" />
     <MESSAGE value="updated search-view.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated search-view.fxml" />
+    <MESSAGE value="searchSystem by name fully functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="searchSystem by name fully functional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -623,6 +626,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
+          <line>183</line>
+          <properties class="com.example.retro.controllers.SearchController" method="searchGame">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

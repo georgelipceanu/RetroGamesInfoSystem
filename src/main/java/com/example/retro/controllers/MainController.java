@@ -203,7 +203,7 @@ public class MainController implements Initializable {
                         key = (key + 1) % (HelloApplication.games.size());
 
                         if (HelloApplication.games.getElementFromPosition(key) != null) {
-                            if (HelloApplication.games.getElementFromPosition(key).getTitle().equalsIgnoreCase(gameName)) {
+                            if (HelloApplication.games.getElementFromPosition(key).getTitle().equals(gameName)) {
                                 gameToPort = HelloApplication.games.getElementFromPosition(key);
                                 break;
                             }

@@ -286,6 +286,27 @@ public class SortUtils {
 
     }
 
+    public static MyNeatList<String> sortByGameNameAscendingReturn() {
+        MyNeatList<String> NameList = new MyNeatList<>();
+
+        // Loop through all game systems and extract names
+        for (int i = 0; i < HelloApplication.games.size(); i++) {
+            if (HelloApplication.games.getElementFromPosition(i) != null) {
+                NameList.add(HelloApplication.games.getElementFromPosition(i).getTitle());
+            }
+        }
+
+        // Use insertion sort to sort the names
+        SortUtils.insertionSortAscending(NameList);
+
+        // Now, you have the sorted names in the 'nameList'
+        // You can use this sorted list as needed
+        // For example, print the sorted names
+
+        return NameList;
+
+    }
+
     public static void sortByGameNameDescending() {
         MyNeatList<String> NameList = new MyNeatList<>();
 
@@ -303,6 +324,26 @@ public class SortUtils {
         // You can use this sorted list as needed
         // For example, print the sorted names
         System.out.println("Sorted Names: " + NameList.stream().toList());
+
+    }
+
+    public static MyNeatList<String> sortByGameNameDescendingReturn() {
+        MyNeatList<String> NameList = new MyNeatList<>();
+
+        // Loop through all game systems and extract names
+        for (int i = 0; i < HelloApplication.games.size(); i++) {
+            if (HelloApplication.games.getElementFromPosition(i) != null) {
+                NameList.add(HelloApplication.games.getElementFromPosition(i).getTitle());
+            }
+        }
+
+        // Use insertion sort to sort the names
+        SortUtils.insertionSortDescending(NameList);
+
+        // Now, you have the sorted names in the 'nameList'
+        // You can use this sorted list as needed
+        // For example, print the sorted names
+        return NameList;
 
     }
 
