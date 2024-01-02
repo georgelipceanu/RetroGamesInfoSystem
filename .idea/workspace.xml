@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="working on deleteSystem() in SystemController">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="working on deleteSystem() in SystemController,&#10;issue with deleting ports on main page after load">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,14 +141,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="12661000" />
       <workItem from="1704127627657" duration="26840000" />
-      <workItem from="1704198071097" duration="6248000" />
-    </task>
-    <task id="LOCAL-00001" summary="added Game.java">
-      <created>1700817977399</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1700817977399</updated>
+      <workItem from="1704198071097" duration="6719000" />
     </task>
     <task id="LOCAL-00002" summary="added GamePort.java,&#10;added some fields to Game.java,&#10;added GameSystemTest.java">
       <created>1701250932826</created>
@@ -488,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704201928346</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="working on deleteSystem() in SystemController,&#10;issue with deleting ports on main page after load">
+      <created>1704204583262</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1704204583262</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +517,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Delete working for GameSystems on main page" />
     <MESSAGE value="Implemented greater use of hashing in delete() and view()" />
     <MESSAGE value="Implemented greater use of hashing in addGame()" />
     <MESSAGE value="addPort fully functioning" />
@@ -544,7 +541,8 @@
     <MESSAGE value="fixed load when loading a games ports in the treeview" />
     <MESSAGE value="added system refresh to all back buttons on view page,&#10;addGame() in system fully functioning" />
     <MESSAGE value="working on deleteSystem() in SystemController" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on deleteSystem() in SystemController" />
+    <MESSAGE value="working on deleteSystem() in SystemController,&#10;issue with deleting ports on main page after load" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on deleteSystem() in SystemController,&#10;issue with deleting ports on main page after load" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

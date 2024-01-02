@@ -148,7 +148,38 @@ public class SystemController implements Initializable {
                 HelloApplication.ports.delete(((GamePort) game).getPortPosition());
             } else {
                 for (GamePort port : game.getPorts()){
+                    String gsToRemoveFrom = port.getGsPortedTo();
+                    int keyGSOfPortToRemoveFrom = HelloApplication.gameSystems.hashFunction(gsToRemoveFrom);
+                    GameSystem gameSystemToRemovePortFrom = HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom);
+                    boolean gsOfPortToRemoveFrom = (gameSystemToRemovePortFrom) == null;
+                    if (gsOfPortToRemoveFrom)
+                        for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
+                            if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                                gameSystemToRemovePortFrom = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                                break;
+                            }
 
+                    if (!gameSystemToRemovePortFrom.getName().equals(gsToRemoveFrom)) {//finding game system in backend hash map stored at diff location
+                        int home = keyGSOfPortToRemoveFrom;
+                        do {
+                            keyGSOfPortToRemoveFrom = (keyGSOfPortToRemoveFrom + 1) % (HelloApplication.gameSystems.size());
+                            if (HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom) != null) {
+                                if (HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom).getName().equalsIgnoreCase(gsToRemoveFrom)) {
+                                    gameSystemToRemovePortFrom = HelloApplication.gameSystems.getElementFromPosition(keyGSOfPortToRemoveFrom);
+                                    break;
+                                }
+                            }
+                        } while (home != keyGSOfPortToRemoveFrom);
+                    }
+
+                    for (Game game1 : gameSystemToRemovePortFrom.getGames()){
+                        if (game1 instanceof GamePort && game1.getTitle().equals(port.getTitle())){
+                            gameSystemToRemovePortFrom.getGames().remove(game1);
+                            break;
+                        }
+                    }
+
+                    HelloApplication.ports.delete(port.getPortPosition());
                 }
                 HelloApplication.games.delete(game.getPosition());
             }
