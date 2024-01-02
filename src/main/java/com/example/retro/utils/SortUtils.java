@@ -2,6 +2,7 @@ package com.example.retro.utils;
 
 import com.example.retro.HelloApplication;
 import com.example.retro.MyNeatList;
+import com.example.retro.models.GamePort;
 import com.example.retro.models.GameSystem;
 
 public class SortUtils {
@@ -370,6 +371,53 @@ public class SortUtils {
 
     }
 
+    public static GamePort[] sortByGamePortYearAscendingReturn() {
+        GamePort[] portList = new GamePort[HelloApplication.ports.size()];
+        MyNeatList<Integer> portYearList = new MyNeatList<>();
+
+        // Loop through all game systems and extract names
+        for (int i = 0; i < HelloApplication.ports.size(); i++) {
+            if (HelloApplication.ports.getElementFromPosition(i) != null) {
+                portYearList.add(HelloApplication.ports.getElementFromPosition(i).getNewYear());
+                for (int j=0;j<portList.length;j++) {
+                    if (portList[j]==null){
+                        portList[j]=HelloApplication.ports.getElementFromPosition(i);
+                        break;
+                    }
+                }
+
+            }
+        }
+
+        // Use insertion sort to sort the names
+        SortUtils.insertionSortAscending(portYearList);
+        GamePort[] sortedPortList= new GamePort[HelloApplication.ports.size()];
+        for (int portYear : portYearList){
+            for (int i = 0; i<portList.length; i++) {
+                if (portList[i].getNewYear()==portYear){
+                    boolean inSortedList=false;
+                    for (int j = 0;j<sortedPortList.length;j++){
+                        if (sortedPortList[j]!=null){
+                            if (portList[i]!=sortedPortList[j]){
+                                inSortedList=true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!inSortedList){
+                        sortedPortList[i]=portList[i];
+                    }
+                }
+            }
+        }
+
+        // Now, you have the sorted names in the 'nameList'
+        // You can use this sorted list as needed
+        // For example, print the sorted names
+        System.out.println("Sorted Names: " + portYearList.stream().toList());
+        return sortedPortList;
+    }
+
     public static void sortByGamePortYearDescending() {
         MyNeatList<Integer> portYearList = new MyNeatList<>();
 
@@ -388,6 +436,47 @@ public class SortUtils {
             System.out.println("Sorted Names: " + portYearList.stream().toList());
 
         }
+    }
+
+    public static GamePort[] sortByGamePortYearDescendingReturn() {
+        GamePort[] portList = new GamePort[HelloApplication.ports.size()];
+        MyNeatList<Integer> portYearList = new MyNeatList<>();
+
+        // Loop through all game systems and extract names
+        for (int i = 0; i < HelloApplication.ports.size(); i++) {
+            if (HelloApplication.ports.getElementFromPosition(i) != null) {
+                portYearList.add(HelloApplication.ports.getElementFromPosition(i).getNewYear());
+                portList[i]=HelloApplication.ports.getElementFromPosition(i);
+            }
+        }
+
+        // Use insertion sort to sort the names
+        SortUtils.insertionSortDescending(portYearList);
+        GamePort[] sortedPortList= new GamePort[HelloApplication.ports.size()];
+        for (int portYear : portYearList){
+            for (int i = 0; i<portList.length; i++) {
+                if (portList[i].getNewYear()==portYear){
+                    boolean inSortedList=false;
+                    for (int j = 0;j<sortedPortList.length;j++){
+                        if (sortedPortList[j]!=null){
+                            if (portList[i]!=sortedPortList[j]){
+                                inSortedList=true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!inSortedList){
+                        sortedPortList[i]=portList[i];
+                    }
+                }
+            }
+        }
+
+        // Now, you have the sorted names in the 'nameList'
+        // You can use this sorted list as needed
+        // For example, print the sorted names
+        System.out.println("Sorted Names: " + portYearList.stream().toList());
+        return sortedPortList;
     }
 
 }

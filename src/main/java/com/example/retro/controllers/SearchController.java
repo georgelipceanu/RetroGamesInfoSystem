@@ -82,15 +82,30 @@ public class SearchController implements Initializable {
                                     } while (home != key);
                                 }
                                 TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
-
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
                                 root.getChildren().add(gsTI);
-
+                                gsTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + gs.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + gs.getLaunchYear()));
+                                details.getChildren().add(new TreeItem<>("PRICE: " + gs.getPrice()));
+                                details.getChildren().add(new TreeItem<>("TYPE: " + gs.getType()));
+                                details.getChildren().add(new TreeItem<>("MEDIA: " + gs.getMedia()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + gs.getManufacturer()));
+                                details.getChildren().add(new TreeItem<>("IMAGE URL: " + gs.getImageURL()));
                                 for (Game game : gs.getGames()) {
                                     if (game instanceof GamePort) {
                                         gsTI.getChildren().add(new TreeItem<String>("| PORT |  " + game.getTitle()));
                                     } else {
                                         TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                        TreeItem<String> detailsOfGame = new TreeItem<>("DETAILS: ");
                                         gsTI.getChildren().add(gameTI);
+                                        gameTI.getChildren().add(detailsOfGame);
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
                                         for (GamePort port : game.getPorts()) {
                                             gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
                                         }
@@ -146,7 +161,15 @@ public class SearchController implements Initializable {
                                         gsTI.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
                                     } else {
                                         TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                        TreeItem<String> detailsOfGame = new TreeItem<>("DETAILS: ");
                                         gsTI.getChildren().add(gameTI);
+                                        gameTI.getChildren().add(detailsOfGame);
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
                                         for (GamePort port : game.getPorts()) {
                                             gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
                                         }
@@ -308,15 +331,15 @@ public class SearchController implements Initializable {
 
                 }
             }
-        }
+        }else Utilities.showWarningAlert("WARNING", "Fill in all details");
     }
 
     @FXML
     public void searchPort(){
         searchResults.getRoot().getChildren().clear();
-        if (!searchBar.getText().isEmpty()&&gameFilter.getSelectionModel().getSelectedItem()!=null && ascOrDesc.getSelectionModel().getSelectedItem()!=null) {
+        if (!searchBar.getText().isEmpty()&&portFilter.getSelectionModel().getSelectedItem()!=null && ascOrDesc.getSelectionModel().getSelectedItem()!=null) {
             String gameNameToSearchFor = searchBar.getText();
-            int filterOption = (gameFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : (gameFilter.getSelectionModel().getSelectedItem().equals("Description")) ? 2 : 3;
+            int filterOption = (portFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : 2;
             int ascOrDescOption = (ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
 
             switch (filterOption){
@@ -328,16 +351,29 @@ public class SearchController implements Initializable {
                     }
 
                 }
-                case 2 -> {//description
+
+                case 2 -> {//year
                     if (ascOrDescOption==1){//ascending
+                        GamePort[] ports = SortUtils.sortByGamePortYearAscendingReturn();
+                        for (GamePort port : ports) {
+                            if (port.getTitle().contains(gameNameToSearchFor)) {
 
-                    } else {//descending
+                                TreeItem<String> portTI = new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |");
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(portTI);
+                                portTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + port.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + port.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + port.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + port.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + port.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + port.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("PORT DEV: " + port.getPortDev()));
+                                details.getChildren().add(new TreeItem<>("YEAR OF PORT RELEASE: " + port.getNewYear()));
+                                details.getChildren().add(new TreeItem<>("PORT COVER ART URL: " + port.getNewCoverArt()));
 
-                    }
-
-                }
-                case 3 -> {//price
-                    if (ascOrDescOption==1){//ascending
+                            }
+                        }
 
                     } else {//descending
 
@@ -345,7 +381,7 @@ public class SearchController implements Initializable {
 
                 }
             }
-        }
+        }else Utilities.showWarningAlert("WARNING", "Fill in all details");
     }
 
     @FXML

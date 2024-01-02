@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="searchSystem by name fully functional">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="searchGame by name fully functional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" afterDir="false" />
@@ -203,14 +202,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
-      <workItem from="1704218045626" duration="9839000" />
-    </task>
-    <task id="LOCAL-00010" summary="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable">
-      <created>1703691306560</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1703691306560</updated>
+      <workItem from="1704218045626" duration="13933000" />
     </task>
     <task id="LOCAL-00011" summary="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml,">
       <created>1703701723862</created>
@@ -548,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704224560602</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="searchGame by name fully functional">
+      <created>1704227992403</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1704227992403</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +578,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="working on delete for ports" />
     <MESSAGE value="still working on delete for ports" />
     <MESSAGE value="changed add for ports to include the name of system being added to underneath games section" />
     <MESSAGE value="changed delete for games and systems to facilitate for the addPort() changes" />
@@ -604,7 +602,8 @@
     <MESSAGE value="test commit" />
     <MESSAGE value="updated search-view.fxml" />
     <MESSAGE value="searchSystem by name fully functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="searchSystem by name fully functional" />
+    <MESSAGE value="searchGame by name fully functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="searchGame by name fully functional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -629,12 +628,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
-          <line>183</line>
+          <line>206</line>
           <properties class="com.example.retro.controllers.SearchController" method="searchGame">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
+          <line>337</line>
+          <properties class="com.example.retro.controllers.SearchController" method="searchPort">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
