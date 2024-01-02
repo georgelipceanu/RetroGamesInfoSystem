@@ -373,12 +373,14 @@ public class MainController implements Initializable {
             }
             case 3 -> {
                 TreeItem<String> portTI=system.getSelectionModel().getSelectedItem();
-                if (portTI.getValue().endsWith("| ")){// | SYSTEM | -> | GAME | -> | PORT |
-                    String gsName = portTI.getParent().getParent().getValue();
-                    int endToRemove = gsName.substring(12).length()+6;//6="  | " + " |"
-                    String portName = portTI.getValue().substring(10,portTI.getValue().length()-endToRemove);//getting rid of "| PORT |  and system";
+                if (portTI.getValue().endsWith(" |")){// | SYSTEM | -> | GAME | -> | PORT |
+                    String gsPortedTo = portTI.getValue().split("\\|")[3].trim();// Extract system name using "|"
+
+                    int endToRemove = gsPortedTo.length()+6;// "  | " + " |"
+                    String portName = portTI.getValue().substring(10,portTI.getValue().length()-endToRemove);//getting rid of "| PORT |  " and system;
                     int key = HelloApplication.ports.hashFunction(portName);
                     GamePort port = HelloApplication.ports.getElementFromPosition(key);
+
                     boolean portEmpty = (port == null);
                     if (portEmpty)
                         for (int i = 0; i < HelloApplication.ports.size(); i++)
@@ -387,12 +389,12 @@ public class MainController implements Initializable {
                                 break;
                             }
 
-                    if (!port.getTitle().equals(portName)) {
+                    if (!(port.getTitle().equals(portName) && port.getGsPortedTo().equals(gsPortedTo))) {
                         int home = key;
                         do {
                             key = (key + 1) % (HelloApplication.ports.size());
                             if (HelloApplication.ports.getElementFromPosition(key) != null) {
-                                if (HelloApplication.ports.getElementFromPosition(key).getTitle().equalsIgnoreCase(portName)) {//getting actual port if it has been linearly probed
+                                if (HelloApplication.ports.getElementFromPosition(key).getTitle().equalsIgnoreCase(portName) && HelloApplication.ports.getElementFromPosition(key).getGsPortedTo().equals(gsPortedTo)) {//getting actual port if it has been linearly probed
                                     port = HelloApplication.ports.getElementFromPosition(key);
                                     break;
                                 }
@@ -400,34 +402,141 @@ public class MainController implements Initializable {
                         } while (home != key);
                     }
 
-                    int keyForGS = HelloApplication.gameSystems.hashFunction(gsName);
-                    GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
-                    boolean gsEmpty = (gs==null);
+                    String ogGS=portTI.getParent().getParent().getValue().substring(12);
 
-                    if (gsEmpty)
-                        for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
-                            if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
-                                gs = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                    PortController.getPortController().getPortDetails().setRoot(new TreeItem<>(port.getTitle() + " (Port from " + ogGS + " to "+ gsPortedTo+")"));
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+port.getDescription()));
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+port.getPublisher()));
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Original Developer: "+port.getOgDeveloper()));
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Initial Year of release: "+port.getYearOfRelease()));
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Original Cover Art (URL): "+port.getCoverArtURL()));
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Port Developer: "+port.getPortDev()));
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Year of Port release: "+port.getNewYear()));
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Port Cover Art (URL): "+port.getNewCoverArt()));
+                    TreeItem<String> portsSystems = new TreeItem<>("Systems this game is on: ");
+                    PortController.getPortController().getPortDetails().getRoot().getChildren().add(portsSystems);
+
+                    String ogGameName = portTI.getParent().getValue().substring(10);
+                    int keyForOGGame = HelloApplication.games.hashFunction(ogGameName);
+                    Game ogGame = HelloApplication.games.getElementFromPosition(keyForOGGame);
+                    boolean gameEmpty= (ogGame==null);
+
+                    if (gameEmpty)
+                        for (int i=0;i<HelloApplication.games.size();i++)
+                            if (HelloApplication.games.getElementFromPosition(i)!=null){
+                                ogGame=HelloApplication.games.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if port is initially null
                                 break;
                             }
 
-                    if (!gs.getName().equals(gsName)) {
-                        int home = keyForGS;
+                    if (!ogGame.getTitle().equals(ogGameName)) {
+                        int home=keyForOGGame;
                         do {
-                            keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size());
-                            if (HelloApplication.gameSystems.getElementFromPosition(keyForGS) != null) {
-                                if (HelloApplication.gameSystems.getElementFromPosition(keyForGS).getName().equalsIgnoreCase(portName)) {//getting actual port if it has been linearly probed
-                                    gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+                            keyForOGGame=(keyForOGGame+1)%(HelloApplication.games.size());
+
+                            if (HelloApplication.games.getElementFromPosition(keyForOGGame) != null) {
+                                if (HelloApplication.games.getElementFromPosition(keyForOGGame).getTitle().equals(ogGameName)) {
+                                    ogGame = HelloApplication.games.getElementFromPosition(keyForOGGame);
                                     break;
                                 }
                             }
-                        } while (home != keyForGS);
+
+                        } while (home!=keyForOGGame);
                     }
 
+                    for (GamePort portOfOG : ogGame.getPorts()){
+                        portsSystems.getChildren().add(new TreeItem<>(portOfOG.getGsPortedTo()+ " (" + portOfOG.getNewYear() +")"));
+                    }
 
+                    PortController.getPortController().portDev.setText(port.getPortDev());
+                    PortController.getPortController().portCover.setText(port.getNewCoverArt());
+                    PortController.getPortController().portRelease.setText(String.valueOf(port.getNewYear()));
 
                 } else {// | SYSTEM | -> | PORT |
+                    String gsPortedTo = portTI.getParent().getValue().substring(12);
 
+                    String portName = portTI.getValue().substring(10);//getting rid of "| PORT |  " and system;
+                    int key = HelloApplication.ports.hashFunction(portName);
+                    GamePort port = HelloApplication.ports.getElementFromPosition(key);
+
+                    boolean portEmpty = (port == null);
+                    if (portEmpty)
+                        for (int i = 0; i < HelloApplication.ports.size(); i++)
+                            if (HelloApplication.ports.getElementFromPosition(i) != null) {
+                                port = HelloApplication.ports.getElementFromPosition(i);//assigning dummy game to avoid null pointer exception if port is initially null
+                                break;
+                            }
+
+                    if (!(port.getTitle().equals(portName) && port.getGsPortedTo().equals(gsPortedTo))) {
+                        int home = key;
+                        do {
+                            key = (key + 1) % (HelloApplication.ports.size());
+                            if (HelloApplication.ports.getElementFromPosition(key) != null) {
+                                if (HelloApplication.ports.getElementFromPosition(key).getTitle().equalsIgnoreCase(portName) && HelloApplication.ports.getElementFromPosition(key).getGsPortedTo().equals(gsPortedTo)) {//getting actual port if it has been linearly probed
+                                    port = HelloApplication.ports.getElementFromPosition(key);
+                                    break;
+                                }
+                            }
+                        } while (home != key);
+                    }
+
+                    for (TreeItem<String> system:root.getChildren()){//searching through systems to find original game
+                        boolean ogGameFound=false;
+                        String gsName=system.getValue().substring(12);
+                        int keyForGS=HelloApplication.gameSystems.hashFunction(gsName);
+                        GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+                        boolean gsEmpty=(gs==null);
+                        if (gsEmpty)
+                            for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                                if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                                    gs=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gs is initially null
+                                    break;
+                                }
+
+                        if (!gs.getName().equals(gsName)) {//finding game system in backend hash map stored at diff location
+                            int home = keyForGS;
+                            do {
+                                keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size());
+                                if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
+                                    if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsName)) {
+                                        gs = HelloApplication.gameSystems.getElementFromPosition(key);
+                                        break;
+                                    }
+                                }
+                            } while (home != keyForGS);
+                        }
+
+                        Game ogGame=null;
+
+                        for (Game game : gs.getGames())//searching through systems games
+                            if (!(game instanceof GamePort) && game.getTitle().equals(port.getTitle())){
+                                ogGame=game;
+                                ogGameFound=true;
+                                break;
+                            }
+
+                        if (ogGameFound) {
+                            PortController.getPortController().portDev.setText(port.getPortDev());
+                            PortController.getPortController().portCover.setText(port.getNewCoverArt());
+                            PortController.getPortController().portRelease.setText(String.valueOf(port.getNewYear()));
+
+                            PortController.getPortController().getPortDetails().setRoot(new TreeItem<>(port.getTitle() + " (Port from " + system.getValue().substring(12) + " to "+ port.getGsPortedTo()+")"));
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+port.getDescription()));
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+port.getPublisher()));
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Original Developer: "+port.getOgDeveloper()));
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Initial Year of release: "+port.getYearOfRelease()));
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Original Cover Art (URL): "+port.getCoverArtURL()));
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Port Developer: "+port.getPortDev()));
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Year of Port release: "+port.getNewYear()));
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Port Cover Art (URL): "+port.getNewCoverArt()));
+                            TreeItem<String> portsSystems = new TreeItem<>("Systems this game is on: ");
+                            PortController.getPortController().getPortDetails().getRoot().getChildren().add(portsSystems);
+
+                            for (GamePort portOfOG:ogGame.getPorts()){//adding all ports to treeview
+                                portsSystems.getChildren().add(new TreeItem<>(portOfOG.getGsPortedTo()+ " (" + portOfOG.getNewYear() +")"));
+                            }
+                            break;
+                        }
+                    }
                 }
                 HelloApplication.mainStage.setScene(HelloApplication.portS);
             }
