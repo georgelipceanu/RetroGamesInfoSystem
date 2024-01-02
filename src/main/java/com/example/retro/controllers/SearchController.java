@@ -7,9 +7,12 @@ import com.example.retro.models.GameSystem;
 import com.example.retro.utils.SortUtils;
 import com.example.retro.utils.Utilities;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TreeView;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,17 +28,29 @@ public class SearchController implements Initializable {
     public TreeView<String> searchResults;
 
     @FXML
+    public TextField searchBar;
+
+    @FXML
     public ChoiceBox<String> ascOrDesc, gsFilter, gameFilter, portFilter;
 
+    @FXML
+    public void searchSystem(){
+        if (searchBar.getText().isEmpty()&&gsFilter.getSelectionModel().getSelectedItem()!=null && ascOrDesc.getSelectionModel().getSelectedItem()!=null){
+            String gsNameToSearchFor = searchBar.getText();
+
+        }else Utilities.showWarningAlert("WARNING", "S");
+    }
+
+    @FXML
     public void goBack(){
         HelloApplication.mainStage.setScene(HelloApplication.mainS);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         searchController=this;
     }
-
 
 
 
