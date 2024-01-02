@@ -1,11 +1,15 @@
 package com.example.retro.controllers;
 
 import com.example.retro.HelloApplication;
+
 import com.example.retro.MyNeatList;
 import com.example.retro.models.GameSystem;
 import com.example.retro.utils.SortUtils;
 import com.example.retro.utils.Utilities;
+
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TreeView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +21,11 @@ public class SearchController implements Initializable {
         return searchController;
     }
 
+    @FXML
+    public TreeView<String> searchResults;
+
+    @FXML
+    public ChoiceBox<String> ascOrDesc, gsFilter, gameFilter, portFilter;
 
     public void goBack(){
         HelloApplication.mainStage.setScene(HelloApplication.mainS);

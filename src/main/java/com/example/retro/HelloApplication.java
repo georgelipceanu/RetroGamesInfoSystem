@@ -48,7 +48,7 @@ public class HelloApplication extends Application {
 
     public static void load() throws Exception { // load
         //list of classes that you wish to include in the serialisation, separated by a comma
-        Class<?>[] classes = new Class[]{GameSystem.class, Game.class, GamePort.class, MyNeatList.class};
+        Class<?>[] classes = new Class[]{GameSystem.class, Game.class, GamePort.class, MyNeatList.class,UltimateHash.class};
 
         //setting up the xstream object with default security and the above classes
         XStream xstream = new XStream(new DomDriver());
@@ -58,14 +58,21 @@ public class HelloApplication extends Application {
         //doing the actual serialisation to an XML file
         ObjectInputStream in = xstream.createObjectInputStream(new FileReader("retro.xml"));
         gameSystems = (UltimateHash<GameSystem>) in.readObject();//loading data from retro.xml
+        games = (UltimateHash<Game>) in.readObject();
+        ports = (UltimateHash<GamePort>) in.readObject();
         in.close();
     }
     public static void save() throws Exception { // save
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("retro.xml"));
-        out.writeObject(ports); ;//saving only game systems to retro.fxml since all data is linked to these
+        out.writeObject(gameSystems);
+        out.writeObject(games);
+        out.writeObject(ports); //saving all maps
 
         out.close();
     }
+
+
+
 
 }

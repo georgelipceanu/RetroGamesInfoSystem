@@ -48,6 +48,16 @@ public class GamePort extends Game{
         this.portPosition = portPosition;
     }
 
+    private String gsPortedTo;
+
+    public String getGsPortedTo() {
+        return gsPortedTo;
+    }
+
+    public void setGsPortedTo(String gsPortedTo) {
+        this.gsPortedTo = gsPortedTo;
+    }
+
     @Override
     public String toString() {
         return super.getTitle(); //simple toString() making game systems readable in fxml items (choiceboxes, listviews, etc), and for hash function

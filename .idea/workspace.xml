@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="insertion sort added. search functionality started. begin tests for sorting">
       <change afterPath="$PROJECT_DIR$/src/test/java/com/example/retro/UltimateHashTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/UltimateHash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/retro/utils/SortUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/retro/utils/SortUtilsTest.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +62,9 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/retro/src/main/resources/com/example/retro&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/ship&quot;,
+
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
@@ -219,6 +219,7 @@
       <workItem from="1703943823209" duration="18746000" />
       <workItem from="1703972594429" duration="2953000" />
       <workItem from="1704025371453" duration="30875000" />
+
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
     </task>
@@ -256,6 +257,7 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1701708151386</updated>
+
     </task>
     <task id="LOCAL-00006" summary="Added Main Page">
       <created>1703631246150</created>
@@ -453,14 +455,156 @@
       <option name="project" value="LOCAL" />
       <updated>1704075054535</updated>
     </task>
-    <task id="LOCAL-00034" summary="insertion sort added. search functionality started. begin tests for sorting">
-      <created>1704139839003</created>
+
+    <task id="LOCAL-00034" summary="working on delete for ports">
+      <created>1704116678261</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1704139839003</updated>
+      <updated>1704116678261</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="still working on delete for ports">
+      <created>1704121539202</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1704121539202</updated>
+    </task>
+    <task id="LOCAL-00036" summary="changed add for ports to include the name of system being added to underneath games section">
+      <created>1704122064248</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1704122064248</updated>
+    </task>
+    <task id="LOCAL-00037" summary="changed delete for games and systems to facilitate for the addPort() changes">
+      <created>1704122274444</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1704122274444</updated>
+    </task>
+    <task id="LOCAL-00038" summary="changed delete again for games and systems to facilitate for the addPort() changes">
+      <created>1704122886925</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1704122886925</updated>
+    </task>
+    <task id="LOCAL-00039" summary="delete port when //| SYSTEM | -&gt; | GAME | -&gt; | PORT | functioning">
+      <created>1704124228735</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1704124228735</updated>
+    </task>
+    <task id="LOCAL-00040" summary="delete port fully functioning">
+      <created>1704125281421</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1704125281421</updated>
+    </task>
+    <task id="LOCAL-00041" summary="save method functioning">
+      <created>1704130398397</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1704130398397</updated>
+    </task>
+    <task id="LOCAL-00042" summary="view method for games full functioning">
+      <created>1704135052506</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1704135052506</updated>
+    </task>
+    <task id="LOCAL-00043" summary="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)">
+      <created>1704140182577</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1704140182577</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Still working on fixing delete method for ports (doesn't work with multiple ports)">
+      <created>1704143160118</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1704143160118</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Delete fully working (hopefully)">
+      <created>1704149920572</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1704149920572</updated>
+    </task>
+    <task id="LOCAL-00046" summary="view fully working (hopefull)">
+      <created>1704156448022</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1704156448022</updated>
+    </task>
+    <task id="LOCAL-00047" summary="fixed load when loading a games ports in the treeview">
+      <created>1704198979077</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1704198979077</updated>
+    </task>
+    <task id="LOCAL-00048" summary="added system refresh to all back buttons on view page,&#10;addGame() in system fully functioning">
+      <created>1704199905846</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1704199905846</updated>
+    </task>
+    <task id="LOCAL-00049" summary="working on deleteSystem() in SystemController">
+      <created>1704201928346</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1704201928346</updated>
+    </task>
+    <task id="LOCAL-00050" summary="working on deleteSystem() in SystemController,&#10;issue with deleting ports on main page after load">
+      <created>1704204583262</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1704204583262</updated>
+    </task>
+    <task id="LOCAL-00051" summary="deleteSystem in SystemController fully functioning">
+      <created>1704204868825</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1704204868825</updated>
+    </task>
+    <task id="LOCAL-00052" summary="edit in SystemController functioning">
+      <created>1704205910609</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1704205910610</updated>
+    </task>
+    <task id="LOCAL-00053" summary="view in SystemController functioning for games (working on ports)">
+      <created>1704208866928</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1704208866928</updated>
+    </task>
+    <task id="LOCAL-00054" summary="view for SystemController complete">
+      <created>1704215808701</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1704215808701</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,31 +635,57 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="added getters and setters,&#10;started work on UltimateHash (still not complete)" />
-    <MESSAGE value="added simple hasFunction(T key) to UltimateHash (could change):&#10;The function takes in an object, gets the sum of all the characters in the objects toString(), and returns the modulus of the sum to the size of the hashtable" />
-    <MESSAGE value="Generated toString() for each model,&#10;Assigned fx:id to each FXML element in main-view.fxml," />
-    <MESSAGE value="Added addGameSystem(), addGame() to MainController (only works front end),&#10;started work on addPort()" />
-    <MESSAGE value="added controllers for all future views,&#10;added .fxml files" />
-    <MESSAGE value="Add methods add to backend list,&#10;added position attributes to each object type,&#10;added more methods to UltimateHash for convenience of use" />
-    <MESSAGE value="Added more methods to UltimateHash,&#10;Added view() functionality (only works for game systems, still to be completed)" />
-    <MESSAGE value="added delete to UltimateHash" />
-    <MESSAGE value="Added rehash() to UltimateHash, enables rehashing when hash table becomes full" />
-    <MESSAGE value="added system-view.fxml" />
-    <MESSAGE value="worked on delete" />
-    <MESSAGE value="working on fix for view" />
-    <MESSAGE value="deleted system-view.fxml" />
-    <MESSAGE value="still working on fix" />
-    <MESSAGE value="Issue fixed by reverting to older version and going from there" />
-    <MESSAGE value="Delete working for GameSystems on main page" />
-    <MESSAGE value="Implemented greater use of hashing in delete() and view()" />
-    <MESSAGE value="Implemented greater use of hashing in addGame()" />
-    <MESSAGE value="addPort fully functioning" />
-    <MESSAGE value="added port-view.fxml" />
-    <MESSAGE value="Deleting games fully functioning in MainController" />
+
     <MESSAGE value="fixed issue in delete() for system where it would not delete ports from other systems" />
     <MESSAGE value="fixed issue where size() in UltimateHash returned 1 more than it should have" />
     <MESSAGE value="fixed issue receiving null pointer exceptions when returned object from key was initially null due to the probing of the object and the original object taking up said space being deleted" />
-    <MESSAGE value="insertion sort added. search functionality started. begin tests for sorting" />
-    <option name="LAST_COMMIT_MESSAGE" value="insertion sort added. search functionality started. begin tests for sorting" />
+    <MESSAGE value="working on delete for ports" />
+    <MESSAGE value="still working on delete for ports" />
+    <MESSAGE value="changed add for ports to include the name of system being added to underneath games section" />
+    <MESSAGE value="changed delete for games and systems to facilitate for the addPort() changes" />
+    <MESSAGE value="changed delete again for games and systems to facilitate for the addPort() changes" />
+    <MESSAGE value="delete port when //| SYSTEM | -&gt; | GAME | -&gt; | PORT | functioning" />
+    <MESSAGE value="delete port fully functioning" />
+    <MESSAGE value="save method functioning" />
+    <MESSAGE value="view method for games full functioning" />
+    <MESSAGE value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
+    <MESSAGE value="Still working on fixing delete method for ports (doesn't work with multiple ports)" />
+    <MESSAGE value="Delete fully working (hopefully)" />
+    <MESSAGE value="view fully working (hopefull)" />
+    <MESSAGE value="fixed load when loading a games ports in the treeview" />
+    <MESSAGE value="added system refresh to all back buttons on view page,&#10;addGame() in system fully functioning" />
+    <MESSAGE value="working on deleteSystem() in SystemController" />
+    <MESSAGE value="working on deleteSystem() in SystemController,&#10;issue with deleting ports on main page after load" />
+    <MESSAGE value="deleteSystem in SystemController fully functioning" />
+    <MESSAGE value="edit in SystemController functioning" />
+    <MESSAGE value="view in SystemController functioning for games (working on ports)" />
+    <MESSAGE value="still working on ports" />
+    <MESSAGE value="view for SystemController complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="view for SystemController complete" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
+          <line>578</line>
+          <properties class="com.example.retro.controllers.MainController" method="delete">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java</url>
+          <line>197</line>
+          <properties class="com.example.retro.controllers.SystemController" method="view">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+
   </component>
 </project>

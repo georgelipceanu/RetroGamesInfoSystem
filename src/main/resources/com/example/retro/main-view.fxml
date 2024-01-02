@@ -217,9 +217,8 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="460.0" prefHeight="130.0" prefWidth="900.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Save" />
-            <Button layoutX="401.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Load" />
-            <Button layoutX="465.0" layoutY="23.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Clear" />
+            <Button onAction="#save" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Save" />
+            <Button onAction="#load" layoutX="401.0" layoutY="20.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Load" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
