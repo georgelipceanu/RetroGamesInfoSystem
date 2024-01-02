@@ -20,6 +20,10 @@ public class MainController implements Initializable {
 
     private static MainController mainController;
 
+    public static MainController getMainController() {
+        return mainController;
+    }
+
     @FXML
     private TextField gameSysName,gameSysManufacturer,gameSysDesc,gameSysType,gameSysMedia,gameSysYear,gameSysPrice,gameSysImage,
             gameName,gamePublisher,gameDesc,gameDev,gameRelease,gameCover,
@@ -1027,8 +1031,9 @@ public class MainController implements Initializable {
         }
     }
 
-    public void clear(){//for load
-        for (TreeItem<String> gs : root.getChildren()) system.getRoot().getChildren().remove(gs);
+    public void clear(){//for load and back buttons in drilldown
+        system.getRoot().getChildren().clear();
+        gameSystems.getItems().clear();
     }
 
     @FXML
@@ -1055,12 +1060,11 @@ public class MainController implements Initializable {
                         TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
                         gs.getChildren().add(gameTI);
                         for (GamePort port : game.getPorts())
-                            gameTI.getChildren().add(new TreeItem<>("| PORT |  "+ port.getTitle() + "  | " + port.getGsPortedTo()));
+                            gameTI.getChildren().add(new TreeItem<>("| PORT |  "+ port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
                     } else gs.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
                 }
             }
         }
-
     }
 
     @Override
