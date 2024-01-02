@@ -16,7 +16,7 @@
          <children>
             <VBox prefHeight="562.0" prefWidth="910.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="System" wrappingWidth="208.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="George Lipceanu (20103125) and Jeff Halley ()" wrappingWidth="400.0">
                      <font>
                         <Font name="MS Gothic" size="25.0" />
                      </font>

@@ -24,7 +24,6 @@
                   <TreeView fx:id="portDetails" prefHeight="472.0" prefWidth="514.0" />
                   <HBox alignment="CENTER" prefHeight="98.0" prefWidth="514.0" spacing="10.0">
                      <children>
-                        <Button layoutX="144.0" layoutY="28.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Delete Game" />
                         <Button layoutX="272.0" layoutY="29.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="Delete Port" />
                         <Button layoutX="208.0" layoutY="22.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="118.0" text="View" />
                      </children>

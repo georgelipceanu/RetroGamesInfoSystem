@@ -394,6 +394,33 @@ public class MainController implements Initializable {
                 GameController.getGameController().gameRelease.setText(String.valueOf(game.getYearOfRelease()));
                 GameController.getGameController().gameDev.setText(game.getOgDeveloper());
 
+                String gsName = gameTI.getParent().getValue().substring(12);//getting rid of "| SYSTEM |  "
+                int keyForGSName = HelloApplication.gameSystems.hashFunction(gsName);
+                GameSystem gs=HelloApplication.gameSystems.getElementFromPosition(keyForGSName);
+                boolean gsEmpty=(gs==null);
+                if (gsEmpty)
+                    for (int i=0;i<HelloApplication.gameSystems.size();i++)
+                        if (HelloApplication.gameSystems.getElementFromPosition(i)!=null){
+                            gs=HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
+
+                if (!gs.getName().equals(gsName)) {
+                    int home=keyForGSName;
+                    do {
+                        keyForGSName=(keyForGSName+1)%(HelloApplication.gameSystems.size());
+
+                        if (HelloApplication.gameSystems.getElementFromPosition(keyForGSName) != null) {
+                            if (HelloApplication.gameSystems.getElementFromPosition(keyForGSName).getName().equalsIgnoreCase(gsName)) {
+                                gs = HelloApplication.gameSystems.getElementFromPosition(keyForGSName);
+                                break;
+                            }
+                        }
+
+                    } while (home!=keyForGSName);
+                }
+
+                GameController.getGameController().setGs(gs);
                 GameController.getGameController().setGame(game);
 
                 HelloApplication.mainStage.setScene(HelloApplication.gameS);
