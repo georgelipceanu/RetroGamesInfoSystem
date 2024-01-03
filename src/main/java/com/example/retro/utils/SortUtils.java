@@ -737,6 +737,39 @@ public class SortUtils {
     }
 
 
+    public static MyNeatList<GamePort> sortByGamePortYearDescendingInt() {
+        int[] portYearList = new int[HelloApplication.ports.size()];
+
+        // Loop through all game systems and extract port years
+        for (int i = 0; i < HelloApplication.ports.size(); i++) {
+            if (HelloApplication.ports.getElementFromPosition(i) != null) {
+                portYearList[i]=HelloApplication.ports.getElementFromPosition(i).getNewYear();
+            }
+        }
+
+        // Use insertion sort to sort the port years in ascending order
+        SortUtils.insertionSortDescending(portYearList);
+
+        MyNeatList<GamePort> portYearListObjects = new MyNeatList<>();
+
+        // Loop through all game systems and add corresponding objects to portYearListObjects
+        for (Integer sortedPortYear : portYearList) {
+            for (int i = 0; i < HelloApplication.ports.size(); i++) {
+                GamePort port = HelloApplication.ports.getElementFromPosition(i);
+                if (port != null && sortedPortYear.equals(port.getNewYear())) {
+                    if (!portYearListObjects.contains(port)) {
+                        portYearListObjects.add(port);
+                        break;  // Break to the next iteration of the outer loop
+                    }
+                }
+            }
+        }
+
+        // Return the list of found Game objects sorted by port year in ascending order
+        return portYearListObjects;
+    }
+
+
 
 
 

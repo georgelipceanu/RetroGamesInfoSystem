@@ -495,7 +495,7 @@ public class SearchController implements Initializable {
 
                 case 2 -> {//year
                     if (ascOrDescOption == 1) {//ascending
-                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearDescending();//due to nature of linked list, ascending is descending and vice versa
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearDescendingInt();//due to nature of linked list, ascending is descending and vice versa
                         for (GamePort port : sortedGS) {
                             if (port.getTitle().contains(gameNameToSearchFor)) {
 
