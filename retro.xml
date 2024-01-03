@@ -3,38 +3,117 @@
     <hashTable>
       <null/>
       <com.example.retro.models.GameSystem>
-        <name>3</name>
-        <manufacturer>5</manufacturer>
-        <description>5</description>
-        <type>5</type>
-        <media>5</media>
+        <name>beee</name>
+        <manufacturer>7</manufacturer>
+        <description>7</description>
+        <type>7</type>
+        <media>7</media>
         <imageURL>http://www.w.com</imageURL>
-        <launchYear>5</launchYear>
-        <price>5.0</price>
+        <launchYear>7</launchYear>
+        <price>7.0</price>
         <games>
           <head>
+            <next>
+              <next>
+                <next>
+                  <contents class="com.example.retro.models.Game">
+                    <title>chow</title>
+                    <publisher>5</publisher>
+                    <description>5</description>
+                    <ogDeveloper>5</ogDeveloper>
+                    <coverArtURL>http://www.w.com</coverArtURL>
+                    <yearOfRelease>5</yearOfRelease>
+                    <ports>
+                      <head>
+                        <contents class="com.example.retro.models.GamePort">
+                          <title>chow</title>
+                          <publisher>5</publisher>
+                          <description>5</description>
+                          <ogDeveloper>5</ogDeveloper>
+                          <coverArtURL>http://www.w.com</coverArtURL>
+                          <yearOfRelease>5</yearOfRelease>
+                          <ports/>
+                          <position>-1</position>
+                          <portDev>66</portDev>
+                          <newCoverArt>http://www.w.com</newCoverArt>
+                          <newYear>66</newYear>
+                          <portPosition>13</portPosition>
+                          <gsPortedTo>peee</gsPortedTo>
+                        </contents>
+                      </head>
+                    </ports>
+                    <position>13</position>
+                  </contents>
+                </next>
+                <contents class="com.example.retro.models.Game">
+                  <title>wow</title>
+                  <publisher>56</publisher>
+                  <description>5</description>
+                  <ogDeveloper>5</ogDeveloper>
+                  <coverArtURL>http://www.w.com</coverArtURL>
+                  <yearOfRelease>5</yearOfRelease>
+                  <ports>
+                    <head>
+                      <contents class="com.example.retro.models.GamePort">
+                        <title>wow</title>
+                        <publisher>56</publisher>
+                        <description>5</description>
+                        <ogDeveloper>5</ogDeveloper>
+                        <coverArtURL>http://www.w.com</coverArtURL>
+                        <yearOfRelease>5</yearOfRelease>
+                        <ports/>
+                        <position>-1</position>
+                        <portDev>44</portDev>
+                        <newCoverArt>http://www.w.com</newCoverArt>
+                        <newYear>44</newYear>
+                        <portPosition>9</portPosition>
+                        <gsPortedTo>yeeye</gsPortedTo>
+                      </contents>
+                    </head>
+                  </ports>
+                  <position>9</position>
+                </contents>
+              </next>
+              <contents class="com.example.retro.models.GamePort">
+                <title>low</title>
+                <publisher>5</publisher>
+                <description>5</description>
+                <ogDeveloper>5</ogDeveloper>
+                <coverArtURL>http://www.w.com</coverArtURL>
+                <yearOfRelease>5</yearOfRelease>
+                <ports/>
+                <position>-1</position>
+                <portDev>66</portDev>
+                <newCoverArt>http://www.w.com</newCoverArt>
+                <newYear>66</newYear>
+                <portPosition>18</portPosition>
+                <gsPortedTo>beee</gsPortedTo>
+              </contents>
+            </next>
             <contents class="com.example.retro.models.GamePort">
-              <title>4</title>
-              <publisher>4</publisher>
-              <description>4</description>
-              <ogDeveloper>4</ogDeveloper>
+              <title>pow</title>
+              <publisher>3</publisher>
+              <description>3</description>
+              <ogDeveloper>3</ogDeveloper>
               <coverArtURL>http://www.w.com</coverArtURL>
-              <yearOfRelease>4</yearOfRelease>
+              <yearOfRelease>3</yearOfRelease>
               <ports/>
               <position>-1</position>
-              <portDev>2</portDev>
+              <portDev>88</portDev>
               <newCoverArt>http://www.w.com</newCoverArt>
-              <newYear>6</newYear>
-              <portPosition>12</portPosition>
-              <gsPortedTo>3</gsPortedTo>
+              <newYear>88</newYear>
+              <portPosition>2</portPosition>
+              <gsPortedTo>beee</gsPortedTo>
             </contents>
           </head>
         </games>
         <position>1</position>
       </com.example.retro.models.GameSystem>
       <null/>
+      <null/>
+      <null/>
       <com.example.retro.models.GameSystem>
-        <name>5</name>
+        <name>yeeye</name>
         <manufacturer>5</manufacturer>
         <description>5</description>
         <type>5</type>
@@ -44,27 +123,79 @@
         <price>5.0</price>
         <games>
           <head>
-            <contents class="com.example.retro.models.Game">
-              <title>4</title>
-              <publisher>4</publisher>
-              <description>4</description>
-              <ogDeveloper>4</ogDeveloper>
-              <coverArtURL>http://www.w.com</coverArtURL>
-              <yearOfRelease>4</yearOfRelease>
-              <ports>
-                <head>
-                  <contents class="com.example.retro.models.GamePort" reference="../../../../../../../com.example.retro.models.GameSystem/games/head/contents"/>
-                </head>
-              </ports>
-              <position>12</position>
-            </contents>
+            <next>
+              <contents class="com.example.retro.models.Game">
+                <title>pow</title>
+                <publisher>3</publisher>
+                <description>3</description>
+                <ogDeveloper>3</ogDeveloper>
+                <coverArtURL>http://www.w.com</coverArtURL>
+                <yearOfRelease>3</yearOfRelease>
+                <ports>
+                  <head>
+                    <next>
+                      <contents class="com.example.retro.models.GamePort" reference="../../../../../../../../../com.example.retro.models.GameSystem/games/head/contents"/>
+                    </next>
+                    <contents class="com.example.retro.models.GamePort">
+                      <title>pow</title>
+                      <publisher>3</publisher>
+                      <description>3</description>
+                      <ogDeveloper>3</ogDeveloper>
+                      <coverArtURL>http://www.w.com</coverArtURL>
+                      <yearOfRelease>3</yearOfRelease>
+                      <ports/>
+                      <position>-1</position>
+                      <portDev>99</portDev>
+                      <newCoverArt>http://www.w.com</newCoverArt>
+                      <newYear>99</newYear>
+                      <portPosition>3</portPosition>
+                      <gsPortedTo>peee</gsPortedTo>
+                    </contents>
+                  </head>
+                </ports>
+                <position>2</position>
+              </contents>
+            </next>
+            <contents class="com.example.retro.models.GamePort" reference="../../../../com.example.retro.models.GameSystem/games/head/next/next/contents/ports/head/contents"/>
           </head>
         </games>
-        <position>3</position>
+        <position>5</position>
       </com.example.retro.models.GameSystem>
-      <null/>
-      <null/>
-      <null/>
+      <com.example.retro.models.GameSystem>
+        <name>peee</name>
+        <manufacturer>5</manufacturer>
+        <description>5</description>
+        <type>5</type>
+        <media>5</media>
+        <imageURL>http://www.w.com</imageURL>
+        <launchYear>5</launchYear>
+        <price>5.0</price>
+        <games>
+          <head>
+            <next>
+              <next>
+                <contents class="com.example.retro.models.Game">
+                  <title>low</title>
+                  <publisher>5</publisher>
+                  <description>5</description>
+                  <ogDeveloper>5</ogDeveloper>
+                  <coverArtURL>http://www.w.com</coverArtURL>
+                  <yearOfRelease>5</yearOfRelease>
+                  <ports>
+                    <head>
+                      <contents class="com.example.retro.models.GamePort" reference="../../../../../../../../../com.example.retro.models.GameSystem/games/head/next/contents"/>
+                    </head>
+                  </ports>
+                  <position>18</position>
+                </contents>
+              </next>
+              <contents class="com.example.retro.models.GamePort" reference="../../../../../com.example.retro.models.GameSystem/games/head/next/next/next/contents/ports/head/contents"/>
+            </next>
+            <contents class="com.example.retro.models.GamePort" reference="../../../../com.example.retro.models.GameSystem[2]/games/head/next/contents/ports/head/contents"/>
+          </head>
+        </games>
+        <position>6</position>
+      </com.example.retro.models.GameSystem>
       <null/>
       <null/>
       <null/>

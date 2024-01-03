@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="system sorts working">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="save and load functioning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/retro.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,56 +204,7 @@
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
       <workItem from="1704218045626" duration="27641000" />
-      <workItem from="1704246794675" duration="14955000" />
-    </task>
-    <task id="LOCAL-00021" summary="working on fix for view">
-      <created>1703965645636</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1703965645636</updated>
-    </task>
-    <task id="LOCAL-00022" summary="deleted system-view.fxml">
-      <created>1703966264289</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1703966264289</updated>
-    </task>
-    <task id="LOCAL-00023" summary="still working on fix">
-      <created>1703968922680</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1703968922680</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Issue fixed by reverting to older version and going from there">
-      <created>1703973430098</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1703973430098</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Delete working for GameSystems on main page">
-      <created>1703981196494</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1703981196494</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Implemented greater use of hashing in delete() and view()">
-      <created>1704033291710</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1704033291710</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Implemented greater use of hashing in addGame()">
-      <created>1704034906511</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1704034906511</updated>
+      <workItem from="1704246794675" duration="23832000" />
     </task>
     <task id="LOCAL-00028" summary="addPort fully functioning">
       <created>1704048970952</created>
@@ -549,7 +500,56 @@
       <option name="project" value="LOCAL" />
       <updated>1704258720049</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="game sorts working">
+      <created>1704261873422</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1704261873422</updated>
+    </task>
+    <task id="LOCAL-00071" summary="sort port by year functioning&#10;working on sort port by name">
+      <created>1704265250251</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1704265250251</updated>
+    </task>
+    <task id="LOCAL-00072" summary="still working on sort port by name">
+      <created>1704265402267</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1704265402267</updated>
+    </task>
+    <task id="LOCAL-00073" summary="all sorts functioning">
+      <created>1704266715591</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1704266715591</updated>
+    </task>
+    <task id="LOCAL-00074" summary="fixed issue where edit port added port twice">
+      <created>1704267765701</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1704267765701</updated>
+    </task>
+    <task id="LOCAL-00075" summary="added additional validation to edit in game view">
+      <created>1704268121151</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1704268121151</updated>
+    </task>
+    <task id="LOCAL-00076" summary="save and load functioning">
+      <created>1704269217532</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1704269217532</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,13 +580,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
-    <MESSAGE value="Still working on fixing delete method for ports (doesn't work with multiple ports)" />
-    <MESSAGE value="Delete fully working (hopefully)" />
-    <MESSAGE value="view fully working (hopefull)" />
-    <MESSAGE value="fixed load when loading a games ports in the treeview" />
-    <MESSAGE value="added system refresh to all back buttons on view page,&#10;addGame() in system fully functioning" />
-    <MESSAGE value="working on deleteSystem() in SystemController" />
     <MESSAGE value="working on deleteSystem() in SystemController,&#10;issue with deleting ports on main page after load" />
     <MESSAGE value="deleteSystem in SystemController fully functioning" />
     <MESSAGE value="edit in SystemController functioning" />
@@ -605,7 +598,14 @@
     <MESSAGE value="edit in port view functioning" />
     <MESSAGE value="changed search so name is not needed when searching" />
     <MESSAGE value="system sorts working" />
-    <option name="LAST_COMMIT_MESSAGE" value="system sorts working" />
+    <MESSAGE value="game sorts working" />
+    <MESSAGE value="sort port by year functioning&#10;working on sort port by name" />
+    <MESSAGE value="still working on sort port by name" />
+    <MESSAGE value="all sorts functioning" />
+    <MESSAGE value="fixed issue where edit port added port twice" />
+    <MESSAGE value="added additional validation to edit in game view" />
+    <MESSAGE value="save and load functioning" />
+    <option name="LAST_COMMIT_MESSAGE" value="save and load functioning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -645,11 +645,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
-          <line>215</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
