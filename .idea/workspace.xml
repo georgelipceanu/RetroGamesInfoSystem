@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="view in game view functional">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="system sorts working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/retro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/retro.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/retro/UltimateHashTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/retro/UltimateHashTest.java" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +58,11 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-
-    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/2nd again/lib/xstream-1.4.17.jar",
+    "last_opened_file_path": "C:/Users/unimu/OneDrive - South East Technological University (Waterford Campus)/Semester 3/data_structures_and_algo/ca/2nd/2nd for last time/lib/xstream-1.4.17.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -92,7 +86,7 @@
       <recent name="com.example.retro.models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UltimateHashTest.testRehash">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.retro.HelloApplication" />
       <module name="retro" />
@@ -106,26 +100,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-
-
-    <configuration name="SortUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-
-      <module name="retro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.retro.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-
-      <option name="PACKAGE_NAME" value="com.example.retro.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.example.retro.utils.SortUtilsTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MyNeatListTest.set" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MyNeatListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="retro" />
       <extension name="coverage">
         <pattern>
@@ -135,13 +110,43 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.retro" />
       <option name="MAIN_CLASS_NAME" value="com.example.retro.MyNeatListTest" />
-      <option name="METHOD_NAME" value="set" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyNeatListTest.contains" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="retro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.retro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.retro" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.MyNeatListTest" />
+      <option name="METHOD_NAME" value="contains" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UltimateHashTest.testAddAndGetElement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SortUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="retro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.retro.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.retro.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.example.retro.utils.SortUtilsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UltimateHashTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="retro" />
       <extension name="coverage">
         <pattern>
@@ -151,37 +156,18 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.retro" />
       <option name="MAIN_CLASS_NAME" value="com.example.retro.UltimateHashTest" />
-      <option name="METHOD_NAME" value="testAddAndGetElement" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UltimateHashTest.testRehash" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="retro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.retro.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.retro" />
-      <option name="MAIN_CLASS_NAME" value="com.example.retro.UltimateHashTest" />
-      <option name="METHOD_NAME" value="testRehash" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-
-        <item itemvalue="JUnit.UltimateHashTest.testRehash" />
-        <item itemvalue="JUnit.UltimateHashTest" />
-        <item itemvalue="JUnit.UltimateHashTest.testAddAndGetElement" />
         <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.SortUtilsTest" />
-
+        <item itemvalue="JUnit.MyNeatListTest.contains" />
+        <item itemvalue="JUnit.MyNeatListTest" />
+        <item itemvalue="JUnit.UltimateHashTest" />
       </list>
     </recent_temporary>
   </component>
@@ -218,34 +204,7 @@
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
       <workItem from="1704218045626" duration="27641000" />
-    </task>
-    <task id="LOCAL-00017" summary="added delete to UltimateHash">
-      <created>1703898984543</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1703898984543</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Added rehash() to UltimateHash, enables rehashing when hash table becomes full">
-      <created>1703952948501</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1703952948501</updated>
-    </task>
-    <task id="LOCAL-00019" summary="added system-view.fxml">
-      <created>1703960115389</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1703960115389</updated>
-    </task>
-    <task id="LOCAL-00020" summary="worked on delete">
-      <created>1703962097726</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1703962097726</updated>
+      <workItem from="1704246794675" duration="14955000" />
     </task>
     <task id="LOCAL-00021" summary="working on fix for view">
       <created>1703965645636</created>
@@ -562,7 +521,35 @@
       <option name="project" value="LOCAL" />
       <updated>1704243927750</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="test commit">
+      <created>1704246927876</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1704246927876</updated>
+    </task>
+    <task id="LOCAL-00067" summary="edit in port view functioning">
+      <created>1704249493821</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1704249493821</updated>
+    </task>
+    <task id="LOCAL-00068" summary="changed search so name is not needed when searching">
+      <created>1704249955031</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1704249955031</updated>
+    </task>
+    <task id="LOCAL-00069" summary="system sorts working">
+      <created>1704258720049</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1704258720049</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,9 +580,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="delete port fully functioning" />
-    <MESSAGE value="save method functioning" />
-    <MESSAGE value="view method for games full functioning" />
     <MESSAGE value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
     <MESSAGE value="Still working on fixing delete method for ports (doesn't work with multiple ports)" />
     <MESSAGE value="Delete fully working (hopefully)" />
@@ -609,7 +593,6 @@
     <MESSAGE value="view in SystemController functioning for games (working on ports)" />
     <MESSAGE value="still working on ports" />
     <MESSAGE value="view for SystemController complete" />
-    <MESSAGE value="test commit" />
     <MESSAGE value="updated search-view.fxml" />
     <MESSAGE value="searchSystem by name fully functional" />
     <MESSAGE value="searchGame by name fully functional" />
@@ -618,40 +601,63 @@
     <MESSAGE value="edit in game view functioning&#10;added tests for MyNeatList" />
     <MESSAGE value="delete in game view functional" />
     <MESSAGE value="view in game view functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="view in game view functional" />
+    <MESSAGE value="test commit" />
+    <MESSAGE value="edit in port view functioning" />
+    <MESSAGE value="changed search so name is not needed when searching" />
+    <MESSAGE value="system sorts working" />
+    <option name="LAST_COMMIT_MESSAGE" value="system sorts working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
-          <line>662</line>
-          <properties class="com.example.retro.controllers.MainController" method="delete">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java</url>
+          <line>47</line>
+          <properties class="com.example.retro.controllers.PortController" method="edit">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
-          <line>206</line>
-          <properties class="com.example.retro.controllers.SearchController" method="searchGame">
+          <line>46</line>
+          <properties class="com.example.retro.controllers.SearchController" method="searchSystem">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
-          <line>337</line>
+          <line>429</line>
           <properties class="com.example.retro.controllers.SearchController" method="searchPort">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="18" />
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
-
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
+          <line>310</line>
+          <properties class="com.example.retro.controllers.SearchController" method="searchGame">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
+          <line>215</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="HelloApplication.gameSystems.hashTable[3]" />
+        <watch expression="HelloApplication.gameSystems.hashTable[4]" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

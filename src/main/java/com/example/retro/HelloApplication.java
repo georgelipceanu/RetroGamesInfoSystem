@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
+
 public class HelloApplication extends Application {
     public static Scene mainS,searchS,systemS,gameS,portS;
     public static Stage mainStage;
@@ -58,19 +59,16 @@ public class HelloApplication extends Application {
         //doing the actual serialisation to an XML file
         ObjectInputStream in = xstream.createObjectInputStream(new FileReader("retro.xml"));
         gameSystems = (UltimateHash<GameSystem>) in.readObject();//loading data from retro.xml
-        games = (UltimateHash<Game>) in.readObject();
-        ports = (UltimateHash<GamePort>) in.readObject();
+
         in.close();
     }
     public static void save() throws Exception { // save
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("retro.xml"));
-        out.writeObject(gameSystems);
-        out.writeObject(games);
-        out.writeObject(ports); //saving all maps
+        out.writeObject(gameSystems);//all games and ports linked to systems, can be mapped back into their respective map
 
         out.close();
-    }//
+    }
 
 
 

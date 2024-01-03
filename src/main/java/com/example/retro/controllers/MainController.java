@@ -213,7 +213,7 @@ public class MainController implements Initializable {
                     } while (home != key);
                 }
 
-                GameSystem gsToAddTo = gameSystems.getSelectionModel().getSelectedItem();//getting system from choicebox
+                GameSystem gsToAddTo = gameSystems.getValue();//getting system from choicebox
                 GameSystem realGS = HelloApplication.gameSystems.getElementFromPosition(gsToAddTo.getPosition());//getting actual system from backend
                 if (gsToAddTo != null) {
 
@@ -462,6 +462,7 @@ public class MainController implements Initializable {
                     }
 
                     String ogGS=portTI.getParent().getParent().getValue().substring(12);
+                    PortController.getPortController().setGamePort(port);
 
                     PortController.getPortController().getPortDetails().setRoot(new TreeItem<>(port.getTitle() + " (Port from " + ogGS + " to "+ gsPortedTo+")"));
                     PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+port.getDescription()));
@@ -602,6 +603,7 @@ public class MainController implements Initializable {
                             PortController.getPortController().portDev.setText(port.getPortDev());
                             PortController.getPortController().portCover.setText(port.getNewCoverArt());
                             PortController.getPortController().portRelease.setText(String.valueOf(port.getNewYear()));
+                            PortController.getPortController().setGamePort(port);
 
                             PortController.getPortController().getPortDetails().setRoot(new TreeItem<>(port.getTitle() + " (Port from " + system.getValue().substring(12) + " to "+ port.getGsPortedTo()+")"));
                             PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+port.getDescription()));
@@ -1154,9 +1156,15 @@ public class MainController implements Initializable {
                     if (!(game instanceof GamePort)){
                         TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
                         gs.getChildren().add(gameTI);
-                        for (GamePort port : game.getPorts())
-                            gameTI.getChildren().add(new TreeItem<>("| PORT |  "+ port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
-                    } else gs.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
+                        HelloApplication.games.replace(game,game.getPosition());
+                        for (GamePort port : game.getPorts()) {
+                            gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                            HelloApplication.ports.replace(port,port.getPortPosition());
+                        }
+                    } else {
+                        gs.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
+                        HelloApplication.ports.replace((GamePort) game,((GamePort) game).getPortPosition());
+                    }
                 }
             }
         }

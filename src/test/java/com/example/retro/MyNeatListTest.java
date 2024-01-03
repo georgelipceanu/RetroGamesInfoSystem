@@ -43,4 +43,14 @@ class MyNeatListTest {
         assertEquals("Nintendo", games.get(0).getPublisher());//testing change was made
 
     }
+
+    @Test
+    void contains(){
+        MyNeatList<Game> games = new MyNeatList<>();
+        Game g1 =new Game("Fortnite","Epic","Battle Royale","Epic Games","http://www.fort.com",2017);
+        Game g2 = new Game("Mario Odyssey","Nintendo","Platformer","Nintendo","http://www.mario.com",2017);
+        games.add(g1);
+        assertTrue(games.contains(g1));
+        assertFalse(games.contains(g2));
+    }
 }

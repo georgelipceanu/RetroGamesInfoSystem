@@ -150,6 +150,13 @@ public class UltimateHash<T> {
         return null;
     }
 
+    public int population(){
+        int sum = 0;
+        for (int i = 0;i<size();i++)
+            if (getElementFromPosition(i)!= null) sum++;
+        return sum;
+    }
+
 
 
 }
