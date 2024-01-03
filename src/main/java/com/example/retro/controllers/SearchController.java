@@ -46,8 +46,10 @@ public class SearchController implements Initializable {
     @FXML
     public void searchSystem(){
         searchResults.getRoot().getChildren().clear();
-        if (!searchBar.getText().isEmpty()&&gsFilter.getSelectionModel().getSelectedItem()!=null && ascOrDesc.getSelectionModel().getSelectedItem()!=null){
-            String gsNameToSearchFor = searchBar.getText();
+        if (gsFilter.getSelectionModel().getSelectedItem()!=null && ascOrDesc.getSelectionModel().getSelectedItem()!=null){
+            boolean emptySearch = searchBar.getText().isEmpty();
+            String gsNameToSearchFor = "";
+            if (!emptySearch) gsNameToSearchFor=searchBar.getText();
             int filterOption = (gsFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : (gsFilter.getSelectionModel().getSelectedItem().equals("Price")) ? 2 : 3;
             int ascOrDescOption=(ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
 
@@ -310,8 +312,10 @@ public class SearchController implements Initializable {
     @FXML
     public void searchGame(){
         searchResults.getRoot().getChildren().clear();
-        if (!searchBar.getText().isEmpty()&&gameFilter.getSelectionModel().getSelectedItem()!=null && ascOrDesc.getSelectionModel().getSelectedItem()!=null) {
-            String gameNameToSearchFor = searchBar.getText();
+        if (gameFilter.getSelectionModel().getSelectedItem()!=null && ascOrDesc.getSelectionModel().getSelectedItem()!=null) {
+            boolean emptySearch = searchBar.getText().isEmpty();
+            String gameNameToSearchFor = "";
+            if (!emptySearch) gameNameToSearchFor=searchBar.getText();
             int filterOption = (gameFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : (gameFilter.getSelectionModel().getSelectedItem().equals("Description")) ? 2 : 3;
             int ascOrDescOption = (ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
 
@@ -480,7 +484,9 @@ public class SearchController implements Initializable {
     public void searchPort() {
         searchResults.getRoot().getChildren().clear();
         if (!searchBar.getText().isEmpty() && portFilter.getSelectionModel().getSelectedItem() != null && ascOrDesc.getSelectionModel().getSelectedItem() != null) {
-            String gameNameToSearchFor = searchBar.getText();
+            boolean emptySearch = searchBar.getText().isEmpty();
+            String gameNameToSearchFor = "";
+            if (!emptySearch) gameNameToSearchFor=searchBar.getText();
             int filterOption = (portFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : 2;
             int ascOrDescOption = (ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
 
