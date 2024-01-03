@@ -239,7 +239,7 @@ public class SystemController implements Initializable {
                         int keyForGS = HelloApplication.gameSystems.hashFunction(ogSys);//finding game system in backend hash map
                         GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
 
-                        boolean gsEmpty = (gs) == null;
+                        boolean gsEmpty = (gs == null);
                         if (gsEmpty)
                             for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
                                 if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {

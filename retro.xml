@@ -3,80 +3,75 @@
     <hashTable>
       <null/>
       <null/>
-      <null/>
-      <null/>
       <com.example.retro.models.GameSystem>
-        <name>PS3</name>
-        <manufacturer>7y</manufacturer>
-        <description>uie</description>
-        <type>yui</type>
-        <media>yu</media>
+        <name>4</name>
+        <manufacturer>4</manufacturer>
+        <description>4</description>
+        <type>4</type>
+        <media>4</media>
         <imageURL>http://www.w.com</imageURL>
-        <launchYear>42</launchYear>
-        <price>323.0</price>
+        <launchYear>4</launchYear>
+        <price>4.0</price>
         <games>
           <head>
             <contents class="com.example.retro.models.Game">
-              <title>43243</title>
-              <publisher>ewqe</publisher>
-              <description>ew</description>
-              <ogDeveloper>ew</ogDeveloper>
+              <title>3</title>
+              <publisher>3</publisher>
+              <description>3</description>
+              <ogDeveloper>3</ogDeveloper>
               <coverArtURL>http://www.w.com</coverArtURL>
-              <yearOfRelease>3254</yearOfRelease>
+              <yearOfRelease>3</yearOfRelease>
               <ports>
                 <head>
                   <contents class="com.example.retro.models.GamePort">
-                    <title>43243</title>
-                    <publisher>ewqe</publisher>
-                    <description>ew</description>
-                    <ogDeveloper>ew</ogDeveloper>
+                    <title>3</title>
+                    <publisher>3</publisher>
+                    <description>3</description>
+                    <ogDeveloper>3</ogDeveloper>
                     <coverArtURL>http://www.w.com</coverArtURL>
-                    <yearOfRelease>3254</yearOfRelease>
+                    <yearOfRelease>3</yearOfRelease>
                     <ports/>
                     <position>-1</position>
-                    <portDev>4324</portDev>
+                    <portDev>3</portDev>
                     <newCoverArt>http://www.w.com</newCoverArt>
-                    <newYear>645674564</newYear>
-                    <portPosition>16</portPosition>
-                    <gsPortedTo>Xbox</gsPortedTo>
+                    <newYear>33</newYear>
+                    <portPosition>11</portPosition>
+                    <gsPortedTo>1</gsPortedTo>
                   </contents>
                 </head>
               </ports>
-              <position>16</position>
+              <position>11</position>
             </contents>
           </head>
         </games>
-        <position>4</position>
+        <position>2</position>
       </com.example.retro.models.GameSystem>
       <null/>
       <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
       <com.example.retro.models.GameSystem>
-        <name>Xbox</name>
-        <manufacturer>7y</manufacturer>
-        <description>uie</description>
-        <type>yui</type>
-        <media>yu</media>
+        <name>1</name>
+        <manufacturer>4</manufacturer>
+        <description>4</description>
+        <type>4</type>
+        <media>4</media>
         <imageURL>http://www.w.com</imageURL>
-        <launchYear>42</launchYear>
-        <price>323.0</price>
+        <launchYear>4</launchYear>
+        <price>4.0</price>
         <games>
           <head>
             <contents class="com.example.retro.models.GamePort" reference="../../../../com.example.retro.models.GameSystem/games/head/contents/ports/head/contents"/>
           </head>
         </games>
-        <position>7</position>
+        <position>9</position>
       </com.example.retro.models.GameSystem>
-      <null/>
-      <null/>
     </hashTable>
   </com.example.retro.UltimateHash>
   <com.example.retro.UltimateHash>
     <hashTable>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
       <null/>
       <null/>
       <null/>
@@ -89,33 +84,38 @@
       <null/>
       <null/>
       <com.example.retro.models.Game>
-        <title>43243</title>
-        <publisher>ewqe</publisher>
-        <description>ew</description>
-        <ogDeveloper>ew</ogDeveloper>
+        <title>3</title>
+        <publisher>3</publisher>
+        <description>3</description>
+        <ogDeveloper>3</ogDeveloper>
         <coverArtURL>http://www.w.com</coverArtURL>
-        <yearOfRelease>3254</yearOfRelease>
+        <yearOfRelease>3</yearOfRelease>
         <ports>
           <head>
             <contents class="com.example.retro.models.GamePort">
-              <title>43243</title>
-              <publisher>ewqe</publisher>
-              <description>ew</description>
-              <ogDeveloper>ew</ogDeveloper>
+              <title>3</title>
+              <publisher>3</publisher>
+              <description>3</description>
+              <ogDeveloper>3</ogDeveloper>
               <coverArtURL>http://www.w.com</coverArtURL>
-              <yearOfRelease>3254</yearOfRelease>
+              <yearOfRelease>3</yearOfRelease>
               <ports/>
               <position>-1</position>
-              <portDev>4324</portDev>
+              <portDev>3</portDev>
               <newCoverArt>http://www.w.com</newCoverArt>
-              <newYear>645674564</newYear>
-              <portPosition>16</portPosition>
-              <gsPortedTo>Xbox</gsPortedTo>
+              <newYear>33</newYear>
+              <portPosition>11</portPosition>
+              <gsPortedTo>1</gsPortedTo>
             </contents>
           </head>
         </ports>
-        <position>16</position>
+        <position>11</position>
       </com.example.retro.models.Game>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
       <null/>
       <null/>
       <null/>
@@ -134,26 +134,26 @@
       <null/>
       <null/>
       <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
       <com.example.retro.models.GamePort>
-        <title>43243</title>
-        <publisher>ewqe</publisher>
-        <description>ew</description>
-        <ogDeveloper>ew</ogDeveloper>
+        <title>3</title>
+        <publisher>3</publisher>
+        <description>3</description>
+        <ogDeveloper>3</ogDeveloper>
         <coverArtURL>http://www.w.com</coverArtURL>
-        <yearOfRelease>3254</yearOfRelease>
+        <yearOfRelease>3</yearOfRelease>
         <ports/>
         <position>-1</position>
-        <portDev>4324</portDev>
+        <portDev>3</portDev>
         <newCoverArt>http://www.w.com</newCoverArt>
-        <newYear>645674564</newYear>
-        <portPosition>16</portPosition>
-        <gsPortedTo>Xbox</gsPortedTo>
+        <newYear>33</newYear>
+        <portPosition>11</portPosition>
+        <gsPortedTo>1</gsPortedTo>
       </com.example.retro.models.GamePort>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
       <null/>
       <null/>
       <null/>

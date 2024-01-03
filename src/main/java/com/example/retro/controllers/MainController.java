@@ -162,6 +162,7 @@ public class MainController implements Initializable {
                 if (validYear && Utilities.isValidURL(url) && uniqueName && gsToAddTo!=null && !gameToAdd.getTitle().contains("| GAME |")) {//all details valid
                     gameToAdd.setPosition(HelloApplication.games.add(gameToAdd));
                     gsToAddTo.getGames().add(gameToAdd);
+                    HelloApplication.gameSystems.replace(gsToAddTo,gsToAddTo.getPosition());//update
                     gsToAddToTI.getChildren().add(new TreeItem<>("| GAME |  "+gameToAdd.getTitle()));
                 } else Utilities.showWarningAlert("WARNING", "Enter valid details");
             } else Utilities.showWarningAlert("WARNING", "Select a Game System to add to");
@@ -238,6 +239,8 @@ public class MainController implements Initializable {
                         portToAdd.setPortPosition(HelloApplication.ports.add(portToAdd));
                         gameToPort.getPorts().add(portToAdd);
                         realGS.getGames().add(portToAdd);
+                        HelloApplication.gameSystems.replace(realGS,realGS.getPosition());//update
+                        HelloApplication.games.replace(gameToPort,gameToPort.getPosition());
                         gameToAddToTI.getChildren().add(new TreeItem<>("| PORT |  "+portToAdd.getTitle() + "  | " + realGS.getName() + " |" ));
 
                         for (TreeItem<String> child : root.getChildren()) {//looking for system in treeview from root
