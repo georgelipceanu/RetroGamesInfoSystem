@@ -441,8 +441,9 @@ public class SearchController implements Initializable {
             switch (filterOption) {
                 case 1 -> {//name
                     if (ascOrDescOption == 1) {//ascending
-                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameDescending();//due to nature of linked list, ascending is descending and vice versa
-                        for (GamePort port : sortedGS) {
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameAscendingString();//due to nature of linked list, ascending is descending and vice versa
+                        for (int i = sortedGS.size()-1; i>=0 ; i--) {//flipping list
+                            GamePort port = sortedGS.get(i);
                             if (port.getTitle().contains(gameNameToSearchFor)) {
 
                                 TreeItem<String> portTI = new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |");

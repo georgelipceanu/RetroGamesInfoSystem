@@ -84,22 +84,6 @@ public class SortUtils {
         }
     }
 
-    public static void insertionSortDescending(String[] array) {
-        int n = array.length;
-
-        for (int i = 1; i < n; ++i) {
-            String key = array[i];
-            int j = i - 1;
-
-            while (j >= 0 && array[j].compareTo(key) < 0) {
-                array[j + 1] = array[j];
-                j = j - 1;
-            }
-            array[j + 1] = key;
-        }
-    }
-
-
 
 
 
@@ -640,9 +624,10 @@ public class SortUtils {
             for (int i = 0; i < HelloApplication.games.size(); i++) {
                 Game game = HelloApplication.games.getElementFromPosition(i);
                 if (game != null && sortedReleaseYear.equals(game.getYearOfRelease())) {
-                    if (!sortedGames.contains(game))
-                    sortedGames.add(game);
-                    break;  // Break to the next iteration of the outer loop
+                    if (!sortedGames.contains(game)) {
+                        sortedGames.add(game);
+                        break;  // Break to the next iteration of the outer loop
+                    }
                 }
             }
         }
@@ -912,7 +897,7 @@ public class SortUtils {
         }
 
         // Use insertion sort to sort the port titles in ascending order
-        SortUtils.insertionSortDescending(portNameList);
+        SortUtils.insertionSortAscending(portNameList);
 
         MyNeatList<GamePort> sortedPorts = new MyNeatList<>();
 
