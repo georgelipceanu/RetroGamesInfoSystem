@@ -203,7 +203,7 @@ public class SystemController implements Initializable {
                         gameName=gameName.substring(0,gameName.length()-16);//16 for " (Original game)"
                         for (Game game : gs.getGames()){
                             if (game.getTitle().equals(gameName)){
-                                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle()));
+                                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle() + "  | " + gs.getName() + " |"));
                                 GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+game.getDescription()));
                                 GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+game.getPublisher()));
                                 GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Developer: "+game.getOgDeveloper()));
@@ -239,7 +239,7 @@ public class SystemController implements Initializable {
                         int keyForGS = HelloApplication.gameSystems.hashFunction(ogSys);//finding game system in backend hash map
                         GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
 
-                        boolean gsEmpty = (gs) == null;
+                        boolean gsEmpty = (gs == null);
                         if (gsEmpty)
                             for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
                                 if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
@@ -308,6 +308,30 @@ public class SystemController implements Initializable {
                             portsSystems.getChildren().add(new TreeItem<>(portOfOG.getGsPortedTo()+ " (" + portOfOG.getNewYear() +")"));
                         }
 
+                        int keyForGSOfPort = HelloApplication.gameSystems.hashFunction(port.getGsPortedTo());
+                        GameSystem gsOfPort=HelloApplication.gameSystems.getElementFromPosition(keyForGSOfPort);
+                        boolean gsEmpty2 = (gsOfPort == null);
+                        if (gsEmpty2)
+                            for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
+                                if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                                    gsOfPort = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                                    break;
+                                }
+
+                        if (!gsOfPort.getName().equals(port.getGsPortedTo())) {//finding game system in backend hash map stored at diff location
+                            int home = keyForGS;
+                            do {
+                                keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size());
+                                if (HelloApplication.gameSystems.getElementFromPosition(keyForGS) != null) {
+                                    if (HelloApplication.gameSystems.getElementFromPosition(keyForGS).getName().equals(ogSys)) {
+                                        gsOfPort = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+                                        break;
+                                    }
+                                }
+                            } while (home != keyForGS);
+                        }
+
+                        PortController.getPortController().setGs(gsOfPort);
                         HelloApplication.mainStage.setScene(HelloApplication.portS);
                     }
 

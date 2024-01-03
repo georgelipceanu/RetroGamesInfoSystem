@@ -3,6 +3,7 @@ package com.example.retro.controllers;
 import com.example.retro.HelloApplication;
 import com.example.retro.models.Game;
 import com.example.retro.models.GamePort;
+import com.example.retro.models.GameSystem;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
@@ -29,6 +30,12 @@ public class PortController implements Initializable {
 
     @FXML
     public TextField portDev,portRelease,portCover;
+
+    public GameSystem gs;
+
+    public void setGs(GameSystem gs) {
+        this.gs = gs;
+    }
 
     @FXML
     public void goBack(){
