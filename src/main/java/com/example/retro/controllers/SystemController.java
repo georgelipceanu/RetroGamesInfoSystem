@@ -308,6 +308,30 @@ public class SystemController implements Initializable {
                             portsSystems.getChildren().add(new TreeItem<>(portOfOG.getGsPortedTo()+ " (" + portOfOG.getNewYear() +")"));
                         }
 
+                        int keyForGSOfPort = HelloApplication.gameSystems.hashFunction(port.getGsPortedTo());
+                        GameSystem gsOfPort=HelloApplication.gameSystems.getElementFromPosition(keyForGSOfPort);
+                        boolean gsEmpty2 = (gsOfPort == null);
+                        if (gsEmpty2)
+                            for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
+                                if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                                    gsOfPort = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
+                                    break;
+                                }
+
+                        if (!gsOfPort.getName().equals(port.getGsPortedTo())) {//finding game system in backend hash map stored at diff location
+                            int home = keyForGS;
+                            do {
+                                keyForGS = (keyForGS + 1) % (HelloApplication.gameSystems.size());
+                                if (HelloApplication.gameSystems.getElementFromPosition(keyForGS) != null) {
+                                    if (HelloApplication.gameSystems.getElementFromPosition(keyForGS).getName().equals(ogSys)) {
+                                        gsOfPort = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
+                                        break;
+                                    }
+                                }
+                            } while (home != keyForGS);
+                        }
+
+                        PortController.getPortController().setGs(gsOfPort);
                         HelloApplication.mainStage.setScene(HelloApplication.portS);
                     }
 

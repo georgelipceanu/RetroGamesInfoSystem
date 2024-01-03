@@ -234,7 +234,7 @@ public class GameController implements Initializable {
                 portsSystems.getChildren().add(new TreeItem<>(portOfOG.getGsPortedTo() + " (" + portOfOG.getNewYear() + ")"));
             }
 
-
+            PortController.getPortController().setGs(gs);
             HelloApplication.mainStage.setScene(HelloApplication.portS);
         }
     }
