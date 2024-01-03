@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 
+
 public class HelloApplication extends Application {
     public static Scene mainS,searchS,systemS,gameS,portS;
     public static Stage mainStage;
