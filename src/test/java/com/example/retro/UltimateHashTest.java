@@ -46,14 +46,32 @@ public class UltimateHashTest {
 
 
     @Test
-    public void testDisplayHashTable() {
-        UltimateHash<String> ultimateHash = new UltimateHash<>(3);
+    public void testRehash() {
+        UltimateHash<String> ultimateHash = new UltimateHash<>(5);
+
+        // Add elements until the hash table triggers rehashing
         ultimateHash.add("One");
         ultimateHash.add("Two");
         ultimateHash.add("Three");
 
-        // Note: This test just prints to the console; manual inspection is required
-        ultimateHash.displayHashTable();
+        // Check the size before rehashing
+        assertEquals(5, ultimateHash.size());
+
+        // Trigger rehashing by adding more elements
+        ultimateHash.add("Four");
+        ultimateHash.add("Five");
+        ultimateHash.add("Six");
+
+        // Check the size after rehashing
+        assertEquals(10, ultimateHash.size());
+
+        // Ensure that all elements are still present after rehashing
+        assertEquals("One", ultimateHash.find("One"));
+        assertEquals("Two", ultimateHash.find("Two"));
+        assertEquals("Three", ultimateHash.find("Three"));
+        assertEquals("Four", ultimateHash.find("Four"));
+        assertEquals("Five", ultimateHash.find("Five"));
+        assertEquals("Six", ultimateHash.find("Six"));
     }
 
 
