@@ -53,34 +53,11 @@ public class SearchController implements Initializable {
 
             switch (filterOption){
                 case 1 -> { //sorting by name
-                    if (ascOrDescOption==1){//ascending
-                        MyNeatList<String> sortedNames = SortUtils.sortByGameSystemNameAscendingReturn();
-                        for (String gsName : sortedNames) {
-                            if (gsName.contains(gsNameToSearchFor)) {
-                                int key = HelloApplication.gameSystems.hashFunction(gsName);
-                                GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(key);
-                                boolean gsEmpty = (gs == null);
-                                if (gsEmpty)
-                                    for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
-                                        if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
-                                            gs = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
-                                            break;
-                                        }
+                    if (ascOrDescOption==2){//ascending
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemNameAscending();
+                        for (GameSystem gs : sortedGS) {
+                            if (gs.getName().contains(gsNameToSearchFor)) {
 
-                                if (!gs.getName().equals(gsName)) {
-                                    int home = key;
-                                    do {
-                                        key = (key + 1) % (HelloApplication.gameSystems.size());
-
-                                        if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
-                                            if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsName)) {
-                                                gs = HelloApplication.gameSystems.getElementFromPosition(key);
-                                                break;
-                                            }
-                                        }
-
-                                    } while (home != key);
-                                }
                                 TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
                                 TreeItem<String> details = new TreeItem<>("DETAILS: ");
                                 root.getChildren().add(gsTI);
@@ -117,33 +94,9 @@ public class SearchController implements Initializable {
                         }
 
                     } else {//descending
-                        MyNeatList<String> sortedNames = SortUtils.sortByGameSystemNameDescendingReturn();
-                        for (String gsName : sortedNames) {
-                            if (gsName.contains(gsNameToSearchFor)) {
-                                int key = HelloApplication.gameSystems.hashFunction(gsName);
-                                GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(key);
-                                boolean gsEmpty = (gs == null);
-                                if (gsEmpty)
-                                    for (int i = 0; i < HelloApplication.gameSystems.size(); i++)
-                                        if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
-                                            gs = HelloApplication.gameSystems.getElementFromPosition(i);//assigning dummy system to avoid null pointer exception if gsToAddTo is initially null
-                                            break;
-                                        }
-
-                                if (!gs.getName().equals(gsName)) {
-                                    int home = key;
-                                    do {
-                                        key = (key + 1) % (HelloApplication.gameSystems.size());
-
-                                        if (HelloApplication.gameSystems.getElementFromPosition(key) != null) {
-                                            if (HelloApplication.gameSystems.getElementFromPosition(key).getName().equalsIgnoreCase(gsName)) {
-                                                gs = HelloApplication.gameSystems.getElementFromPosition(key);
-                                                break;
-                                            }
-                                        }
-
-                                    } while (home != key);
-                                }
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemNameDescending();
+                        for (GameSystem gs : sortedGS) {
+                            if (gs.getName().contains(gsNameToSearchFor)) {
                                 TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
                                 TreeItem<String> details = new TreeItem<>("DETAILS: ");
                                 root.getChildren().add(gsTI);
@@ -184,20 +137,171 @@ public class SearchController implements Initializable {
                 }
 
                 case 2 -> {//price
-                    if (ascOrDescOption==1){//ascending
+                    if (ascOrDescOption==2){//ascending
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemPriceAscending();
+                        for (GameSystem gs : sortedGS) {
+                            if (gs.getName().contains(gsNameToSearchFor)) {
+
+                                TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gsTI);
+                                gsTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + gs.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + gs.getLaunchYear()));
+                                details.getChildren().add(new TreeItem<>("PRICE: " + gs.getPrice()));
+                                details.getChildren().add(new TreeItem<>("TYPE: " + gs.getType()));
+                                details.getChildren().add(new TreeItem<>("MEDIA: " + gs.getMedia()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + gs.getManufacturer()));
+                                details.getChildren().add(new TreeItem<>("IMAGE URL: " + gs.getImageURL()));
+                                for (Game game : gs.getGames()) {
+                                    if (game instanceof GamePort) {
+                                        gsTI.getChildren().add(new TreeItem<String>("| PORT |  " + game.getTitle()));
+                                    } else {
+                                        TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                        TreeItem<String> detailsOfGame = new TreeItem<>("DETAILS: ");
+                                        gsTI.getChildren().add(gameTI);
+                                        gameTI.getChildren().add(detailsOfGame);
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+                                        for (GamePort port : game.getPorts()) {
+                                            gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
 
                     } else {//descending
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemPriceDescending();
+                        for (GameSystem gs : sortedGS) {
+                            if (gs.getName().contains(gsNameToSearchFor)) {
+                                TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gsTI);
+                                gsTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + gs.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + gs.getLaunchYear()));
+                                details.getChildren().add(new TreeItem<>("PRICE: " + gs.getPrice()));
+                                details.getChildren().add(new TreeItem<>("TYPE: " + gs.getType()));
+                                details.getChildren().add(new TreeItem<>("MEDIA: " + gs.getMedia()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + gs.getManufacturer()));
+                                details.getChildren().add(new TreeItem<>("IMAGE URL: " + gs.getImageURL()));
 
+                                for (Game game : gs.getGames()) {
+                                    if (game instanceof GamePort) {
+                                        gsTI.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
+                                    } else {
+                                        TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                        TreeItem<String> detailsOfGame = new TreeItem<>("DETAILS: ");
+                                        gsTI.getChildren().add(gameTI);
+                                        gameTI.getChildren().add(detailsOfGame);
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+                                        for (GamePort port : game.getPorts()) {
+                                            gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
                     }
 
                 }
 
                 case 3 -> {//year
-                    if (ascOrDescOption==1){//ascending
+                    if (ascOrDescOption==2){//ascending
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemLaunchYearAscending();
+                        for (GameSystem gs : sortedGS) {
+                            if (gs.getName().contains(gsNameToSearchFor)) {
+
+                                TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gsTI);
+                                gsTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + gs.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + gs.getLaunchYear()));
+                                details.getChildren().add(new TreeItem<>("PRICE: " + gs.getPrice()));
+                                details.getChildren().add(new TreeItem<>("TYPE: " + gs.getType()));
+                                details.getChildren().add(new TreeItem<>("MEDIA: " + gs.getMedia()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + gs.getManufacturer()));
+                                details.getChildren().add(new TreeItem<>("IMAGE URL: " + gs.getImageURL()));
+                                for (Game game : gs.getGames()) {
+                                    if (game instanceof GamePort) {
+                                        gsTI.getChildren().add(new TreeItem<String>("| PORT |  " + game.getTitle()));
+                                    } else {
+                                        TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                        TreeItem<String> detailsOfGame = new TreeItem<>("DETAILS: ");
+                                        gsTI.getChildren().add(gameTI);
+                                        gameTI.getChildren().add(detailsOfGame);
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+                                        for (GamePort port : game.getPorts()) {
+                                            gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
 
                     } else {//descending
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemLaunchYearDescending();
+                        for (GameSystem gs : sortedGS) {
+                            if (gs.getName().contains(gsNameToSearchFor)) {
+                                TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gsTI);
+                                gsTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + gs.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + gs.getLaunchYear()));
+                                details.getChildren().add(new TreeItem<>("PRICE: " + gs.getPrice()));
+                                details.getChildren().add(new TreeItem<>("TYPE: " + gs.getType()));
+                                details.getChildren().add(new TreeItem<>("MEDIA: " + gs.getMedia()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + gs.getManufacturer()));
+                                details.getChildren().add(new TreeItem<>("IMAGE URL: " + gs.getImageURL()));
 
+                                for (Game game : gs.getGames()) {
+                                    if (game instanceof GamePort) {
+                                        gsTI.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
+                                    } else {
+                                        TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                        TreeItem<String> detailsOfGame = new TreeItem<>("DETAILS: ");
+                                        gsTI.getChildren().add(gameTI);
+                                        gameTI.getChildren().add(detailsOfGame);
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                        detailsOfGame.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+                                        for (GamePort port : game.getPorts()) {
+                                            gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
                     }
+
                 }
             }
         }else Utilities.showWarningAlert("WARNING", "Fill in all details");
@@ -211,37 +315,12 @@ public class SearchController implements Initializable {
             int filterOption = (gameFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : (gameFilter.getSelectionModel().getSelectedItem().equals("Description")) ? 2 : 3;
             int ascOrDescOption = (ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
 
-            switch (filterOption){
+            switch (filterOption) {
                 case 1 -> {//name
-                    if (ascOrDescOption==1){//ascending
-                        MyNeatList<String> sortedGames=SortUtils.sortByGameNameAscendingReturn();
-                        for (String gameName : sortedGames){
-                            if (gameName.contains(gameNameToSearchFor)){
-                                int key = HelloApplication.games.hashFunction(gameName);
-                                Game game = HelloApplication.games.getElementFromPosition(key);
-                                boolean gameEmpty=(game==null);
-
-                                if (gameEmpty)
-                                    for (int i=0;i<HelloApplication.games.size();i++)
-                                        if (HelloApplication.games.getElementFromPosition(i)!=null){
-                                            game=HelloApplication.games.getElementFromPosition(i);//assigning dummy game to avoid null pointer exception if gsToAddTo is initially null
-                                            break;
-                                        }
-
-                                if (!game.getTitle().equals(gameName)) {
-                                    int home = key;
-                                    do {
-                                        key = (key + 1) % (HelloApplication.games.size());
-
-                                        if (HelloApplication.games.getElementFromPosition(key) != null) {
-                                            if (HelloApplication.games.getElementFromPosition(key).getTitle().equals(gameName)) {
-                                                game = HelloApplication.games.getElementFromPosition(key);
-                                                break;
-                                            }
-                                        }
-
-                                    } while (home != key);
-                                }
+                    if (ascOrDescOption == 2) {//ascending
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameNameAscending();
+                        for (Game game : sortedGS) {
+                            if (game.getTitle().contains(gameNameToSearchFor)) {
 
                                 TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
                                 TreeItem<String> details = new TreeItem<>("DETAILS: ");
@@ -263,34 +342,9 @@ public class SearchController implements Initializable {
                             }
                         }
                     } else {//descending
-                        MyNeatList<String> sortedGames=SortUtils.sortByGameNameDescendingReturn();
-                        for (String gameName : sortedGames) {
-                            if (gameName.contains(gameNameToSearchFor)) {
-                                int key = HelloApplication.games.hashFunction(gameName);
-                                Game game = HelloApplication.games.getElementFromPosition(key);
-                                boolean gameEmpty = (game == null);
-
-                                if (gameEmpty)
-                                    for (int i = 0; i < HelloApplication.games.size(); i++)
-                                        if (HelloApplication.games.getElementFromPosition(i) != null) {
-                                            game = HelloApplication.games.getElementFromPosition(i);//assigning dummy game to avoid null pointer exception if gsToAddTo is initially null
-                                            break;
-                                        }
-
-                                if (!game.getTitle().equals(gameName)) {
-                                    int home = key;
-                                    do {
-                                        key = (key + 1) % (HelloApplication.games.size());
-
-                                        if (HelloApplication.games.getElementFromPosition(key) != null) {
-                                            if (HelloApplication.games.getElementFromPosition(key).getTitle().equals(gameName)) {
-                                                game = HelloApplication.games.getElementFromPosition(key);
-                                                break;
-                                            }
-                                        }
-
-                                    } while (home != key);
-                                }
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameNameDescending();
+                        for (Game game : sortedGS) {
+                            if (game.getTitle().contains(gameNameToSearchFor)) {
 
                                 TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
                                 TreeItem<String> details = new TreeItem<>("DETAILS: ");
@@ -315,47 +369,180 @@ public class SearchController implements Initializable {
 
                 }
                 case 2 -> {//description
-                    if (ascOrDescOption==1){//ascending
+                    if (ascOrDescOption == 2) {//ascending
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameDescriptionAscending();
+                        for (Game game : sortedGS) {
+                            if (game.getTitle().contains(gameNameToSearchFor)) {
 
+                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gameTI);
+                                gameTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+
+                                for (GamePort port : game.getPorts()) {
+                                    if (game instanceof GamePort) {
+                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                    }
+                                }
+
+                            }
+                        }
                     } else {//descending
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameDescriptionDescending();
+                        for (Game game : sortedGS) {
+                            if (game.getTitle().contains(gameNameToSearchFor)) {
 
+                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gameTI);
+                                gameTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+
+                                for (GamePort port : game.getPorts()) {
+                                    if (game instanceof GamePort) {
+                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                    }
+                                }
+
+                            }
+                        }
                     }
 
                 }
-                case 3 -> {//price
-                    if (ascOrDescOption==1){//ascending
+                case 3 -> {//year
+                    if (ascOrDescOption == 2) {//ascending
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearAscending();
+                        for (Game game : sortedGS) {
+                            if (game.getTitle().contains(gameNameToSearchFor)) {
 
+                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gameTI);
+                                gameTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+
+                                for (GamePort port : game.getPorts()) {
+                                    if (game instanceof GamePort) {
+                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                    }
+                                }
+
+                            }
+                        }
                     } else {//descending
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearDescending();
+                        for (Game game : sortedGS) {
+                            if (game.getTitle().contains(gameNameToSearchFor)) {
+
+                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gameTI);
+                                gameTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+
+                                for (GamePort port : game.getPorts()) {
+                                    if (game instanceof GamePort) {
+                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                    }
+                                }
+
+                            }
+                        }
 
                     }
-
                 }
             }
         }else Utilities.showWarningAlert("WARNING", "Fill in all details");
     }
 
     @FXML
-    public void searchPort(){
+    public void searchPort() {
         searchResults.getRoot().getChildren().clear();
-        if (!searchBar.getText().isEmpty()&&portFilter.getSelectionModel().getSelectedItem()!=null && ascOrDesc.getSelectionModel().getSelectedItem()!=null) {
+        if (!searchBar.getText().isEmpty() && portFilter.getSelectionModel().getSelectedItem() != null && ascOrDesc.getSelectionModel().getSelectedItem() != null) {
             String gameNameToSearchFor = searchBar.getText();
             int filterOption = (portFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : 2;
             int ascOrDescOption = (ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
 
-            switch (filterOption){
+            switch (filterOption) {
                 case 1 -> {//name
-                    if (ascOrDescOption==1){//ascending
+                    if (ascOrDescOption == 2) {//ascending
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameAscending();
+                        for (Game game : sortedGS) {
+                            if (game.getTitle().contains(gameNameToSearchFor)) {
 
+                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gameTI);
+                                gameTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+
+                                for (GamePort port : game.getPorts()) {
+                                    if (game instanceof GamePort) {
+                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                    }
+                                }
+
+                            }
+                        }
                     } else {//descending
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameDescending();
+                        for (Game game : sortedGS) {
+                            if (game.getTitle().contains(gameNameToSearchFor)) {
+
+                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(gameTI);
+                                gameTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+
+                                for (GamePort port : game.getPorts()) {
+                                    if (game instanceof GamePort) {
+                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                                    }
+                                }
+
+                            }
+                        }
 
                     }
-
                 }
 
+
                 case 2 -> {//year
-                    if (ascOrDescOption==1){//ascending
-                        GamePort[] ports = SortUtils.sortByGamePortYearAscendingReturn();
-                        for (GamePort port : ports) {
+                    if (ascOrDescOption == 2) {//ascending
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearAscending();
+                        for (GamePort port : sortedGS) {
                             if (port.getTitle().contains(gameNameToSearchFor)) {
 
                                 TreeItem<String> portTI = new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |");
@@ -376,9 +563,28 @@ public class SearchController implements Initializable {
                         }
 
                     } else {//descending
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearDescending();
+                        for (GamePort port : sortedGS) {
+                            if (port.getTitle().contains(gameNameToSearchFor)) {
 
+                                TreeItem<String> portTI = new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |");
+                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
+                                root.getChildren().add(portTI);
+                                portTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + port.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + port.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + port.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + port.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + port.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + port.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("PORT DEV: " + port.getPortDev()));
+                                details.getChildren().add(new TreeItem<>("YEAR OF PORT RELEASE: " + port.getNewYear()));
+                                details.getChildren().add(new TreeItem<>("PORT COVER ART URL: " + port.getNewCoverArt()));
+
+                            }
+
+                        }
                     }
-
                 }
             }
         }else Utilities.showWarningAlert("WARNING", "Fill in all details");
@@ -400,26 +606,6 @@ public class SearchController implements Initializable {
         searchController=this;
     }
 
-
-
-//    public void searchGameSystemsByName(){
-//        if (!searchBar.getText().isEmpty()) {
-//            searchedListOfGameSystems.getItems().clear();
-//            String goods = searchBar.getText();
-//            MyNeatList<String> strSearchedGameSystems = new MyNeatList<>();
-//
-//            for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
-//                    if (HelloApplication.gameSystems.getElementFromPosition(i).getName().toLowerCase().contains(goods.toLowerCase())) {//searches through all containers and pallets to find goods
-//                        strSearchedGameSystems.add(HelloApplication.gameSystems.getElementFromPosition(i).getName());
-//                    }
-//                }
-//            SortUtils.insertionSortAscending(strSearchedGameSystems);
-//            }
-//
-//            if (!strSearchedGameSystems.isEmpty()) {//checks if any goods were found
-//                searchedListOfGameSystems.getItems().addAll(strSearchedGameSystems);//adds them to listview
-//            }else Utilities.showWarningAlert("WARNING!","No goods of this description found");
-//        }else Utilities.showWarningAlert("WARNING!","Search bar is empty");
 
     }
 
