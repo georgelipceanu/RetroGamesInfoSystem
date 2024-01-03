@@ -442,49 +442,46 @@ public class SearchController implements Initializable {
                 case 1 -> {//name
                     if (ascOrDescOption == 1) {//ascending
                         MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameDescending();//due to nature of linked list, ascending is descending and vice versa
-                        for (Game game : sortedGS) {
-                            if (game.getTitle().contains(gameNameToSearchFor)) {
+                        for (GamePort port : sortedGS) {
+                            if (port.getTitle().contains(gameNameToSearchFor)) {
 
-                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                TreeItem<String> portTI = new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |");
                                 TreeItem<String> details = new TreeItem<>("DETAILS: ");
-                                root.getChildren().add(gameTI);
-                                gameTI.getChildren().add(details);
-                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
-                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
-                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
-                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
-                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
-                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+                                root.getChildren().add(portTI);
+                                portTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + port.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + port.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + port.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + port.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + port.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + port.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("PORT DEV: " + port.getPortDev()));
+                                details.getChildren().add(new TreeItem<>("YEAR OF PORT RELEASE: " + port.getNewYear()));
+                                details.getChildren().add(new TreeItem<>("PORT COVER ART URL: " + port.getNewCoverArt()));
 
-                                for (GamePort port : game.getPorts()) {
-                                    if (game instanceof GamePort) {
-                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
-                                    }
-                                }
+
 
                             }
                         }
                     } else {//descending
                         MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameAscendingString();//due to nature of linked list, ascending is descending and vice versa
-                        for (Game game : sortedGS) {
-                            if (game.getTitle().contains(gameNameToSearchFor)) {
+                        for (GamePort port : sortedGS) {
+                            if (port.getTitle().contains(gameNameToSearchFor)) {
 
-                                TreeItem<String> gameTI = new TreeItem<>("| PORT |  " + game.getTitle());
+                                TreeItem<String> portTI = new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |");
                                 TreeItem<String> details = new TreeItem<>("DETAILS: ");
-                                root.getChildren().add(gameTI);
-                                gameTI.getChildren().add(details);
-                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
-                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
-                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
-                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
-                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
-                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
+                                root.getChildren().add(portTI);
+                                portTI.getChildren().add(details);
+                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + port.getDescription()));
+                                details.getChildren().add(new TreeItem<>("YEAR: " + port.getYearOfRelease()));
+                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + port.getPublisher()));
+                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + port.getOgDeveloper()));
+                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + port.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + port.getCoverArtURL()));
+                                details.getChildren().add(new TreeItem<>("PORT DEV: " + port.getPortDev()));
+                                details.getChildren().add(new TreeItem<>("YEAR OF PORT RELEASE: " + port.getNewYear()));
+                                details.getChildren().add(new TreeItem<>("PORT COVER ART URL: " + port.getNewCoverArt()));
 
-                                for (GamePort port : game.getPorts()) {
-                                    if (game instanceof GamePort) {
-                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
-                                    }
-                                }
 
                             }
                         }

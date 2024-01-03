@@ -84,6 +84,22 @@ public class SortUtils {
         }
     }
 
+    public static void insertionSortDescending(String[] array) {
+        int n = array.length;
+
+        for (int i = 1; i < n; ++i) {
+            String key = array[i];
+            int j = i - 1;
+
+            while (j >= 0 && array[j].compareTo(key) < 0) {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = key;
+        }
+    }
+
+
 
 
 
@@ -814,8 +830,10 @@ public class SortUtils {
         for (int i = 0; i < HelloApplication.ports.size(); i++) {
             for (int j = 0 ; j<HelloApplication.ports.population();j++) {
                 if (HelloApplication.ports.getElementFromPosition(i) != null) {
-                    portNameList[j] = (HelloApplication.ports.getElementFromPosition(i).getTitle());
-                    break;
+                    if (portNameList[j]==null) {
+                        portNameList[j] = (HelloApplication.ports.getElementFromPosition(i).getTitle());
+                        break;
+                    }
                 }
             }
         }
@@ -878,6 +896,42 @@ public class SortUtils {
     }
 
 
+    public static MyNeatList<GamePort> sortByGamePortNameDescendingString() {
+        String[] portNameList = new String[HelloApplication.ports.population()];
+
+        // Loop through all game ports and extract port titles
+        for (int i = 0; i < HelloApplication.ports.size(); i++) {
+            for (int j = 0 ; j<HelloApplication.ports.population();j++) {
+                if (HelloApplication.ports.getElementFromPosition(i) != null) {
+                    if (portNameList[j]==null) {
+                        portNameList[j] = (HelloApplication.ports.getElementFromPosition(i).getTitle());
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Use insertion sort to sort the port titles in ascending order
+        SortUtils.insertionSortDescending(portNameList);
+
+        MyNeatList<GamePort> sortedPorts = new MyNeatList<>();
+
+        // Loop through all game ports and add corresponding objects to sortedPorts
+        for (String sortedPortName : portNameList) {
+            for (int i = 0; i < HelloApplication.ports.size(); i++) {
+                GamePort port = HelloApplication.ports.getElementFromPosition(i);
+                if (port != null && sortedPortName.equals(port.getTitle())) {
+                    if (!sortedPorts.contains(port)) {
+                        sortedPorts.add(port);
+                        break;  // Break to the next iteration of the outer loop
+                    }
+                }
+            }
+        }
+
+        // Return the list of found GamePort objects sorted by port title in ascending order
+        return sortedPorts;
+    }
 
 
 
