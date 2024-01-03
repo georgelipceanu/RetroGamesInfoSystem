@@ -1156,9 +1156,15 @@ public class MainController implements Initializable {
                     if (!(game instanceof GamePort)){
                         TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
                         gs.getChildren().add(gameTI);
-                        for (GamePort port : game.getPorts())
-                            gameTI.getChildren().add(new TreeItem<>("| PORT |  "+ port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
-                    } else gs.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
+                        HelloApplication.games.replace(game,game.getPosition());
+                        for (GamePort port : game.getPorts()) {
+                            gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
+                            HelloApplication.ports.replace(port,port.getPortPosition());
+                        }
+                    } else {
+                        gs.getChildren().add(new TreeItem<>("| PORT |  " + game.getTitle()));
+                        HelloApplication.ports.replace((GamePort) game,((GamePort) game).getPortPosition());
+                    }
                 }
             }
         }
