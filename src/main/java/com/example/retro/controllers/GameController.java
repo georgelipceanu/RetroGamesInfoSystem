@@ -175,7 +175,7 @@ public class GameController implements Initializable {
 
     @FXML
     public void view() {
-        if (gameDetails.getSelectionModel().getSelectedItem() != null) {
+        if (gameDetails.getSelectionModel().getSelectedItem() != null &&gameDetails.getSelectionModel().getSelectedItem().getValue().contains("| ")) {
             String gsPortedTo = gameDetails.getSelectionModel().getSelectedItem().getValue().substring(2,gameDetails.getSelectionModel().getSelectedItem().getValue().length()-2);
             int keyForGS = HelloApplication.gameSystems.hashFunction(gsPortedTo);//finding game system in backend hash map
             GameSystem gs = HelloApplication.gameSystems.getElementFromPosition(keyForGS);
@@ -237,7 +237,7 @@ public class GameController implements Initializable {
 
             PortController.getPortController().setGs(gs);
             HelloApplication.mainStage.setScene(HelloApplication.portS);
-        }
+        } else Utilities.showWarningAlert("WARNING", "Select a valid option");
     }
 
     @FXML
