@@ -111,14 +111,14 @@ public class GameController implements Initializable {
 
                 game=gameToAdd;
 
-                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+game.getDescription()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+game.getPublisher()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Developer: "+game.getOgDeveloper()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Year of release: "+game.getYearOfRelease()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Cover Art (URL): "+game.getCoverArtURL()));
+                gameDetails.setRoot(new TreeItem<>(game.getTitle() + "  | " + gs.getName() + " |"));
+                gameDetails.getRoot().getChildren().add(new TreeItem<>("Description: "+game.getDescription()));
+                gameDetails.getRoot().getChildren().add(new TreeItem<>("Publisher: "+game.getPublisher()));
+                gameDetails.getRoot().getChildren().add(new TreeItem<>("Developer: "+game.getOgDeveloper()));
+                gameDetails.getRoot().getChildren().add(new TreeItem<>("Year of release: "+game.getYearOfRelease()));
+                gameDetails.getRoot().getChildren().add(new TreeItem<>("Cover Art (URL): "+game.getCoverArtURL()));
                 TreeItem<String> ports =new TreeItem<>("PORTS: ");
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(ports);
+                gameDetails.getRoot().getChildren().add(ports);
 
                 for (GamePort port : game.getPorts()) {
                     ports.getChildren().add(new TreeItem<>("| " + port.getGsPortedTo() + " |"));

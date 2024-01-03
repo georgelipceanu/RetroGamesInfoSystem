@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="edit in game view functioning&#10;added tests for MyNeatList">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/game-view.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="delete in game view functional" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,14 +198,7 @@
       <workItem from="1704025371453" duration="30875000" />
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
-      <workItem from="1704218045626" duration="21492000" />
-    </task>
-    <task id="LOCAL-00014" summary="added controllers for all future views,&#10;added .fxml files">
-      <created>1703803280840</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1703803280840</updated>
+      <workItem from="1704218045626" duration="21820000" />
     </task>
     <task id="LOCAL-00015" summary="Add methods add to backend list,&#10;added position attributes to each object type,&#10;added more methods to UltimateHash for convenience of use">
       <created>1703891988480</created>
@@ -547,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704237892676</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="delete in game view functional">
+      <created>1704239789425</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1704239789425</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +574,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="changed delete again for games and systems to facilitate for the addPort() changes" />
     <MESSAGE value="delete port when //| SYSTEM | -&gt; | GAME | -&gt; | PORT | functioning" />
     <MESSAGE value="delete port fully functioning" />
     <MESSAGE value="save method functioning" />
@@ -603,7 +598,8 @@
     <MESSAGE value="working on searchPort by year ascending, sorting method must be fixed" />
     <MESSAGE value="working on edit in game view" />
     <MESSAGE value="edit in game view functioning&#10;added tests for MyNeatList" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit in game view functioning&#10;added tests for MyNeatList" />
+    <MESSAGE value="delete in game view functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete in game view functional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -616,15 +612,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SystemController.java</url>
-          <line>192</line>
-          <properties class="com.example.retro.controllers.SystemController" method="view">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>

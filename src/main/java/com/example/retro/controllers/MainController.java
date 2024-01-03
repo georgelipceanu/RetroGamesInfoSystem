@@ -371,29 +371,6 @@ public class MainController implements Initializable {
                     } while (home!=key);
                 }
 
-
-                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+game.getDescription()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+game.getPublisher()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Developer: "+game.getOgDeveloper()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Year of release: "+game.getYearOfRelease()));
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Cover Art (URL): "+game.getCoverArtURL()));
-                TreeItem<String> ports =new TreeItem<>("PORTS: ");
-                GameController.getGameController().getGameDetails().getRoot().getChildren().add(ports);
-
-
-                for (TreeItem<String> child: gameTI.getChildren()) {
-                    String portSystem=child.getValue().substring(10+gameName.length()+2);//getting system name of each port
-                    ports.getChildren().add(new TreeItem<>(portSystem));
-                }
-
-                GameController.getGameController().gameName.setText(gameName);
-                GameController.getGameController().gameDesc.setText(game.getDescription());
-                GameController.getGameController().gamePublisher.setText(game.getPublisher());
-                GameController.getGameController().gameCover.setText(game.getCoverArtURL());
-                GameController.getGameController().gameRelease.setText(String.valueOf(game.getYearOfRelease()));
-                GameController.getGameController().gameDev.setText(game.getOgDeveloper());
-
                 String gsName = gameTI.getParent().getValue().substring(12);//getting rid of "| SYSTEM |  "
                 int keyForGSName = HelloApplication.gameSystems.hashFunction(gsName);
                 GameSystem gs=HelloApplication.gameSystems.getElementFromPosition(keyForGSName);
@@ -419,6 +396,31 @@ public class MainController implements Initializable {
 
                     } while (home!=keyForGSName);
                 }
+
+
+                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle() + "  | " + gsName + " |") );
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+game.getDescription()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+game.getPublisher()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Developer: "+game.getOgDeveloper()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Year of release: "+game.getYearOfRelease()));
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Cover Art (URL): "+game.getCoverArtURL()));
+                TreeItem<String> ports =new TreeItem<>("PORTS: ");
+                GameController.getGameController().getGameDetails().getRoot().getChildren().add(ports);
+
+
+                for (TreeItem<String> child: gameTI.getChildren()) {
+                    String portSystem=child.getValue().substring(10+gameName.length()+2);//getting system name of each port
+                    ports.getChildren().add(new TreeItem<>(portSystem));
+                }
+
+                GameController.getGameController().gameName.setText(gameName);
+                GameController.getGameController().gameDesc.setText(game.getDescription());
+                GameController.getGameController().gamePublisher.setText(game.getPublisher());
+                GameController.getGameController().gameCover.setText(game.getCoverArtURL());
+                GameController.getGameController().gameRelease.setText(String.valueOf(game.getYearOfRelease()));
+                GameController.getGameController().gameDev.setText(game.getOgDeveloper());
+
+
 
                 GameController.getGameController().setGs(gs);
                 GameController.getGameController().setGame(game);

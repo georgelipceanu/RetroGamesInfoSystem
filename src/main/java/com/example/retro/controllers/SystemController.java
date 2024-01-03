@@ -203,7 +203,7 @@ public class SystemController implements Initializable {
                         gameName=gameName.substring(0,gameName.length()-16);//16 for " (Original game)"
                         for (Game game : gs.getGames()){
                             if (game.getTitle().equals(gameName)){
-                                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle()));
+                                GameController.getGameController().getGameDetails().setRoot(new TreeItem<>(game.getTitle() + "  | " + gs.getName() + " |"));
                                 GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+game.getDescription()));
                                 GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Publisher: "+game.getPublisher()));
                                 GameController.getGameController().getGameDetails().getRoot().getChildren().add(new TreeItem<>("Developer: "+game.getOgDeveloper()));
