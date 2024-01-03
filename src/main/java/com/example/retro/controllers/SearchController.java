@@ -465,11 +465,11 @@ public class SearchController implements Initializable {
                             }
                         }
                     } else {//descending
-                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameAscending();//due to nature of linked list, ascending is descending and vice versa
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameAscendingString();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
-                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
+                                TreeItem<String> gameTI = new TreeItem<>("| PORT |  " + game.getTitle());
                                 TreeItem<String> details = new TreeItem<>("DETAILS: ");
                                 root.getChildren().add(gameTI);
                                 gameTI.getChildren().add(details);
@@ -517,7 +517,7 @@ public class SearchController implements Initializable {
                         }
 
                     } else {//descending
-                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearAscending();//due to nature of linked list, ascending is descending and vice versa
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearAscendingInt();//due to nature of linked list, ascending is descending and vice versa
                         for (GamePort port : sortedGS) {
                             if (port.getTitle().contains(gameNameToSearchFor)) {
 
@@ -563,7 +563,7 @@ public class SearchController implements Initializable {
     }
 
 
-    }
+}
 
 
 
