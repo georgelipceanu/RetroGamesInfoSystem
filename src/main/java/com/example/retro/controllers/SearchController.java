@@ -320,30 +320,6 @@ public class SearchController implements Initializable {
             switch (filterOption) {
                 case 1 -> {//name
                     if (ascOrDescOption == 1) {//ascending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameNameAscending();//due to nature of linked list, ascending is descending and vice versa
-                        for (Game game : sortedGS) {
-                            if (game.getTitle().contains(gameNameToSearchFor)) {
-
-                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
-                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
-                                root.getChildren().add(gameTI);
-                                gameTI.getChildren().add(details);
-                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
-                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
-                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
-                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
-                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
-                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
-
-                                for (GamePort port : game.getPorts()) {
-                                    if (game instanceof GamePort) {
-                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
-                                    }
-                                }
-
-                            }
-                        }
-                    } else {//descending
                         MyNeatList<Game> sortedGS = SortUtils.sortByGameNameDescending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
@@ -367,36 +343,8 @@ public class SearchController implements Initializable {
 
                             }
                         }
-                    }
-
-                }
-                case 2 -> {//description
-                    if (ascOrDescOption == 1) {//ascending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameDescriptionAscending();//due to nature of linked list, ascending is descending and vice versa
-                        for (Game game : sortedGS) {
-                            if (game.getTitle().contains(gameNameToSearchFor)) {
-
-                                TreeItem<String> gameTI = new TreeItem<>("| GAME |  " + game.getTitle());
-                                TreeItem<String> details = new TreeItem<>("DETAILS: ");
-                                root.getChildren().add(gameTI);
-                                gameTI.getChildren().add(details);
-                                details.getChildren().add(new TreeItem<>("DESCRIPTION: " + game.getDescription()));
-                                details.getChildren().add(new TreeItem<>("YEAR: " + game.getYearOfRelease()));
-                                details.getChildren().add(new TreeItem<>("PUBLISHER: " + game.getPublisher()));
-                                details.getChildren().add(new TreeItem<>("DEVELOPER: " + game.getOgDeveloper()));
-                                details.getChildren().add(new TreeItem<>("MANUFACTURER: " + game.getCoverArtURL()));
-                                details.getChildren().add(new TreeItem<>("COVER ART URL: " + game.getCoverArtURL()));
-
-                                for (GamePort port : game.getPorts()) {
-                                    if (game instanceof GamePort) {
-                                        gameTI.getChildren().add(new TreeItem<>("| PORT |  " + port.getTitle() + "  | " + port.getGsPortedTo() + " |"));
-                                    }
-                                }
-
-                            }
-                        }
                     } else {//descending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameDescriptionDescending();//due to nature of linked list, ascending is descending and vice versa
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameNameAscending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -422,9 +370,9 @@ public class SearchController implements Initializable {
                     }
 
                 }
-                case 3 -> {//year
+                case 2 -> {//year
                     if (ascOrDescOption == 1) {//ascending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearAscending();//due to nature of linked list, ascending is descending and vice versa
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearDescendingInt();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -448,7 +396,7 @@ public class SearchController implements Initializable {
                             }
                         }
                     } else {//descending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearDescending();//due to nature of linked list, ascending is descending and vice versa
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearAscendingInt();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 

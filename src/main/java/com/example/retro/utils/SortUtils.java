@@ -38,6 +38,22 @@ public class SortUtils {
         }
     }
 
+    public static void insertionSortAscending(String[] array) {
+        int n = array.length;
+
+        for (int i = 1; i < n; ++i) {
+            String key = array[i];
+            int j = i - 1;
+
+            while (j >= 0 && array[j].compareTo(key) > 0) {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = key;
+        }
+    }
+
+
     public static <T extends Comparable<T>> void insertionSortDescending(MyNeatList<T> list) {
         int n = list.size();
 
@@ -435,9 +451,9 @@ public class SortUtils {
         MyNeatList<String> nameList = new MyNeatList<>();
 
         // Loop through all game systems and extract game names
-        for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
-            if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
-                nameList.add(HelloApplication.gameSystems.getElementFromPosition(i).getName());
+        for (int i = 0; i < HelloApplication.games.size(); i++) {
+            if (HelloApplication.games.getElementFromPosition(i) != null) {
+                nameList.add(HelloApplication.games.getElementFromPosition(i).getTitle());
             }
         }
 
@@ -465,9 +481,9 @@ public class SortUtils {
         MyNeatList<String> nameList = new MyNeatList<>();
 
         // Loop through all game systems and extract game names
-        for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
-            if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
-                nameList.add(HelloApplication.gameSystems.getElementFromPosition(i).getName());
+        for (int i = 0; i < HelloApplication.games.size(); i++) {
+            if (HelloApplication.games.getElementFromPosition(i) != null) {
+                nameList.add(HelloApplication.games.getElementFromPosition(i).getTitle());
             }
         }
 
@@ -536,7 +552,7 @@ public class SortUtils {
             }
         }
 
-        // Use insertion sort to sort the release years in descending order
+        // Use insertion sort to sort the release years in ascending order
         SortUtils.insertionSortDescending(releaseYearList);
 
         MyNeatList<Game> sortedGames = new MyNeatList<>();
@@ -552,9 +568,73 @@ public class SortUtils {
             }
         }
 
+        // Return the list of found Game objects sorted by release year in ascending order
+        return sortedGames;
+    }
+
+    public static MyNeatList<Game> sortByGameReleaseYearAscendingInt() {
+        int[] releaseYearList = new int[HelloApplication.games.size()];
+
+        // Loop through all game systems and extract launch years
+        for (int i = 0; i < HelloApplication.games.size(); i++) {
+            if (HelloApplication.games.getElementFromPosition(i) != null) {
+                releaseYearList[i]=HelloApplication.games.getElementFromPosition(i).getYearOfRelease();
+            }
+        }
+
+        // Use insertion sort to sort the release years in ascending order
+        SortUtils.insertionSortAscending(releaseYearList);
+
+        MyNeatList<Game> sortedGames = new MyNeatList<>();
+
+        // Loop through all games and add corresponding objects to sortedGames
+        for (Integer sortedReleaseYear : releaseYearList) {
+            for (int i = 0; i < HelloApplication.games.size(); i++) {
+                Game game = HelloApplication.games.getElementFromPosition(i);
+                if (game != null && sortedReleaseYear.equals(game.getYearOfRelease())) {
+                    if (!sortedGames.contains(game)) {
+                        sortedGames.add(game);
+                        break;  // Break to the next iteration of the outer loop
+                    }
+                }
+            }
+        }
+
+        // Return the list of found Game objects sorted by release year in ascending order
+        return sortedGames;
+    }
+
+    public static MyNeatList<Game> sortByGameReleaseYearDescendingInt() {
+        int[] releaseYearList = new int[HelloApplication.games.size()];
+
+        // Loop through all game systems and extract launch years
+        for (int i = 0; i < HelloApplication.games.size(); i++) {
+            if (HelloApplication.games.getElementFromPosition(i) != null) {
+                releaseYearList[i]=HelloApplication.games.getElementFromPosition(i).getYearOfRelease();
+            }
+        }
+
+        // Use insertion sort to sort the release years in descending order
+        SortUtils.insertionSortDescending(releaseYearList);
+
+        MyNeatList<Game> sortedGames = new MyNeatList<>();
+
+        // Loop through all games and add corresponding objects to sortedGames
+        for (Integer sortedReleaseYear : releaseYearList) {
+            for (int i = 0; i < HelloApplication.games.size(); i++) {
+                Game game = HelloApplication.games.getElementFromPosition(i);
+                if (game != null && sortedReleaseYear.equals(game.getYearOfRelease())) {
+                    if (!sortedGames.contains(game))
+                    sortedGames.add(game);
+                    break;  // Break to the next iteration of the outer loop
+                }
+            }
+        }
+
         // Return the list of found Game objects sorted by release year in descending order
         return sortedGames;
     }
+
 
 
 
@@ -661,6 +741,36 @@ public class SortUtils {
         return sortedPorts;
     }
 
+    public static MyNeatList<GamePort> sortByGamePortNameAscendingString() {
+        MyNeatList<String> portNameList = new MyNeatList<>();
+
+        // Loop through all game ports and extract port titles
+        for (int i = 0; i < HelloApplication.ports.size(); i++) {
+            if (HelloApplication.ports.getElementFromPosition(i) != null) {
+                portNameList.add(HelloApplication.ports.getElementFromPosition(i).getTitle());
+            }
+        }
+
+        // Use insertion sort to sort the port titles in ascending order
+        SortUtils.insertionSortAscending(portNameList);
+
+        MyNeatList<GamePort> sortedPorts = new MyNeatList<>();
+
+        // Loop through all game ports and add corresponding objects to sortedPorts
+        for (String sortedPortName : portNameList) {
+            for (int i = 0; i < HelloApplication.ports.size(); i++) {
+                GamePort port = HelloApplication.ports.getElementFromPosition(i);
+                if (port != null && sortedPortName.equals(port.getTitle())) {
+                    sortedPorts.add(port);
+                    break;  // Break to the next iteration of the outer loop
+                }
+            }
+        }
+
+        // Return the list of found GamePort objects sorted by port title in ascending order
+        return sortedPorts;
+    }
+
 
 
 
@@ -684,8 +794,10 @@ public class SortUtils {
             for (int i = 0; i < HelloApplication.ports.size(); i++) {
                 GamePort port = HelloApplication.ports.getElementFromPosition(i);
                 if (port != null && sortedPortName.equals(port.getTitle())) {
-                    sortedPorts.add(port);
-                    break;  // Break to the next iteration of the outer loop
+                    if (!sortedPorts.contains(port)) {
+                        sortedPorts.add(port);
+                        break;  // Break to the next iteration of the outer loop
+                    }
                 }
             }
         }

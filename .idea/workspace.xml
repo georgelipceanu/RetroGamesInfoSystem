@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="changed search so name is not needed when searching">
+    <list default="true" id="cf1c8209-5514-4014-a7c3-6aba0cd30220" name="Changes" comment="system sorts working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/retro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/PortController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/retro/utils/SortUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/port-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/port-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/retro/search-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/retro/MyNeatListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/retro/MyNeatListTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,10 +164,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.SortUtilsTest" />
         <item itemvalue="JUnit.MyNeatListTest.contains" />
         <item itemvalue="JUnit.MyNeatListTest" />
         <item itemvalue="JUnit.UltimateHashTest" />
-        <item itemvalue="JUnit.SortUtilsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -210,14 +204,7 @@
       <workItem from="1704110525240" duration="3321000" />
       <workItem from="1704202550963" duration="9506000" />
       <workItem from="1704218045626" duration="27641000" />
-      <workItem from="1704246794675" duration="11730000" />
-    </task>
-    <task id="LOCAL-00020" summary="worked on delete">
-      <created>1703962097726</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1703962097726</updated>
+      <workItem from="1704246794675" duration="14955000" />
     </task>
     <task id="LOCAL-00021" summary="working on fix for view">
       <created>1703965645636</created>
@@ -555,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704249955031</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="system sorts working">
+      <created>1704258720049</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1704258720049</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +580,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="view method for games full functioning" />
     <MESSAGE value="reverted changes of GamePort toString(),&#10;working on fixing delete method for ports (doesn't work with multiple ports)" />
     <MESSAGE value="Still working on fixing delete method for ports (doesn't work with multiple ports)" />
     <MESSAGE value="Delete fully working (hopefully)" />
@@ -611,7 +604,8 @@
     <MESSAGE value="test commit" />
     <MESSAGE value="edit in port view functioning" />
     <MESSAGE value="changed search so name is not needed when searching" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed search so name is not needed when searching" />
+    <MESSAGE value="system sorts working" />
+    <option name="LAST_COMMIT_MESSAGE" value="system sorts working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -636,21 +630,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
-          <line>310</line>
-          <properties class="com.example.retro.controllers.SearchController" method="searchGame">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
-          <line>481</line>
+          <line>429</line>
           <properties class="com.example.retro.controllers.SearchController" method="searchPort">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/SearchController.java</url>
+          <line>310</line>
+          <properties class="com.example.retro.controllers.SearchController" method="searchGame">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/retro/controllers/MainController.java</url>
