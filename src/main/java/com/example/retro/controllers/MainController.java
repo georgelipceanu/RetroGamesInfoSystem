@@ -462,6 +462,7 @@ public class MainController implements Initializable {
                     }
 
                     String ogGS=portTI.getParent().getParent().getValue().substring(12);
+                    PortController.getPortController().setGamePort(port);
 
                     PortController.getPortController().getPortDetails().setRoot(new TreeItem<>(port.getTitle() + " (Port from " + ogGS + " to "+ gsPortedTo+")"));
                     PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+port.getDescription()));
@@ -602,6 +603,7 @@ public class MainController implements Initializable {
                             PortController.getPortController().portDev.setText(port.getPortDev());
                             PortController.getPortController().portCover.setText(port.getNewCoverArt());
                             PortController.getPortController().portRelease.setText(String.valueOf(port.getNewYear()));
+                            PortController.getPortController().setGamePort(port);
 
                             PortController.getPortController().getPortDetails().setRoot(new TreeItem<>(port.getTitle() + " (Port from " + system.getValue().substring(12) + " to "+ port.getGsPortedTo()+")"));
                             PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+port.getDescription()));

@@ -215,6 +215,7 @@ public class GameController implements Initializable {
             PortController.getPortController().portDev.setText(port.getPortDev());
             PortController.getPortController().portCover.setText(port.getNewCoverArt());
             PortController.getPortController().portRelease.setText(String.valueOf(port.getNewYear()));
+            PortController.getPortController().setGamePort(port);
 
             GameSystem ogSystem = this.gs;
 

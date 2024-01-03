@@ -291,6 +291,7 @@ public class SystemController implements Initializable {
                         PortController.getPortController().portDev.setText(port.getPortDev());
                         PortController.getPortController().portCover.setText(port.getNewCoverArt());
                         PortController.getPortController().portRelease.setText(String.valueOf(port.getNewYear()));
+                        PortController.getPortController().setGamePort(port);
 
                         PortController.getPortController().getPortDetails().setRoot(new TreeItem<>(port.getTitle() + " (Port from " + ogSystem.getName() + " to "+ port.getGsPortedTo()+")"));
                         PortController.getPortController().getPortDetails().getRoot().getChildren().add(new TreeItem<>("Description: "+port.getDescription()));
