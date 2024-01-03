@@ -39,7 +39,7 @@ public class SearchController implements Initializable {
     public ChoiceBox<String> ascOrDesc, gsFilter, gameFilter, portFilter;
 
     public String[] gsFilters= {"Name","Price","Year"};
-    public String[] gameFilters={"Name","Description","Year"};
+    public String[] gameFilters={"Name","Year"};
     public String[] portFilters={"Name", "Year"};
     public String[] ascOrDescOptions={"Ascending","Descending"};
 
@@ -50,13 +50,13 @@ public class SearchController implements Initializable {
             boolean emptySearch = searchBar.getText().isEmpty();
             String gsNameToSearchFor = "";
             if (!emptySearch) gsNameToSearchFor=searchBar.getText();
-            int filterOption = (gsFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : (gsFilter.getSelectionModel().getSelectedItem().equals("Price")) ? 2 : 3;
-            int ascOrDescOption=(ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
+            int filterOption = (gsFilter.getValue().equals("Name")) ? 1 : (gsFilter.getSelectionModel().getSelectedItem().equals("Price")) ? 2 : 3;
+            int ascOrDescOption=(ascOrDesc.getValue().equals("Ascending")) ? 1 : 2;
 
             switch (filterOption){
                 case 1 -> { //sorting by name
-                    if (ascOrDescOption==2){//ascending
-                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemNameAscending();
+                    if (ascOrDescOption==1){//ascending
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemNameDescending();//due to nature of linked list, ascending is descending and vice versa
                         for (GameSystem gs : sortedGS) {
                             if (gs.getName().contains(gsNameToSearchFor)) {
 
@@ -96,7 +96,7 @@ public class SearchController implements Initializable {
                         }
 
                     } else {//descending
-                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemNameDescending();
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemNameAscending();//due to nature of linked list, ascending is descending and vice versa
                         for (GameSystem gs : sortedGS) {
                             if (gs.getName().contains(gsNameToSearchFor)) {
                                 TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
@@ -139,8 +139,8 @@ public class SearchController implements Initializable {
                 }
 
                 case 2 -> {//price
-                    if (ascOrDescOption==2){//ascending
-                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemPriceAscending();
+                    if (ascOrDescOption==1){//ascending
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemPriceDescending();//due to nature of linked list, ascending is descending and vice versa
                         for (GameSystem gs : sortedGS) {
                             if (gs.getName().contains(gsNameToSearchFor)) {
 
@@ -180,7 +180,7 @@ public class SearchController implements Initializable {
                         }
 
                     } else {//descending
-                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemPriceDescending();
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemPriceAscending();//due to nature of linked list, ascending is descending and vice versa
                         for (GameSystem gs : sortedGS) {
                             if (gs.getName().contains(gsNameToSearchFor)) {
                                 TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
@@ -223,8 +223,8 @@ public class SearchController implements Initializable {
                 }
 
                 case 3 -> {//year
-                    if (ascOrDescOption==2){//ascending
-                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemLaunchYearAscending();
+                    if (ascOrDescOption==1){//ascending
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemLaunchYearDescendingInt();//due to nature of linked list, ascending is descending and vice versa
                         for (GameSystem gs : sortedGS) {
                             if (gs.getName().contains(gsNameToSearchFor)) {
 
@@ -264,7 +264,7 @@ public class SearchController implements Initializable {
                         }
 
                     } else {//descending
-                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemLaunchYearDescending();
+                        MyNeatList<GameSystem> sortedGS = SortUtils.sortByGameSystemLaunchYearAscendingInt();//due to nature of linked list, ascending is descending and vice versa
                         for (GameSystem gs : sortedGS) {
                             if (gs.getName().contains(gsNameToSearchFor)) {
                                 TreeItem<String> gsTI = new TreeItem<>("| SYSTEM |  " + gs.getName());
@@ -298,9 +298,7 @@ public class SearchController implements Initializable {
                                         }
                                     }
                                 }
-
                             }
-
                         }
                     }
 
@@ -316,13 +314,13 @@ public class SearchController implements Initializable {
             boolean emptySearch = searchBar.getText().isEmpty();
             String gameNameToSearchFor = "";
             if (!emptySearch) gameNameToSearchFor=searchBar.getText();
-            int filterOption = (gameFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : (gameFilter.getSelectionModel().getSelectedItem().equals("Description")) ? 2 : 3;
-            int ascOrDescOption = (ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
+            int filterOption = (gameFilter.getValue().equals("Name")) ? 1 : 2;
+            int ascOrDescOption = (ascOrDesc.getValue().equals("Ascending")) ? 1 : 2;
 
             switch (filterOption) {
                 case 1 -> {//name
-                    if (ascOrDescOption == 2) {//ascending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameNameAscending();
+                    if (ascOrDescOption == 1) {//ascending
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameNameAscending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -346,7 +344,7 @@ public class SearchController implements Initializable {
                             }
                         }
                     } else {//descending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameNameDescending();
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameNameDescending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -373,8 +371,8 @@ public class SearchController implements Initializable {
 
                 }
                 case 2 -> {//description
-                    if (ascOrDescOption == 2) {//ascending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameDescriptionAscending();
+                    if (ascOrDescOption == 1) {//ascending
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameDescriptionAscending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -398,7 +396,7 @@ public class SearchController implements Initializable {
                             }
                         }
                     } else {//descending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameDescriptionDescending();
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameDescriptionDescending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -425,8 +423,8 @@ public class SearchController implements Initializable {
 
                 }
                 case 3 -> {//year
-                    if (ascOrDescOption == 2) {//ascending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearAscending();
+                    if (ascOrDescOption == 1) {//ascending
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearAscending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -450,7 +448,7 @@ public class SearchController implements Initializable {
                             }
                         }
                     } else {//descending
-                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearDescending();
+                        MyNeatList<Game> sortedGS = SortUtils.sortByGameReleaseYearDescending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -483,17 +481,19 @@ public class SearchController implements Initializable {
     @FXML
     public void searchPort() {
         searchResults.getRoot().getChildren().clear();
-        if (!searchBar.getText().isEmpty() && portFilter.getSelectionModel().getSelectedItem() != null && ascOrDesc.getSelectionModel().getSelectedItem() != null) {
+        if (portFilter.getSelectionModel().getSelectedItem() != null && ascOrDesc.getSelectionModel().getSelectedItem() != null) {
+
+
             boolean emptySearch = searchBar.getText().isEmpty();
             String gameNameToSearchFor = "";
             if (!emptySearch) gameNameToSearchFor=searchBar.getText();
-            int filterOption = (portFilter.getSelectionModel().getSelectedItem().equals("Name")) ? 1 : 2;
-            int ascOrDescOption = (ascOrDesc.getSelectionModel().getSelectedItem().equals("Ascending")) ? 1 : 2;
+            int filterOption = (portFilter.getValue().equals("Name")) ? 1 : 2;
+            int ascOrDescOption = (ascOrDesc.getValue().equals("Ascending")) ? 1 : 2;
 
             switch (filterOption) {
                 case 1 -> {//name
-                    if (ascOrDescOption == 2) {//ascending
-                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameAscending();
+                    if (ascOrDescOption == 1) {//ascending
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameDescending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -517,7 +517,7 @@ public class SearchController implements Initializable {
                             }
                         }
                     } else {//descending
-                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameDescending();
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortNameAscending();//due to nature of linked list, ascending is descending and vice versa
                         for (Game game : sortedGS) {
                             if (game.getTitle().contains(gameNameToSearchFor)) {
 
@@ -546,8 +546,8 @@ public class SearchController implements Initializable {
 
 
                 case 2 -> {//year
-                    if (ascOrDescOption == 2) {//ascending
-                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearAscending();
+                    if (ascOrDescOption == 1) {//ascending
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearDescending();//due to nature of linked list, ascending is descending and vice versa
                         for (GamePort port : sortedGS) {
                             if (port.getTitle().contains(gameNameToSearchFor)) {
 
@@ -569,7 +569,7 @@ public class SearchController implements Initializable {
                         }
 
                     } else {//descending
-                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearDescending();
+                        MyNeatList<GamePort> sortedGS = SortUtils.sortByGamePortYearAscending();//due to nature of linked list, ascending is descending and vice versa
                         for (GamePort port : sortedGS) {
                             if (port.getTitle().contains(gameNameToSearchFor)) {
 
@@ -595,6 +595,8 @@ public class SearchController implements Initializable {
             }
         }else Utilities.showWarningAlert("WARNING", "Fill in all details");
     }
+
+
 
     @FXML
     public void goBack(){

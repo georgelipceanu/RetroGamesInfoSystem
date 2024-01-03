@@ -23,6 +23,21 @@ public class SortUtils {
         }
     }
 
+    public static void insertionSortAscending(int[] array) {
+        int n = array.length;
+
+        for (int i = 1; i < n; ++i) {
+            int key = array[i];
+            int j = i - 1;
+
+            while (j >= 0 && array[j] > key) {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = key;
+        }
+    }
+
     public static <T extends Comparable<T>> void insertionSortDescending(MyNeatList<T> list) {
         int n = list.size();
 
@@ -38,18 +53,23 @@ public class SortUtils {
         }
     }
 
+    public static void insertionSortDescending(int[] array) {
+        int n = array.length;
 
+        for (int i = 1; i < n; ++i) {
+            int key = array[i];
+            int j = i - 1;
 
-    public static void main(String[] args) {
-        HelloApplication.gameSystems.add(new GameSystem("xbox", "", "", "", "", "", 80, 20));
-        HelloApplication.gameSystems.add(new GameSystem("ps4", "", "", "", "", "", 80, 20));
-        HelloApplication.gameSystems.add(new GameSystem("nintendo", "", "", "", "", "", 80, 20));
-        HelloApplication.gameSystems.add(new GameSystem("c", "", "", "", "", "", 80, 20));
-        HelloApplication.gameSystems.add(new GameSystem("z--", "", "", "", "", "", 80, 20));
-
-
-        sortByGameSystemNameAscending();
+            while (j >= 0 && array[j] < key) {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = key;
+        }
     }
+
+
+
 
     public static MyNeatList<GameSystem> sortByGameSystemNameAscending() {
         MyNeatList<String> nameList = new MyNeatList<>();
@@ -134,8 +154,43 @@ public class SortUtils {
             for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
                 GameSystem system = HelloApplication.gameSystems.getElementFromPosition(i);
                 if (system != null && sortedLaunchYear.equals(system.getLaunchYear())) {
-                    launchYearListObjects.add(system);
-                    break;  // Break to the next iteration of the outer loop
+                    if (!launchYearListObjects.contains(system)) {
+                        launchYearListObjects.add(system);
+                        break;  // Break to the next iteration of the outer loop
+                    }
+                }
+            }
+        }
+
+
+        // Return the list of found GameSystem objects sorted by launch year
+        return launchYearListObjects;
+    }
+
+    public static MyNeatList<GameSystem> sortByGameSystemLaunchYearAscendingInt() {
+        int[] launchYearList = new int[HelloApplication.gameSystems.size()];
+
+        // Loop through all game systems and extract launch years
+        for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
+            if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                launchYearList[i]=HelloApplication.gameSystems.getElementFromPosition(i).getLaunchYear();
+            }
+        }
+
+        // Use insertion sort to sort the launch years in ascending order
+        SortUtils.insertionSortAscending(launchYearList);
+
+        MyNeatList<GameSystem> launchYearListObjects = new MyNeatList<>();
+
+        // Loop through all game systems and add corresponding objects to launchYearListObjects
+        for (int sortedLaunchYear : launchYearList) {
+            for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
+                GameSystem system = HelloApplication.gameSystems.getElementFromPosition(i);
+                if (system != null && sortedLaunchYear==system.getLaunchYear()) {
+                    if (!launchYearListObjects.contains(system)) {
+                        launchYearListObjects.add(system);
+                        break;  // Break to the next iteration of the outer loop
+                    }
                 }
             }
         }
@@ -166,8 +221,43 @@ public class SortUtils {
             for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
                 GameSystem system = HelloApplication.gameSystems.getElementFromPosition(i);
                 if (system != null && sortedLaunchYear.equals(system.getLaunchYear())) {
-                    launchYearListObjects.add(system);
-                    break;  // Break to the next iteration of the outer loop
+                    if (!launchYearListObjects.contains(system)) {
+                        launchYearListObjects.add(system);
+                        break;  // Break to the next iteration of the outer loop
+                    }
+                }
+            }
+        }
+
+
+        // Return the list of found GameSystem objects sorted by launch year in descending order
+        return launchYearListObjects;
+    }
+
+    public static MyNeatList<GameSystem> sortByGameSystemLaunchYearDescendingInt() {
+        int[] launchYearList = new int[HelloApplication.gameSystems.size()];
+
+        // Loop through all game systems and extract launch years
+        for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
+            if (HelloApplication.gameSystems.getElementFromPosition(i) != null) {
+                launchYearList[i]=HelloApplication.gameSystems.getElementFromPosition(i).getLaunchYear();
+            }
+        }
+
+        // Use insertion sort to sort the launch years in descending order
+        SortUtils.insertionSortDescending(launchYearList);
+
+        MyNeatList<GameSystem> launchYearListObjects = new MyNeatList<>();
+
+        // Loop through all game systems and add corresponding objects to launchYearListObjects
+        for (Integer sortedLaunchYear : launchYearList) {
+            for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
+                GameSystem system = HelloApplication.gameSystems.getElementFromPosition(i);
+                if (system != null && sortedLaunchYear.equals(system.getLaunchYear())) {
+                    if (!launchYearListObjects.contains(system)) {
+                        launchYearListObjects.add(system);
+                        break;  // Break to the next iteration of the outer loop
+                    }
                 }
             }
         }
@@ -201,8 +291,10 @@ public class SortUtils {
             for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
                 GameSystem system = HelloApplication.gameSystems.getElementFromPosition(i);
                 if (system != null && sortedPrice.equals(system.getPrice())) {
-                    priceListObjects.add(system);
-                    break;  // Break to the next iteration of the outer loop
+                    if (!priceListObjects.contains(system)) {
+                        priceListObjects.add(system);
+                        break;  // Break to the next iteration of the outer loop
+                    }
                 }
             }
         }
@@ -243,8 +335,10 @@ public class SortUtils {
             for (int i = 0; i < HelloApplication.gameSystems.size(); i++) {
                 GameSystem system = HelloApplication.gameSystems.getElementFromPosition(i);
                 if (system != null && sortedPrice.equals(system.getPrice())) {
-                    priceListObjects.add(system);
-                    break;  // Break to the next iteration of the outer loop
+                    if (!priceListObjects.contains(system)) {
+                        priceListObjects.add(system);
+                        break;  // Break to the next iteration of the outer loop
+                    }
                 }
             }
         }

@@ -213,7 +213,7 @@ public class MainController implements Initializable {
                     } while (home != key);
                 }
 
-                GameSystem gsToAddTo = gameSystems.getSelectionModel().getSelectedItem();//getting system from choicebox
+                GameSystem gsToAddTo = gameSystems.getValue();//getting system from choicebox
                 GameSystem realGS = HelloApplication.gameSystems.getElementFromPosition(gsToAddTo.getPosition());//getting actual system from backend
                 if (gsToAddTo != null) {
 

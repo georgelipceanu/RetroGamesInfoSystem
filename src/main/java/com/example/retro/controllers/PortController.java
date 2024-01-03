@@ -127,9 +127,6 @@ public class PortController implements Initializable {
 
     }
 
-    public void delete(){
-
-    }
 
     @FXML
     public void goBack(){
