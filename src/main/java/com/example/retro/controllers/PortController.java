@@ -89,10 +89,33 @@ public class PortController implements Initializable {
 
             if (validYear && Utilities.isValidURL(url) && year >= gameToPort.getYearOfRelease()) {
                 portToAdd.setGsPortedTo(gs.getName());
-                portToAdd.setPortPosition(HelloApplication.ports.add(portToAdd));
-                gameToPort.getPorts().add(portToAdd);
-                portToAdd.setPortPosition(portToAdd.getPortPosition());
-                gs.getGames().add(portToAdd);
+
+                int keyOfOGPort = HelloApplication.ports.hashFunction(portToAdd.getTitle());
+                GamePort port = HelloApplication.ports.getElementFromPosition(keyOfOGPort);
+                boolean portEmpty = (port == null);
+                if (portEmpty)
+                    for (int i = 0; i < HelloApplication.ports.size(); i++)
+                        if (HelloApplication.ports.getElementFromPosition(i) != null) {
+                            port = HelloApplication.ports.getElementFromPosition(i);//assigning dummy port to avoid null pointer exception if gsToAddTo is initially null
+                            break;
+                        }
+
+                if (!(port.getTitle().equals(portToAdd.getTitle()) && port.getGsPortedTo().equals(gs.getName()))) {
+                    int home = keyOfOGPort;
+                    do {
+                        keyOfOGPort = (keyOfOGPort + 1) % (HelloApplication.ports.size());
+                        if (HelloApplication.ports.getElementFromPosition(keyOfOGPort) != null) {
+                            if (HelloApplication.ports.getElementFromPosition(keyOfOGPort).getTitle().equalsIgnoreCase(portToAdd.getTitle()) && HelloApplication.ports.getElementFromPosition(keyOfOGPort).getGsPortedTo().equals(portToAdd.getGsPortedTo())) {//getting actual port if it has been linearly probed
+                                port = HelloApplication.ports.getElementFromPosition(keyOfOGPort);
+                                break;
+                            }
+                        }
+                    } while (home != keyOfOGPort);
+                }
+
+
+                portToAdd.setPortPosition(port.getPortPosition());
+
 
                 HelloApplication.ports.replace(portToAdd,portToAdd.getPortPosition());
 
