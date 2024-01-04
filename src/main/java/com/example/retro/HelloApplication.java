@@ -41,6 +41,9 @@ public class HelloApplication extends Application {
         stage.setTitle("Retro Video Games Information System");
         stage.setScene(mainS);
         stage.show();
+
+        System.out.println(HelloApplication.gameSystems.size());
+
     }
 
     public static void main(String[] args) {

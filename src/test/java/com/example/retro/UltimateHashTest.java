@@ -74,5 +74,27 @@ public class UltimateHashTest {
         assertEquals("Six", ultimateHash.find("Six"));
     }
 
+    @Test
+    public void testClear(){
+        UltimateHash<Integer> ultimateHash = new UltimateHash<>(5);
+        ultimateHash.add(1);
+        ultimateHash.add(7);
+        ultimateHash.add(14);
+
+
+        // Use the find method to validate the existence of the elements
+        assertEquals(1, ultimateHash.find(1));
+        assertEquals(7, ultimateHash.find(7));
+        assertEquals(14, ultimateHash.find(14));
+
+        ultimateHash.clear();
+
+        assertNull(ultimateHash.find(1));
+        assertNull( ultimateHash.find(7));
+        assertNull( ultimateHash.find(14));
+
+
+    }
+
 
 }
