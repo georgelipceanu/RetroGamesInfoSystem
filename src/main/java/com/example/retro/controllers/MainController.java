@@ -337,8 +337,8 @@ public class MainController implements Initializable {
                 SystemController.getSystemController().gameSysImage.setText(gs.getImageURL());
                 SystemController.getSystemController().gameSysPrice.setText(String.valueOf(gs.getPrice()));
                 SystemController.getSystemController().gameSysYear.setText(String.valueOf(gs.getLaunchYear()));
-                SystemController.getSystemController().gameSysMedia.setText(String.valueOf(gs.getLaunchYear()));
-                SystemController.getSystemController().gameSysType.setText(String.valueOf(gs.getLaunchYear()));//filling textboxes with data for editing
+                SystemController.getSystemController().gameSysType.setText(gs.getType());//filling textboxes with data for editing
+                SystemController.getSystemController().gameSysMedia.setText(gs.getMedia());
 
                 SystemController.getSystemController().setGs(gs);
                 System.out.println(gs.getPosition());
@@ -1143,6 +1143,13 @@ public class MainController implements Initializable {
     public void clear(){//for load and back buttons in drilldown
         system.getRoot().getChildren().clear();
         gameSystems.getItems().clear();
+
+    }
+
+    public void clearBackend(){
+        HelloApplication.gameSystems.clear();
+        HelloApplication.games.clear();
+        HelloApplication.ports.clear();//clearing backend
     }
 
     public void refresh(){
@@ -1182,6 +1189,7 @@ public class MainController implements Initializable {
     @FXML
     public void load() throws Exception {
         clear();
+        clearBackend();
         HelloApplication.load();
         refresh();
     }

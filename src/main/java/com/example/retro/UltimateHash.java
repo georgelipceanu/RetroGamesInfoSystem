@@ -98,7 +98,7 @@ public class UltimateHash<T> {
             System.out.println("rehashing");
         }
 
-        int home=hashFunction(data.toString()),loc=home;
+        int home=hashFunction(data.toString()), loc=home;
         do {
             if(hashTable[loc]==null) { //Free, so use it...
                 hashTable[loc] = data;
